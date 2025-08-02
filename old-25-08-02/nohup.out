@@ -1,0 +1,1622 @@
+10.8.0.2 - - [31/Jul/2025 23:16:45] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:16:46] "GET /style.css HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:16:46] "GET /background.js HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:16:47] code 404, message File not found
+10.8.0.2 - - [31/Jul/2025 23:16:47] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:17:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:17:24] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:17:24] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:17:25] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:17:25] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:17:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:17:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:17:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:17:52] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:17:52] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:18:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:18:25] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:25] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:26] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:26] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:26] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:26] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:26] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:26] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:26] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:26] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:27] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:27] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:27] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:27] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:28] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:28] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:28] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:28] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:28] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:28] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:28] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:28] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:29] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:29] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:29] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:29] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:29] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:29] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:29] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:18:29] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:18:39] "GET / HTTP/1.1" 200 -
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+
+Keyboard interrupt received, exiting.
+127.0.0.1 - - [31/Jul/2025 23:34:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:34:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:34:45] "GET / HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:34:52] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:34:52] "GET /style.css HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:34:52] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:34:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:34:57] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:34:58] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:34:58] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:34:59] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:34:59] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:34:59] "GET / HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:35:08] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:35:09] "GET /style.css HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:35:09] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:35:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:35:13] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:35:14] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:35:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:35:14] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:35:14] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:35:14] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:35:15] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:35:15] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:37:11] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:37:12] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:37:12] "GET /background.js HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:37:12] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:37:13] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:14] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:14] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:37:14] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:14] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:15] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:15] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:15] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:15] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:15] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:16] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:16] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:37:16] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:16] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:16] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:16] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:17] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:37:17] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:17] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:17] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:18] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:18] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:18] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:18] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:18] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:30] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:30] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:30] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:30] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:30] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:30] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:42] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:46] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:37:48] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:37:48] "GET /style.css HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:37:48] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:37:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:37:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:40:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:40:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:40:21] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:40:23] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:40:23] "GET /style.css HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:40:23] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:40:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:40:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:40:49] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:40:49] "GET /.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:41:01] "GET / HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:41:20] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:41:20] "GET /style.css HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:41:20] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:41:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:41:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:41:24] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:41:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:41:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:41:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:42:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:46:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:46:24] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:46:39] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:46:39] "GET /style.css HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:46:39] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:46:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:46:59] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:47:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:48:35] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:49:04] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:49:05] "GET /style.css HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:49:05] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:49:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:49:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:49:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:50:09] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:50:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:50:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:50:24] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:50:25] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:50:26] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:50:26] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:50:28] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:50:28] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:50:29] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:50:29] "GET / HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:50:33] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:50:33] "GET /style.css HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:50:42] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:50:42] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:50:48] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:50:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:51:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:53:14] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:54:45] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:54:46] "GET /style.css HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:54:46] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2025 23:56:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:56:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:56:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:56:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:56:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:56:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:56:23] code 404, message File not found
+127.0.0.1 - - [31/Jul/2025 23:56:23] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/Jul/2025 23:56:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:57:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2025 23:57:13] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:57:29] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [31/Jul/2025 23:57:29] "GET /style.css HTTP/1.1" 304 -
+10.8.0.2 - - [31/Jul/2025 23:57:29] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:00:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:00:23] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [01/Aug/2025 00:00:24] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [01/Aug/2025 00:00:24] "GET /style.css HTTP/1.1" 304 -
+10.8.0.2 - - [01/Aug/2025 00:00:24] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:29] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:30] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:31] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:32] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:32] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:33] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:33] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:33] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:00:53] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 00:00:53] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 00:00:54] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:54] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:55] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:55] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:56] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:56] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:56] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:56] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:00:56] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:03:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:04:06] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:04:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:04:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:04:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:04:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:04:37] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [01/Aug/2025 00:04:39] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [01/Aug/2025 00:04:39] "GET /background.js HTTP/1.1" 304 -
+10.8.0.2 - - [01/Aug/2025 00:04:39] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:04:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:05:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:06:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:06:22] "GET / HTTP/1.1" 200 -
+10.8.0.2 - - [01/Aug/2025 00:06:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:06:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:06:48] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:06:48] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:06:49] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 00:06:49] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 00:06:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:07:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:07:56] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:07:56] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:07:56] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 00:07:56] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 00:08:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:08:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:08:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:08:26] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:08:26] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:08:27] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 00:08:27] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 00:08:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:09:47] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 00:10:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 00:10:58] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 00:10:58] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 00:11:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 01:17:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 01:17:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 02:18:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 03:06:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 03:06:30] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 03:06:30] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 03:06:31] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 03:06:31] "GET /favicon.png HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 04:03:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:07:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:07:54] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:07:54] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:07:59] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 04:07:59] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 04:10:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:10:16] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:10:16] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:10:18] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 04:10:18] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 04:42:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:42:08] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:42:08] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:42:09] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 04:42:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 04:43:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:43:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:43:08] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:43:08] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:43:13] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 04:43:13] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 04:43:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:43:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:43:29] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:43:29] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:51:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:51:19] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:51:19] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 04:51:20] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 04:51:20] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 04:52:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:00:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:00:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:00:54] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:00:54] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:05:01] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:05:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:05:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:05:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:05:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:05:10] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:05:10] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:08:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:08:05] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:08:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:08:06] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:08:06] "GET /favicon.png HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:11:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:11:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:11:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:11:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:12:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:12:23] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:12:24] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:12:32] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:12:32] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:12:58] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:12:58] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 05:28:43] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:43] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:44] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:44] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:45] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:45] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:45] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:45] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:46] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:46] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:46] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:46] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:46] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:46] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:47] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:47] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:47] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:47] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:47] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:47] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:48] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:48] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:49] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:49] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:49] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:49] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:49] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:49] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:28:50] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:28:50] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:38:27] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:38:27] "GET /wp-admin/setup-config.ph%70?step=1&language=en_EN HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 05:38:27] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 05:38:27] "GET /wordpress/wp-admin/setup-config.ph%70?step=1&language=en_EN HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 06:15:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:15:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:15:20] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 06:15:20] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 06:15:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:15:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:15:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:19:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:19:41] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:19:41] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:19:41] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 06:19:41] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 06:21:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:22:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:23:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:23:04] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 06:23:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 06:23:47] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 06:23:47] "GET /sites.html HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 06:28:26] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:28:32] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:33:03] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:33:09] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:33:10] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 06:33:10] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 06:34:54] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 06:34:54] "GET /wp-admin/setup-config.ph%70?step=1&language=en_EN HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 06:34:54] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 06:34:54] "GET /wordpress/wp-admin/setup-config.ph%70?step=1&language=en_EN HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 06:35:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:35:05] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:38:16] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:38:17] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:38:17] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:38:18] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:38:18] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:39:01] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:39:02] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:39:07] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:39:07] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:39:07] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:39:08] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 06:39:08] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 06:39:51] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:39:51] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:39:56] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:39:56] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:41:39] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:41:39] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:42:09] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:42:09] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:43:35] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:43:35] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:43:37] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:43:46] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:43:59] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:43:59] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:45:12] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:45:12] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:45:17] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:48:12] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:48:12] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:50:40] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:50:42] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:52:03] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:52:04] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:52:08] "GET /sites.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 06:52:51] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:52:51] "GET /globe-icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:53:12] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:54:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:54:40] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:55:10] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:55:39] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 06:55:42] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:34:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:34:07] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:34:08] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:34:08] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:34:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:34:21] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:39:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:39:18] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:39:18] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:39:18] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:39:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:39:36] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:39:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:39:38] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:40:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:40:44] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:40:44] "GET /globe-icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:40:48] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:41:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:41:16] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 07:43:35] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 08:05:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:05:29] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:05:29] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:05:31] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:05:53] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:05:54] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:05:54] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:05:55] "GET /globe-icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:12:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:12:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:26:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:26:27] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:29:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 08:31:11] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 08:33:14] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 09:08:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 09:09:00] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 09:09:00] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 09:09:01] "GET /icon.svg HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 09:39:26] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 09:39:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 09:39:47] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 09:39:47] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 09:39:47] "GET /icon.svg HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 09:49:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 10:29:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 11:43:43] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 11:48:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 11:48:48] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:48] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:49] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:49] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:49] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:49] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:49] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:49] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:50] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:50] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:50] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:50] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:50] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:50] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:51] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:51] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:51] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:51] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:51] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:51] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:51] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:51] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:52] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:52] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:52] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:52] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:52] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:52] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 11:48:53] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 11:48:53] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 12:00:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 12:03:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 12:03:48] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 12:03:48] "GET /ads.txt HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 12:04:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 12:04:33] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 12:26:20] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 12:26:20] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 12:26:21] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 12:28:35] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 12:43:04] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 12:43:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 14:05:08] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 14:05:08] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 14:05:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 14:55:06] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 14:55:06] "GET /.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 16:13:09] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 16:13:09] "GET /.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 17:27:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 17:27:14] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:14] "GET /wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:14] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:14] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 17:27:15] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:15] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:16] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:16] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:16] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:16] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:17] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:17] "GET /website/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:17] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:17] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:18] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:18] "GET /news/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:18] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:18] "GET /2018/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:19] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:19] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:19] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:19] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:20] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:20] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:21] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:21] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:21] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:21] "GET /media/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:22] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:22] "GET /wp2/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:22] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:22] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:23] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:23] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 17:27:23] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 17:27:23] "GET /sito/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:02:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 18:02:49] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 18:10:08] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:10:08] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:10:12] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:10:12] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 18:13:40] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:40] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:40] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:40] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:41] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:41] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:41] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:41] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:42] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:42] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:42] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:42] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:42] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:42] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:43] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:43] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:43] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:43] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:43] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:43] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:44] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:44] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:44] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:44] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:44] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:44] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:44] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:44] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:13:45] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 18:13:45] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 18:17:06] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 18:17:06] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 18:17:06] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 19:01:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 19:01:23] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 19:43:00] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 19:51:38] "GET /index.html HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 19:51:38] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 19:51:38] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 19:51:38] "GET /icon.svg HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 19:52:13] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [01/Aug/2025 21:54:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 21:54:14] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:22:36] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:36] "GET /.git/HEAD HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:41] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:41] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:42] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:42] "GET /.env.local HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:49] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:49] "GET /.env.dev HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:50] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:50] "GET /.env.development HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:50] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:50] "GET /.env.prod HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:50] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:50] "GET /.env.production HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:50] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:50] "GET /.env.stage HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:56] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:56] "GET /.env.test HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:57] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:57] "GET /.env.example HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:57] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:57] "GET /.env.bak HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:58] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:58] "GET /.env.old HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:58] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:58] "GET /.env.testing HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:58] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:58] "GET /.env.*.local HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:59] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:59] "GET /config/.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:22:59] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:22:59] "GET /config/config.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:00] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:00] "GET /app/.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:00] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:00] "GET /admin/.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:00] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:00] "GET /api/.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:06] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:06] "GET /apps/.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:06] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:06] "GET /server/.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:07] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:07] "GET /backend/.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:13] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:13] "GET /aws/credentials HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:13] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:13] "GET /.aws/credentials HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:13] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:13] "GET /.aws/config HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:14] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:14] "GET /config/aws.yml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:14] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:14] "GET /config/aws.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:15] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:15] "GET /secrets.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:20] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:20] "GET /secrets.yml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:21] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:21] "GET /credentials.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:21] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:21] "GET /php.ini HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:21] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:21] "GET /.user.ini HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:22] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:22] "GET /.php.ini HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:22] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:22] "GET /.htaccess HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:22] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:22] "GET /web.config HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:23] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:23] "GET /config.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:23] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:23] "GET /config/config.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:23] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:23] "GET /config/database.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:24] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:24] "GET /config/settings.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:24] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:24] "GET /app/config.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:25] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:25] "GET /app/config/config.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:25] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:25] "GET /includes/config.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:25] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:25] "GET /inc/config.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:26] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:26] "GET /sites/default/settings.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:26] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:26] "GET /wp-config-sample.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:26] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:26] "GET /configuration.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:27] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:27] "GET /local-config.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:27] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:27] "GET /db.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:27] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:27] "GET /application/config/database.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:28] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:28] "GET /application/config/config.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:28] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:28] "GET /var/www/html/phpinfo.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:28] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:28] "GET /var/www/html/info.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:34] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:34] "GET /docker-compose.yml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:34] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:34] "GET /docker-compose.override.yml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:35] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:35] "GET /docker-compose.prod.yml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:35] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:35] "GET /docker-compose.dev.yml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:35] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:35] "GET /Dockerfile HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:36] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:36] "GET /.dockerignore HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:36] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:36] "GET /Procfile HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:36] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:36] "GET /storage/logs/laravel.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:37] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:37] "GET /storage/logs/error.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:38] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:38] "GET /logs/debug.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:38] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:38] "GET /logs/app.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:39] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:39] "GET /debug.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:39] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:39] "GET /error.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:39] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:39] "GET /error_log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:39] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:39] "GET /php_error_log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:40] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:40] "GET /var/log/apache2/error.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:40] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:40] "GET /var/log/nginx/error.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:46] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:46] "GET /var/log/php_errors.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:46] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:46] "GET /var/log/httpd/error_log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:46] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:46] "GET /tmp/php.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:47] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:47] "GET /tmp/errors.log HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:47] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:47] "GET /storage/framework/cache/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:47] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:47] "GET /storage/framework/views/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:48] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:48] "GET /storage/framework/sessions/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:48] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:48] "GET /db.sql HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:49] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:49] "GET /dump.sql HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:54] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:54] "GET /database.sql HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:54] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:54] "GET /backup.sql HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:23:59] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:23:59] "GET /backup_*.sql HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:00] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:00] "GET /database/database.sqlite HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:00] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:00] "GET /database/seeders/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:00] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:00] "GET /database/migrations/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:01] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:01] "GET /backup.zip HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:02] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:02] "GET /.backup HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:03] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:03] "GET /backup.tar.gz HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:03] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:03] "GET /*.bak HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:03] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:03] "GET /*.backup HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:04] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:04] "GET /*.old HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:04] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:04] "GET /*.tmp HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:04] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:04] "GET /.git-credentials HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:10] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:10] "GET /.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:10] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:10] "GET /.gitignore HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:11] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:11] "GET /.gitlab-ci.yml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:11] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:11] "GET /.github/workflows/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:11] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:11] "GET /composer.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:12] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:12] "GET /composer.lock HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:12] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:12] "GET /package.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:13] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:13] "GET /package-lock.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:13] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:13] "GET /yarn.lock HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:13] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:13] "GET /Gemfile HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:19] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:19] "GET /Gemfile.lock HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:19] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:19] "GET /pom.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:20] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:20] "GET /build.gradle HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:25] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:25] "GET /settings.gradle HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:30] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:30] "GET /requirements.txt HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:30] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:30] "GET /Pipfile HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:30] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:30] "GET /Pipfile.lock HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:30] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:30] "GET /.idea/workspace.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:31] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:31] "GET /.vscode/settings.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:36] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:36] "GET /.project HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:42] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:42] "GET /.settings/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:42] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:42] "GET /.classpath HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:42] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:42] "GET /.htpasswd HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:48] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:48] "GET /.npmrc HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:48] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:48] "GET /.yarnrc HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:53] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:53] "GET /.DS_Store HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:53] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:53] "GET /config.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:53] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:53] "GET /config.yaml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:54] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:54] "GET /config.yml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:24:54] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:24:54] "GET /config/config.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:39:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:39:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:39:59] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 22:39:59] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 22:40:26] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:40:27] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:40:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:40:29] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:40:30] "HEAD /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:40:30] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:40:31] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:40:32] "GET /globe-icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:40:33] "HEAD /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:40:33] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:40:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:43:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:43:43] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:43:50] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:44:49] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 22:45:28] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 23:25:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 23:25:51] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 23:25:52] code 404, message File not found
+127.0.0.1 - - [01/Aug/2025 23:25:52] "GET /.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [01/Aug/2025 23:54:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 23:54:38] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 23:54:43] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Aug/2025 23:54:46] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 00:02:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 00:49:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 00:49:45] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:45] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:46] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:46] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:46] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:46] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:47] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:47] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:47] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:47] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:47] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:47] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:47] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:47] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:48] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:48] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:48] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:48] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:49] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:49] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:49] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:49] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:49] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:49] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:49] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:49] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:50] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:50] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:49:50] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 00:49:50] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 00:53:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 00:53:44] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 00:53:44] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:22:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:22:09] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:30:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:42:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:42:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:42:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:42:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:42:39] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:42:39] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:42:46] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:42:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:42:51] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:43:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:43:11] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:43:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:43:36] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:51:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:51:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:51:53] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:51:53] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:52:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:57:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:58:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 01:58:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 02:27:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 03:10:04] "GET /sites.html HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 03:10:05] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 03:10:05] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 03:10:06] "GET /globe-icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 03:24:06] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 03:24:06] "GET /robots.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 03:24:07] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 03:24:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 03:24:12] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 03:24:13] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 03:34:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 04:09:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 04:09:04] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 04:09:04] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 04:09:08] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 04:13:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 04:22:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 04:22:14] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:33:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:33:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:04] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:05] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:06] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 05:34:06] "GET /sitemap.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 05:34:06] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 05:34:06] "GET /robots.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 05:34:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:16] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:18] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:18] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 05:34:18] "GET /sitemap.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 05:34:18] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 05:34:18] "GET /robots.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 05:34:26] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:27] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:29] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 05:34:29] "GET /sitemap.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 05:34:32] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 05:34:32] "GET /robots.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 05:34:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:56] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:56] "GET /background.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 05:34:57] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 05:34:57] "GET /sitemap.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 05:34:57] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 05:34:57] "GET /robots.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 06:37:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 06:37:49] "GET /icon.svg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 06:47:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 07:04:27] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 07:04:28] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 07:04:28] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 07:04:29] "GET /icon.svg HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 07:16:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 07:16:48] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 07:16:48] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 07:16:48] "GET /background.js HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 07:16:48] "GET /icon.svg HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 07:21:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 07:21:08] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:08] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:09] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:09] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:09] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:09] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:10] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:10] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:10] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:10] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:10] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:10] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:11] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:11] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:11] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:11] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:12] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:12] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:12] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:12] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:12] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:12] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:12] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:12] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 07:21:13] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 07:21:13] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 10:13:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:27:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:27:57] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:27:58] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:28:53] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:28:54] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:28:55] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:28:56] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:29:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:29:10] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:29:10] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:29:11] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:29:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:29:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:29:46] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:29:46] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:36:38] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:36:38] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:36:57] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:36:57] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:37:08] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:37:08] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:37:20] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:37:20] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:37:29] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:37:29] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:37:36] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:37:36] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:37:46] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:37:46] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:39:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:39:14] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:39:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:42:23] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:42:23] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:42:23] "GET /logo.png HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:42:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:42:30] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:42:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:42:33] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:42:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:42:50] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:42:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:42:51] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:42:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:42:53] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:42:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:42:54] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:43:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:03] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:05] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:43:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:06] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:43:16] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:43:16] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:20] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:43:20] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:25] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:43:25] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:29] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:36] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:43:36] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:37] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:43:39] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:43:45] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:43:45] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:44:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:44:37] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 10:53:43] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 10:53:43] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 12:44:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 12:44:09] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 12:44:09] "GET /sites.html HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 12:44:10] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 12:44:10] "GET /contact.html HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 12:55:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 12:55:47] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 14:00:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 14:00:10] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:10] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:10] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:10] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:11] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:11] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:11] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:12] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:12] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:12] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:12] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:12] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:12] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:13] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:13] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:13] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:13] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:13] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:13] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:14] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:14] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:14] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:14] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:14] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:14] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:00:15] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 14:00:15] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 14:03:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 14:03:19] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 14:03:19] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 15:59:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 15:59:36] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 16:00:01] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 16:00:01] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 17:24:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 17:24:14] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:14] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:14] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:14] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:14] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:14] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:15] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:15] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:15] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:15] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:16] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:16] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:16] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:16] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:16] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:16] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:16] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:16] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:17] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:17] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:17] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:17] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:17] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:17] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:17] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:17] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:18] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:18] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:24:18] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:24:18] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 17:30:04] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 17:30:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 18:19:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 18:19:17] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 18:19:17] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 18:19:21] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 19:03:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 19:03:55] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 19:03:55] "GET /sites.html HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 19:03:57] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 19:03:57] "GET /contact.html HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 19:08:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 19:08:44] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 19:08:44] "GET /sites.html HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 19:08:45] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 19:08:45] "GET /contact.html HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:00:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:00:58] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:00:58] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:00:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:01:04] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:01:04] "GET /sites.html HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:01:08] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:01:08] "GET /contact.html HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:01:08] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:01:08] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:02:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:02:03] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:02:03] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:02:03] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:05:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:10:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:10:13] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:10:13] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:13:01] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:13:01] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:13:01] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:13:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:13:09] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:13:09] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:13:09] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:13:09] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:13:10] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:15:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:15:02] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:15:02] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:15:02] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:15:02] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:15:03] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:23:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:23:50] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:23:50] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:23:50] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:23:50] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:23:50] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:26:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:26:00] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:26:00] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:26:00] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:26:00] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:26:00] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:26:03] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:27:45] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:30:50] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:30:50] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:30:50] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:30:50] "GET /scrollcontrol.js HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:30:50] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:37:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:37:56] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:37:56] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:37:56] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:37:56] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:37:57] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:37:58] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:38:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:38:55] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:38:55] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:38:55] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:38:55] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:38:55] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:38:57] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:39:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:39:48] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:39:48] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:39:48] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:39:48] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:39:48] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:39:50] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:40:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:40:15] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:40:15] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:40:15] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:40:15] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:40:15] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:40:17] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:40:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:40:33] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:40:33] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:40:33] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:40:33] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:40:33] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:40:34] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:41:41] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:41:41] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:41:41] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:41:41] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:41:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:41:46] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:41:46] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:41:46] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:41:46] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:41:46] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:41:47] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:45:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:45:07] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:45:07] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:45:07] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:45:07] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:45:07] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:45:08] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:47:17] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:47:17] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:47:17] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:47:17] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:47:17] "GET /scrollcontrol.js HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:48:03] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:48:03] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:48:03] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:48:03] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:48:03] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:48:17] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:48:17] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:48:17] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:48:17] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:48:31] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:48:31] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:48:31] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:48:31] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:48:31] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:48:46] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:48:46] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:48:46] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:48:46] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:49:49] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:49:49] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:49:49] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:49:49] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:49:49] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:52:03] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:52:03] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:52:03] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:52:03] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:52:03] "GET /scrollcontrol.js HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 21:52:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:52:07] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:52:07] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:52:07] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:52:07] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:52:07] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:52:10] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:55:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:55:21] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:55:21] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:55:21] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:55:21] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:55:21] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:55:22] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:56:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:56:21] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:56:21] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 21:56:21] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 21:56:21] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:56:21] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 21:56:23] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:00:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:00:09] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:00:09] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 22:00:09] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 22:00:09] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:00:09] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:00:10] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:00:28] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 22:00:28] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 22:00:28] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:00:28] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 22:00:28] "GET /scrollcontrol.js HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 22:06:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:06:53] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:06:53] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:06:53] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 22:06:53] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 22:06:53] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:06:54] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:07:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:07:49] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:07:49] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 22:07:49] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 22:07:49] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:07:49] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:07:49] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:07:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:07:55] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 22:07:55] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 22:07:55] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:07:55] "GET /scrollcontrol.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:07:55] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:07:57] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:08:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:08:45] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 22:08:45] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 22:08:45] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:08:46] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:08:47] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:10:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:10:13] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:10:13] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 22:10:13] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 22:10:13] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:10:14] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 22:13:21] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 22:13:21] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 22:13:21] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 22:13:21] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 22:47:56] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [02/Aug/2025 22:47:56] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 22:47:56] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 22:47:56] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 23:49:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 23:49:10] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:49:10] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:49:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:49:11] "GET /favicon.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:49:12] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 23:53:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Aug/2025 23:53:07] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:07] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:08] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:08] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:08] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:08] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:09] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:09] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:09] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:09] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:10] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:10] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:10] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:10] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:10] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:10] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:11] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:11] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:11] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:11] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:11] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:12] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:12] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:12] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:12] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Aug/2025 23:53:12] code 404, message File not found
+127.0.0.1 - - [02/Aug/2025 23:53:12] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 00:38:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 00:38:22] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 00:38:22] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 00:38:22] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 00:38:22] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2025 04:10:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 04:10:02] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 04:10:02] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 04:10:02] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 04:10:04] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 04:10:04] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 04:13:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 04:14:00] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 04:14:00] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 04:14:00] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 04:14:01] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 04:14:01] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 04:14:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 04:32:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 05:35:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 05:35:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 05:35:23] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 05:39:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 05:39:41] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 05:39:41] "GET /.git/HEAD HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 06:38:21] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:21] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:22] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:22] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:23] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:23] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:23] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:23] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:23] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:23] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:24] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:24] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:24] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:24] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:24] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:24] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:25] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:25] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:25] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:25] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:25] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:25] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:25] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:25] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:26] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:26] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:26] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:26] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:38:26] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 06:38:26] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 06:54:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 06:54:54] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 06:54:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 06:54:55] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 07:56:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 07:56:46] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 07:56:46] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 07:56:46] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2025 07:56:46] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 07:56:47] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:19:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:19:16] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 08:19:16] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 08:19:16] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:29:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:29:09] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 08:29:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 08:29:38] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 08:29:38] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 08:29:39] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 08:29:39] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 08:29:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:29:42] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:29:42] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 08:29:42] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 08:29:42] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:29:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:29:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:29:53] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:29:53] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 08:29:53] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 08:29:54] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:30:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:54:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:54:08] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 08:54:08] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2025 08:54:08] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 08:54:08] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 08:54:08] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:12:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:12:39] "GET /copypartylogo.svg HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:12:39] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 09:12:39] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 09:13:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:15:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:25:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:25:51] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 09:25:51] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 09:25:51] "GET /copypartylogo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:26:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:27:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:28:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:28:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:28:52] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 09:28:52] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 09:28:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:28:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:29:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:32:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:32:35] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 09:32:35] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 09:32:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:32:57] "GET /copypartylogo1.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:41:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:41:49] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 09:41:49] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 09:52:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:52:56] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 09:52:56] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 09:53:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:53:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:54:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:54:44] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 09:54:44] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 09:54:44] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:54:44] "GET /copypartylogo1.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:54:44] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:54:47] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 09:55:30] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2025 09:55:30] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2025 09:55:30] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 09:55:30] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 10:17:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:17:48] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:17:48] "GET /copypartylogo1.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:17:48] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 10:17:48] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 10:17:48] "GET /helvetica-neue-5/HelveticaNeueMedium.otf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:17:50] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:18:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:18:23] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:18:23] "GET /copypartylogo1.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:18:23] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 10:18:23] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 10:18:23] "GET /Unbounded-font/Unbounded-VariableFont_wght.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:18:23] "GET /helvetica-neue-5/HelveticaNeueMedium.otf HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:18:27] "GET /logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [03/Aug/2025 10:26:53] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2025 10:26:53] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 10:26:53] "GET /example.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [03/Aug/2025 10:26:53] "GET /copypartylogo1.png HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2025 10:26:53] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [03/Aug/2025 10:26:57] code 404, message File not found
+127.0.0.1 - - [03/Aug/2025 10:26:57] "GET /example.jpg HTTP/1.1" 404 -
