@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'Unbounded';
-    src: url('./Unbounded-font/Unbounded-VariableFont_wght.ttf') format('woff2');
+    src: url('.media/fonts/Unbounded-font/Unbounded-VariableFont_wght.ttf') format('woff2');
     font-style: normal;
     font-size: 48;
 }
 @font-face {
     font-family: 'HelveticsNeue';
-    src: url('./helvetica-neue-5/HelveticaNeueMedium.otf') format('woff2');
+    src: url('.media/fonts/helvetica-neue-5/HelveticaNeueMedium.otf') format('woff2');
     font-style: normal;
     font-size: 48;
 }
