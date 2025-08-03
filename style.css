@@ -34,7 +34,7 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    opacity: 21%;
+    opacity: 65%;
     color: #6C8EB4;
     text-decoration: none;
 }
@@ -47,7 +47,7 @@ body {
     margin-left: 2rem;
     text-decoration: none;
     font-weight: 500;
-    opacity: 21%;
+    opacity: 65%;
     color: #6C8EB4;
 }
 
@@ -56,7 +56,6 @@ body {
 }
 
 #logo-area {
-    width: 100vw;
     height: 100vh;
     justify-content: center; /* horizontal */
     align-items: center;

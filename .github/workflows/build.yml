@@ -1,0 +1,35 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Run build script
+      run: |
+        python build.py
+
+    - name: Deploy to prod branch
+      run: |
+        git config --global user.name "CI Bot"
+        git config --global user.email "todo-github-ci@sammyhost.uk"
+
+        git switch --orphan prod
+        git rm -rf .
+
+        cp index.html contact.html style.css . # whatever files you need
+        git add .
+        git commit -m "Deploy built site"
+        git push -f origin prod
