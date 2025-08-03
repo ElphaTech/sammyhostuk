@@ -26,9 +26,6 @@ body {
     background-color: #F5F5F5;
     padding: 1rem 2rem;
     color: #6C8EB4;
-    margin: 0 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
     position: fixed;
     left: 0;
     right: 0;
@@ -39,6 +36,7 @@ body {
     font-weight: bold;
     opacity: 21%;
     color: #6C8EB4;
+    text-decoration: none;
 }
 
 .logo .dot {
@@ -83,67 +81,98 @@ body {
     margin-top: -0.4em;
 }
 
-.sites-container {
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 0 2rem 2rem 2rem;
+.site-footer {
+    background-color: #000000;
+    color: #f5f5f5;
+    padding: 2rem;
+    font-family: sans-serif;
 }
 
-.site-card {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
-    height: 300px;
+.footer-content {
+    display: flex;
+    align-items: stretch; /* Stretch both sides to match height */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-left {
+    flex: 1;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* optional, gives the logo breathing room */
+    box-sizing: border-box;
+}
+
+.footer-right {
+    flex: 2;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    transition: transform 0.2s ease-in-out;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align:right;
 }
 
-.site-card:hover {
-    transform: scale(1.03);
+.footer-logo {
+    max-height: 100%;  /* 👈 limits logo height to container */
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
 }
 
-.site-card img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
+.footer-nav {
+    margin: 0.5rem 0;
 }
 
-.site-title {
-    margin-top: 0.75rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #0077cc;
+.footer-nav a {
+    color: #f5f5f5;
+    margin-left: 1rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:first-child {
+    margin-left: 0;
+}
+
+.footer-nav a:hover {
+    color: #f5f5f5;
+}
+
+.footer-email {
+    font-size: 0.85rem;
+    color: #f5f5f5;
+}
+
+.footer-email a {
+    color: #f5f5f5;
     text-decoration: none;
 }
 
-.site-title:hover {
-    text-decoration: underline;
+.footer-email a:hover {
+    color: #f5f5f5;
 }
 
-.site-info {
-    margin: 0.5rem 1rem;
-    font-size: 0.95rem;
-    color: #333;
-    font-family: HelveticsNeue;
-    flex-grow: 1;
-}
-
-/* 📱 Mobile responsiveness */
+/* Mobile tweaks */
 @media (max-width: 600px) {
-    .site-card {
-        width: 100%;
-        max-width: 90vw;
-        height: auto;
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .site-card img {
-        height: 160px;
+    .footer-left,
+    .footer-right {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .footer-nav a {
+        display: inline-block;
+        margin: 0.5rem;
     }
 }
