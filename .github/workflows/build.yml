@@ -23,30 +23,28 @@ jobs:
         python build.py
 
     - name: Deploy to prod branch
+      env:
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global user.name "CI Bot"
         git config --global user.email "todo-github-ci@sammyhost.uk"
 
-        # Save build output
+        # Save the build output
         mv build /tmp/build
 
-        # Clone fresh copy into temp dir
-        git clone --depth=1 --branch=prod https://github.com/${{ github.repository }} /tmp/deploy || {
+        # Authenticated clone attempt
+        git clone --depth=1 --branch=prod https://x-access-token:$TOKEN@github.com/${{ github.repository }} /tmp/deploy || {
           echo "prod branch doesn’t exist, makin’ a new one"
-          git clone --depth=1 https://github.com/${{ github.repository }} /tmp/deploy
+          git clone --depth=1 https://x-access-token:$TOKEN@github.com/${{ github.repository }} /tmp/deploy
           cd /tmp/deploy
           git checkout --orphan prod
         }
 
         cd /tmp/deploy
 
-        # Remove all existing tracked files
         git rm -rf . || true
-
-        # Copy in new site
         cp -r /tmp/build/. .
 
-        # Commit + push
         git add .
         git commit -m "Deploy built site"
-        git push -f origin prod
+        git push -f https://x-access-token:$TOKEN@github.com/${{ github.repository }} prod
