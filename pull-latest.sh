@@ -1,3 +1,3 @@
 #!/bin/bash
 cd /home/sammy/Documents/main-webpage
-git pull origin master
+git pull origin prod
