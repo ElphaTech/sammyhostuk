@@ -27,10 +27,13 @@ jobs:
         git config --global user.name "CI Bot"
         git config --global user.email "todo-github-ci@sammyhost.uk"
 
+        # Make orphan branch for prod
         git switch --orphan prod
         git rm -rf .
 
-        cp index.html contact.html style.css . # whatever files you need
+        # Move built files into place
+        cp -r build/* .  # this is the key fix, innit
+
         git add .
         git commit -m "Deploy built site"
         git push -f origin prod
