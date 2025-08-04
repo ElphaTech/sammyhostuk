@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is running an action.
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build:
