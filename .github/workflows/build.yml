@@ -1,5 +1,5 @@
 name: Build and Deploy
-run-name: ${{ github.actor }} is running an action.
+run-name: ${{ github.actor }} is deploying the site to prod.
 
 on:
   push:
@@ -29,19 +29,21 @@ jobs:
         echo "::endgroup::"
     - name: Deploy to prod branch
       run: |
+        # Config
         git config --global user.name "CI Bot"
         git config --global user.email "todo-github-ci@sammyhost.uk"
 
-        # Switch to orphan branch
-        git switch --orphan prod
+        # Stash the built files somewhere safe
+        mv build /tmp/build
 
-        # Clear everything
+        # Orphan branch
+        git switch --orphan prod
         git rm -rf .
 
-        # Copy built site contents into current root
-        cp -r build/. .
+        # Copy files back
+        cp -r /tmp/build/. .
 
-        # Check contents to be sure
+        # Sanity check
         ls -la
 
         git add .
