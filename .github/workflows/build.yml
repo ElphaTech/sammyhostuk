@@ -22,30 +22,31 @@ jobs:
       run: |
         python build.py
 
-    - name: Debug build output
-      run: |
-        echo "::group::Build directory contents"
-        ls -R build
-        echo "::endgroup::"
     - name: Deploy to prod branch
       run: |
-        # Config
         git config --global user.name "CI Bot"
         git config --global user.email "todo-github-ci@sammyhost.uk"
 
-        # Stash the built files somewhere safe
+        # Save build output
         mv build /tmp/build
 
-        # Orphan branch
-        git switch --orphan prod
-        git rm -rf .
+        # Clone fresh copy into temp dir
+        git clone --depth=1 --branch=prod https://github.com/${{ github.repository }} /tmp/deploy || {
+          echo "prod branch doesn’t exist, makin’ a new one"
+          git clone --depth=1 https://github.com/${{ github.repository }} /tmp/deploy
+          cd /tmp/deploy
+          git checkout --orphan prod
+        }
 
-        # Copy files back
+        cd /tmp/deploy
+
+        # Remove all existing tracked files
+        git rm -rf . || true
+
+        # Copy in new site
         cp -r /tmp/build/. .
 
-        # Sanity check
-        ls -la
-
+        # Commit + push
         git add .
         git commit -m "Deploy built site"
         git push -f origin prod
