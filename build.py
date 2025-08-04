@@ -1,10 +1,19 @@
 from pathlib import Path
 import shutil
+import argparse
+
+# === Parse arguments ===
+parser = argparse.ArgumentParser(description="Build the static site.")
+parser.add_argument('--temp', action='store_true',
+                    help='Output to .tempbuild instead of build')
+args = parser.parse_args()
+
+# === Output directory ===
+output_dir = Path(".tempbuild" if args.temp else "build")
 
 # === Config ===
 template = Path("template.html").read_text()
 content_dir = Path("content")
-output_dir = Path("build")
 
 # === Clean output ===
 if output_dir.exists():
