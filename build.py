@@ -1,22 +1,23 @@
+# build.py
 from pathlib import Path
+import shutil
 
-template = Path('template.html').read_text()
+template = Path("template.html").read_text()
+content_dir = Path("content")
+output_dir = Path("build")
 
-# Simple placeholder replacement
+if output_dir.exists():
+    shutil.rmtree(output_dir)
+output_dir.mkdir()
 
 
 def apply_template(content_html):
-    return template.replace('<!-- Content goes here -->', content_html)
+    return template.replace("{{ content }}", content_html)
 
 
-content_dir = Path('content')
-output_dir = Path('.')
+for file in content_dir.glob("*.html"):
+    content = file.read_text()
+    output = apply_template(content)
+    (output_dir / file.name).write_text(output)
 
-for content_file in content_dir.glob('*.html'):
-    content_html = content_file.read_text()
-    final_html = apply_template(content_html)
-
-    output_file = output_dir / content_file.name
-    output_file.write_text(final_html)
-
-    print(f'Built {output_file}')
+print("Build complete.")
