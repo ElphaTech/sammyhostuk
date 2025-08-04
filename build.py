@@ -15,7 +15,7 @@ output_dir.mkdir(parents=True)
 
 
 def apply_template(content_html):
-    return template.replace("{{ content }}", content_html)
+    return template.replace("<!-- Content goes here -->", content_html)
 
 
 # === Process .html content ===
