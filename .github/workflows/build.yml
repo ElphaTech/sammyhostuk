@@ -22,17 +22,27 @@ jobs:
       run: |
         python build.py
 
+    - name: Debug build output
+      run: |
+        echo "::group::Build directory contents"
+        ls -R build
+        echo "::endgroup::"
     - name: Deploy to prod branch
       run: |
         git config --global user.name "CI Bot"
         git config --global user.email "todo-github-ci@sammyhost.uk"
 
-        # Make orphan branch for prod
+        # Switch to orphan branch
         git switch --orphan prod
+
+        # Clear everything
         git rm -rf .
 
-        # Move built files into place
-        cp -r build/* .  # this is the key fix, innit
+        # Copy built site contents into current root
+        cp -r build/. .
+
+        # Check contents to be sure
+        ls -la
 
         git add .
         git commit -m "Deploy built site"
