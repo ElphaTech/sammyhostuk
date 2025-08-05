@@ -1,6 +1,17 @@
 from pathlib import Path
 import shutil
 import argparse
+import subprocess
+
+# === Get commit hash ===
+
+
+def get_git_commit_hash():
+    try:
+        return subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).decode().strip()
+    except subprocess.CalledProcessError:
+        return "unknown"
+
 
 # === Parse arguments ===
 parser = argparse.ArgumentParser(description="Build the static site.")
@@ -23,14 +34,16 @@ output_dir.mkdir(parents=True)
 # === Function to apply template ===
 
 
-def apply_template(content_html):
-    return template.replace("<!-- Content goes here -->", content_html)
+def apply_template(input_template, content_html, placeholder):
+    return input_template.replace(placeholder, content_html)
 
 
 # === Process .html content ===
 for file in content_dir.glob("*.html"):
     content = file.read_text()
-    output = apply_template(content)
+    output = apply_template(template, content, "<!-- Content goes here -->")
+    output = apply_template(output, get_git_commit_hash(),
+                            "<!-- Git Commit Hash -->")
     (output_dir / file.name).write_text(output)
 
 # === Copy .css files to output ===
