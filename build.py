@@ -61,4 +61,9 @@ script_src = Path("pull-latest.sh")
 if script_src.exists():
     shutil.copy2(script_src, output_dir / script_src.name)
 
+# === Copy start.sh ===
+script_src = Path("start.sh")
+if script_src.exists():
+    shutil.copy2(script_src, output_dir / script_src.name)
+
 print("Build complete.")
