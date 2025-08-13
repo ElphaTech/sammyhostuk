@@ -15,12 +15,12 @@ def get_git_commit_hash():
 
 # === Parse arguments ===
 parser = argparse.ArgumentParser(description="Build the static site.")
-parser.add_argument('--temp', action='store_true',
-                    help='Output to .tempbuild instead of build')
+parser.add_argument('--prod', action='store_true',
+                    help='Output to build instead of .tempbuild')
 args = parser.parse_args()
 
 # === Output directory ===
-output_dir = Path(".tempbuild" if args.temp else "build")
+output_dir = Path("build" if args.prod else ".tempbuild")
 
 # === Config ===
 template = Path("template.html").read_text()
@@ -44,7 +44,16 @@ for file in content_dir.glob("*.html"):
     output = apply_template(template, content, "<!-- Content goes here -->")
     output = apply_template(output, get_git_commit_hash(),
                             "<!-- Git Commit Hash -->")
-    (output_dir / file.name).write_text(output)
+
+    # Create directory for each HTML file, put output as index.html
+    if file.stem == "index":
+        # Root index.html
+        (output_dir / "index.html").write_text(output)
+    else:
+        page_dir = output_dir / file.stem
+        page_dir.mkdir(parents=True, exist_ok=True)
+        (page_dir / "index.html").write_text(output)
+
 
 # === Copy .css files to output ===
 for css_file in Path(".").glob("*.css"):
