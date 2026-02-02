@@ -167,15 +167,17 @@
             return `${seconds}s`;
         }
 
-        function getNextMondayOpen(now) {
-            const d = new Date(now);
-            d.setDate(d.getDate() + ((1 + 7 - d.getDay()) % 7 || 7)); // Next Monday
-            d.setHours(7, 30, 0, 0);
+        function getNextDayOpen(now) {
+            const next = new Date(now);
+            do {
+                next.setDate(next.getDate() + 1);
+            } while (next.getDay() === 0 || next.getDay() === 6);
+            next.setHours(7, 30, 0, 0);
             // If today is Monday and it's before 7:30, the math above jumps a week. Fix:
             if (now.getDay() === 1 && now.getHours() < 7) {
-                d.setDate(now.getDate());
+                next.setDate(now.getDate());
             }
-            return d;
+            return next;
         }
 
         function updateClock() {
@@ -231,11 +233,11 @@
 
                 // If weekday before open
                 if (day >= 1 && day <= 5 && now < parseTime("07:30", now)) {
-                     targetTime = parseTime("07:30", now);
+                    targetTime = parseTime("07:30", now);
                 }
                 // If weekday after close or weekend
                 else {
-                    targetTime = getNextMondayOpen(now);
+                    targetTime = getNextDayOpen(now);
                 }
 
                 const msUntilOpen = targetTime - now;
