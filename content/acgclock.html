@@ -10,6 +10,17 @@
     </div>
 </div>
 
+<script>
+    const btn = document.getElementById('main-clock');
+    btn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen(); // Request fullscreen
+      } else {
+        document.exitFullscreen(); // Exit fullscreen
+      }
+    });
+</script>
+
 <style>
     /* Page Specific Styles */
     .clock-container {
