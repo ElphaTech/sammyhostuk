@@ -32,6 +32,7 @@
         text-align: center;
         color: #F5F5F5;
         position: relative;
+        padding: 0 5%;
     }
 
     /* Big Clock Font */
@@ -90,15 +91,15 @@
         const getStandardDay = () => [
             { start: "07:30", end: "08:30", name: "School Open / Before P1", type: "free" },
             { start: "08:30", end: "09:35", name: "Period 1", type: "class" },
-            { start: "09:35", end: "09:40", name: "Transition", type: "trans" },
+            { start: "09:35", end: "09:40", name: "Transition Time", type: "trans" },
             { start: "09:40", end: "10:45", name: "Period 2", type: "class" },
             { start: "10:45", end: "11:15", name: "Break 1", type: "break" },
             { start: "11:15", end: "12:20", name: "Period 3", type: "class" },
-            { start: "12:20", end: "12:25", name: "Transition", type: "trans" },
+            { start: "12:20", end: "12:25", name: "Transition Time", type: "trans" },
             { start: "12:25", end: "13:30", name: "Period 4", type: "class" },
             { start: "13:30", end: "14:10", name: "Break 2", type: "break" },
             { start: "14:10", end: "15:15", name: "Period 5", type: "class" },
-            { start: "15:15", end: "15:20", name: "Transition", type: "trans" },
+            { start: "15:15", end: "15:20", name: "Transition Time", type: "trans" },
             { start: "15:20", end: "16:35", name: "Period 6", type: "class" },
             { start: "16:35", end: "17:30", name: "Library / After School", type: "free" }
         ];
@@ -107,17 +108,17 @@
         const getTuesday = () => [
             { start: "07:30", end: "08:30", name: "School Open / Before P1", type: "free" },
             { start: "08:30", end: "09:25", name: "Period 1", type: "class" },
-            { start: "09:25", end: "09:30", name: "Transition", type: "trans" },
+            { start: "09:25", end: "09:30", name: "Transition Time", type: "trans" },
             { start: "09:30", end: "10:25", name: "Period 2", type: "class" },
             { start: "10:25", end: "10:55", name: "Break 1", type: "break" },
             { start: "10:55", end: "11:50", name: "Period 3", type: "class" },
-            { start: "11:50", end: "11:55", name: "Transition", type: "trans" },
+            { start: "11:50", end: "11:55", name: "Transition Time", type: "trans" },
             { start: "11:55", end: "12:50", name: "Period 4", type: "class" },
             { start: "12:50", end: "13:20", name: "Break 2", type: "break" },
             { start: "13:20", end: "14:15", name: "Period 5", type: "class" },
-            { start: "14:15", end: "14:20", name: "Transition", type: "trans" },
+            { start: "14:15", end: "14:20", name: "Transition Time", type: "trans" },
             { start: "14:20", end: "15:15", name: "Period 6", type: "class" },
-            { start: "15:15", end: "15:20", name: "Transition", type: "trans" },
+            { start: "15:15", end: "15:20", name: "Transition Time", type: "trans" },
             { start: "15:20", end: "16:35", name: "Period 7", type: "class" },
             { start: "16:35", end: "17:30", name: "Library / After School", type: "free" }
         ];
@@ -126,11 +127,11 @@
         const getFriday = () => [
             { start: "07:30", end: "08:30", name: "School Open / Before P1", type: "free" },
             { start: "08:30", end: "09:35", name: "Period 1", type: "class" },
-            { start: "09:35", end: "09:40", name: "Transition", type: "trans" },
+            { start: "09:35", end: "09:40", name: "Transition Time", type: "trans" },
             { start: "09:40", end: "10:45", name: "Period 2", type: "class" },
             { start: "10:45", end: "11:15", name: "Break 1", type: "break" },
             { start: "11:15", end: "12:20", name: "Period 3", type: "class" },
-            { start: "12:20", end: "12:25", name: "Transition", type: "trans" },
+            { start: "12:20", end: "12:25", name: "Transition Time", type: "trans" },
             { start: "12:25", end: "13:30", name: "Period 4", type: "class" },
             { start: "13:30", end: "14:10", name: "Break 2", type: "break" },
             { start: "14:10", end: "15:15", name: "Period 5", type: "class" },
@@ -148,6 +149,17 @@
         };
 
         const closingTimes = { 1: "17:30", 2: "17:30", 3: "17:30", 4: "17:30", 5: "16:00" };
+
+        const closedDates = { // Extra dates where school is closed
+            "06/02/2026": "Waitangi Day",
+            "27/02/2026": "Achievement Conference Day",
+            "01/04/2026": "Parent Teacher Interviews",
+            "03/04/2026": "Good Friday",
+        }
+
+        function isInArray(array, value) {
+          return (array.find(item => {return item == value}) || []).length > 0;
+        }
 
         function parseTime(timeStr, dateObj) {
             const [h, m] = timeStr.split(':').map(Number);
@@ -171,7 +183,7 @@
             const next = new Date(now);
             do {
                 next.setDate(next.getDate() + 1);
-            } while (next.getDay() === 0 || next.getDay() === 6);
+            } while (next.getDay() === 0 || next.getDay() === 6 || isInArray(Object.keys(closedDates), next.toLocaleDateString('en-GB')));
             next.setHours(7, 30, 0, 0);
             // If today is Monday and it's before 7:30, the math above jumps a week. Fix:
             if (now.getDay() === 1 && now.getHours() < 7) {
@@ -183,6 +195,7 @@
         function updateClock() {
             const now = new Date();
             const day = now.getDay();
+            const formattedDate = now.toLocaleDateString('en-GB');
 
             // 1. Update Main Clock
             const timeString = now.toLocaleTimeString('en-GB', { hour12: false });
@@ -193,9 +206,13 @@
             let currentEvent = null;
             let nextEvent = null;
             let isClosed = true;
+            let closedMessage = "School Closed";
+
+            if (isInArray(Object.keys(closedDates), formattedDate)) {
+                closedMessage = closedDates[formattedDate];
 
             // Check if within open hours for Mon-Fri
-            if (todaysSchedule && todaysSchedule.length > 0) {
+            } else if (todaysSchedule && todaysSchedule.length > 0) {
                 const openTime = parseTime("07:30", now);
                 const closeStr = closingTimes[day];
                 const closeTime = parseTime(closeStr, now);
@@ -241,7 +258,7 @@
                 }
 
                 const msUntilOpen = targetTime - now;
-                statusEl.textContent = "School Closed";
+                statusEl.textContent = closedMessage;
                 subStatusEl.textContent = `Opens in ${formatTimeRemaining(msUntilOpen)}`;
                 progressBar.style.width = "0%"; // No progress bar when closed
 
@@ -266,7 +283,7 @@
 
             } else {
                 // Catch-all (should rarely hit given logic)
-                statusEl.textContent = "Transition";
+                statusEl.textContent = "Transition Time";
                 subStatusEl.textContent = "";
                 progressBar.style.width = "0%";
             }

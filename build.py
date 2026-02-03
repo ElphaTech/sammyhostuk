@@ -2,14 +2,20 @@ from pathlib import Path
 import shutil
 import argparse
 import subprocess
+import os
+from datetime import datetime
 
 # === Get commit hash ===
 
 
 def get_git_commit_hash():
+    # If not in GitHub Actions, return the current local time
+    if not os.getenv("GITHUB_ACTIONS"):
+        return "localdev-"+datetime.now().strftime("%H:%M:%S")
+
     try:
         return subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).decode().strip()
-    except subprocess.CalledProcessError:
+    except Exception:
         return "unknown"
 
 
