@@ -290,7 +290,7 @@
         }
 
         // Run immediately and then every second
-        setInterval(updateClock, 1000);
+        setInterval(updateClock, 50); //didn't work: 1000 - (Date.now() % 1000));
         updateClock();
     })();
 </script>
