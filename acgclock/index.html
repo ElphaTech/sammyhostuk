@@ -8,7 +8,7 @@
         <link rel="icon" type="image/x-icon" href="/logo.png">
     </head>
     <body>
-        <header class="navbar">
+        <header class="navbar" id="navbar">
             <a href="/" class="logo">sammyhost<span class="dot">.</span>uk</a>
             <nav class="nav-links">
                 <a href="https://copyparty.sammyhost.uk/">Copyparty</a>
@@ -28,6 +28,7 @@
     </div>
 </div>
 
+<!-- Fullscreen when clock clicked -->
 <script>
     const btn = document.getElementById('main-clock');
     btn.addEventListener('click', () => {
@@ -103,7 +104,7 @@
 <script>
     (function() {
         // --- Schedule Configuration ---
-        // Format: start: "HH:MM", name: "Event Name", type: "class"|"break"|"trans"|"closed"
+        // Format: start: "HH:MM", name: "Event Name", type: "class"|"break"|"trans"|"free"
 
         // Helper to generate schedule for Mon, Wed, Thu
         const getStandardDay = () => [
@@ -329,7 +330,7 @@
                     </nav>
                     <p class="footer-email">
                     Contact us: <a href="mailto:admin@sammyhost.uk">admin@sammyhost.uk</a></br>
-                    Version: d714c53
+                    Version: a21c382
                     </p>
                 </div>
             </div>
