@@ -1,0 +1,46 @@
+<div id="logo-area">
+    <div class="center-logo">
+        <div class="center-line1">sammy</div>
+        <div class="center-line2">host<span class="dot">.</span>uk</div>
+    </div>
+</div>
+
+<style>
+  /* Change the page background color here */
+  body {
+    background-color: #ffffff; /* A deep navy/slate */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Styling for the numbers to keep them small and on one line */
+  .center-logo {
+    color: #000000; /* Subtle gray-blue text */
+    font-family: monospace; /* Monospace looks great for data lists */
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." if the screen is too small */
+    padding: 20px;
+    text-align: center;
+    margin: 50px 0 0 0;
+  }
+  #logo-area{
+      display: block;
+  }
+</style>
+
+<script>
+  (function() {
+    // 1. Generate the random list of 30 numbers (1-100)
+    const numbers = Array.from({ length: 30 }, () => Math.floor(Math.random() * 100) + 1);
+
+    // 2. Target the logo container
+    const logoArea = document.querySelector('.center-logo');
+
+    if (logoArea) {
+      // 3. Replace the text with the comma-separated list
+      logoArea.textContent = numbers.join(', ');
+    }
+  })();
+</script>

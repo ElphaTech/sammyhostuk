@@ -10,6 +10,7 @@
     </div>
 </div>
 
+<!-- Fullscreen when clock clicked -->
 <script>
     const btn = document.getElementById('main-clock');
     btn.addEventListener('click', () => {
@@ -85,7 +86,7 @@
 <script>
     (function() {
         // --- Schedule Configuration ---
-        // Format: start: "HH:MM", name: "Event Name", type: "class"|"break"|"trans"|"closed"
+        // Format: start: "HH:MM", name: "Event Name", type: "class"|"break"|"trans"|"free"
 
         // Helper to generate schedule for Mon, Wed, Thu
         const getStandardDay = () => [
