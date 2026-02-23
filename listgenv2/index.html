@@ -21,6 +21,84 @@
         <div class="center-line1">sammy</div>
         <div class="center-line2">host<span class="dot">.</span>uk</div>
     </div>
+    <table>
+      <tr>
+          <th>Value 1</th>
+          <th>Value 2</th>
+          <th>Value 3</th>
+          <th>Value 4</th>
+          <th>Value 5</th>
+          <th>Value 6</th>
+          <th>Value 7</th>
+          <th>Value 8</th>
+          <th>Value 9</th>
+          <th>Value 10</th>
+      </tr>
+      <tr class="blank-row">
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+    </table>
+    <table>
+      <tr>
+          <th>Value 11</th>
+          <th>Value 12</th>
+          <th>Value 13</th>
+          <th>Value 14</th>
+          <th>Value 15</th>
+          <th>Value 16</th>
+          <th>Value 17</th>
+          <th>Value 18</th>
+          <th>Value 19</th>
+          <th>Value 20</th>
+      </tr>
+      <tr class="blank-row">
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+    </table>
+    <table>
+      <tr>
+          <th>Value 21</th>
+          <th>Value 22</th>
+          <th>Value 23</th>
+          <th>Value 24</th>
+          <th>Value 25</th>
+          <th>Value 26</th>
+          <th>Value 27</th>
+          <th>Value 28</th>
+          <th>Value 29</th>
+          <th>Value 30</th>
+      </tr>
+      <tr class="blank-row">
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+    </table>
 </div>
 
 <style>
@@ -35,7 +113,7 @@
   .center-logo {
     color: #000000; /* Subtle gray-blue text */
     font-family: monospace; /* Monospace looks great for data lists */
-    font-size: 11px;
+    font-size: 15px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; /* Adds "..." if the screen is too small */
@@ -45,6 +123,24 @@
   }
   #logo-area{
       display: block;
+  }
+
+  /* table stuff */
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th {
+      padding: 5px;
+  }
+  .blank-row {
+      height: 50px;
+  }
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    width: 80%;
   }
 </style>
 
