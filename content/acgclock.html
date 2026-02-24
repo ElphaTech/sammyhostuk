@@ -255,18 +255,13 @@
             let todaysSchedule = null;
             const isClosedDay = isInArray(Object.keys(closedDates), formattedDate)
             const isACD = isInArray(Object.values(closedDates), "Achievement Conference Day")
-            let openTime = null;
-            let closeTime = null;
             if ( isClosedDay && isACD ) {
                 todaysSchedule = getFifteenMinSchedule();
-                openTime = parseTime(todaysSchedule[0]['start'], now);
-                closeTime = parseTime(todaysSchedule[todaysSchedule.length - 1]['end'], now);
             } else {
                 todaysSchedule = schedules[day];
-                const openTime = parseTime("07:30", now);
-                const closeStr = closingTimes[day];
-                const closeTime = parseTime(closeStr, now);
             }
+            const openTime = parseTime(todaysSchedule[0]['start'], now);
+            const closeTime = parseTime(todaysSchedule[todaysSchedule.length - 1]['end'], now);
             let currentEvent = null;
             let nextEvent = null;
             let isClosed = true;
