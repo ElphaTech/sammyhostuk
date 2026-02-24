@@ -1,5 +1,6 @@
 <div class="clock-container">
     <div class="clock-content">
+        <div id="main-date" class="date-display">Loading date...</div>
         <div id="main-clock" class="time-display">00:00:00</div>
         <div id="status-message" class="status-display">Loading schedule...</div>
         <div id="sub-status" class="next-event-display"></div>
@@ -34,6 +35,14 @@
         color: #F5F5F5;
         position: relative;
         padding: 0 5%;
+    }
+
+    .status-display {
+        font-family: 'Unbounded', sans-serif;
+        font-weight: 400;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+        opacity: 0.9;
     }
 
     /* Big Clock Font */
@@ -198,7 +207,15 @@
             const day = now.getDay();
             const formattedDate = now.toLocaleDateString('en-GB');
 
-            // 1. Update Main Clock
+            // Update Date
+            const dateString = now.toLocaleDateString('en-GB',{
+              weekday: "long",
+              month: "long",
+              day: "numeric"
+            });
+            document.getElementById('main-date').textContent = dateString;
+
+            // Update Main Clock
             const timeString = now.toLocaleTimeString('en-GB', { hour12: false });
             document.getElementById('main-clock').textContent = timeString;
 
