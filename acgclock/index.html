@@ -166,6 +166,38 @@
             { start: "15:15", end: "16:00", name: "Library / After School", type: "free" } // Closes 16:00
         ];
 
+        // Achivement conference day
+        const getFifteenMinSchedule = () => {
+            const schedule = [];
+            const startHour = 8;
+            const endHour = 16;
+
+            // Create a reference date starting at 08:00
+            let current = new Date();
+            current.setHours(startHour, 0, 0, 0);
+
+            let sessionNum = 1;
+
+            // Loop until we reach 16:00
+            while (current.getHours() < endHour) {
+                const startTime = current.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+                // Advance 15 minutes
+                current.setMinutes(current.getMinutes() + 15);
+
+                const endTime = current.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
+                schedule.push({
+                    start: startTime,
+                    end: endTime,
+                    name: `Session ${sessionNum++}`,
+                    type: "free"
+                });
+            }
+
+            return schedule;
+        };
+
         const schedules = {
             1: getStandardDay(), // Mon
             2: getTuesday(),     // Tue
@@ -238,20 +270,31 @@
             document.getElementById('main-clock').textContent = timeString;
 
             // 2. Determine Schedule State
-            const todaysSchedule = schedules[day];
+            let todaysSchedule = null;
+            const isClosedDay = isInArray(Object.keys(closedDates), formattedDate)
+            const isACD = isInArray(Object.values(closedDates), "Achievement Conference Day")
+            let openTime = null;
+            let closeTime = null;
+            if ( isClosedDay && isACD ) {
+                todaysSchedule = getFifteenMinSchedule();
+                openTime = parseTime(todaysSchedule[0]['start'], now);
+                closeTime = parseTime(todaysSchedule[todaysSchedule.length - 1]['end'], now);
+            } else {
+                todaysSchedule = schedules[day];
+                const openTime = parseTime("07:30", now);
+                const closeStr = closingTimes[day];
+                const closeTime = parseTime(closeStr, now);
+            }
             let currentEvent = null;
             let nextEvent = null;
             let isClosed = true;
             let closedMessage = "School Closed";
 
-            if (isInArray(Object.keys(closedDates), formattedDate)) {
+            if ( isClosedDay && !(isACD)) {
                 closedMessage = closedDates[formattedDate];
 
             // Check if within open hours for Mon-Fri
             } else if (todaysSchedule && todaysSchedule.length > 0) {
-                const openTime = parseTime("07:30", now);
-                const closeStr = closingTimes[day];
-                const closeTime = parseTime(closeStr, now);
 
                 if (now >= openTime && now < closeTime) {
                     isClosed = false;
@@ -347,7 +390,7 @@
                     </nav>
                     <p class="footer-email">
                     Contact us: <a href="mailto:admin@sammyhost.uk">admin@sammyhost.uk</a></br>
-                    Version: f1bfa04
+                    Version: 2e812c3
                     </p>
                 </div>
             </div>
