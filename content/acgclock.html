@@ -1,15 +1,17 @@
 <script>
-//    const notifications = [
-//        {"start_time": "16:00", "start_date": "25/02/2026", "end_time": "20:00", "end_date": "25/02/2026", "type":"warning", "message": "Library is closing at 5pm!"}
-//    ]
+    const notifications = [
+        {"start_time": "16:00", "start_date": "25/02/2026", "end_time": "20:00", "end_date": "25/02/2026", "type":"warning", "message": "Library is closing at 5pm!"}
+    ];
 
-    (function() {
+    function createNotification(notifType, notifMessage) {
         // 1. Create the warning bar element
         const warningBar = document.createElement('div');
         warningBar.className = 'warning-bar';
 
         // 2. Set your message here
-        warningBar.innerHTML = '⚠️ <strong>Warning:</strong> Library is closing at 5pm!';
+        if (notifType == "warning") {
+            warningBar.innerHTML = '⚠️ <strong>Warning:</strong> ' + notifMessage ;
+        }
 
         // 3. Insert it into the page
         const navbar = document.getElementById('navbar');
@@ -20,7 +22,27 @@
             // Fallback if the navbar ID isn't found
             document.body.prepend(warningBar);
         }
-    })();
+    }
+
+    const now = new Date();
+
+    // Helper to convert your specific format into a JS Date object
+    const parseDateTime = (dateStr, timeStr) => {
+        const [day, month, year] = dateStr.split('/').map(Number);
+        const [hours, minutes] = timeStr.split(':').map(Number);
+        // Note: Month is 0-indexed in JS (January = 0)
+        return new Date(year, month - 1, day, hours, minutes);
+    };
+
+    for (const note of notifications) {
+        const start = parseDateTime(note.start_date, note.start_time);
+        const end = parseDateTime(note.end_date, note.end_time);
+
+        if (now >= start && now <= end) {
+            createNotification(note.type, note.message);
+        }
+    }
+
 </script>
 
 <div class="clock-container">
