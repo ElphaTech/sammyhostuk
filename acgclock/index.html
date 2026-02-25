@@ -416,6 +416,35 @@
 })();
 </script>
 
+<!-- RELOAD PAGE ON HASH UPDATE -->
+<script>
+    // Store the hash found when the page first loads
+    let initialHash = null;
+
+    async function checkForUpdates() {
+      try {
+        // 'no-store' ensures we get the latest file from the server, not the cache
+        const response = await fetch('../hash.txt?t=' + Date.now(), { cache: 'no-store' });
+        const latestHash = (await response.text()).trim();
+
+        if (!initialHash) {
+          // Set the baseline on the first run
+          initialHash = latestHash;
+        } else if (latestHash !== initialHash) {
+          // If the hash changed, refresh the page
+          console.log('New version detected. Reloading...');
+          window.location.reload();
+        }
+      } catch (error) {
+        console.error('Failed to check for updates:', error);
+      }
+    }
+
+    // Check immediately on load, then every 60 seconds
+    checkForUpdates();
+    setInterval(checkForUpdates, 60000);
+</script>
+
         </main>
 
         <footer class="site-footer">
@@ -432,7 +461,7 @@
                     </nav>
                     <p class="footer-email">
                     Contact us: <a href="mailto:admin@sammyhost.uk">admin@sammyhost.uk</a></br>
-                    Version: 5818540
+                    Version: 1e570e9
                     </p>
                 </div>
             </div>
