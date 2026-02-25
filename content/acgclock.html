@@ -1,22 +1,26 @@
 <script>
-  (function() {
-    // 1. Create the warning bar element
-    const warningBar = document.createElement('div');
-    warningBar.className = 'warning-bar';
+//    const notifications = [
+//        {"start_time": "16:00", "start_date": "25/02/2026", "end_time": "20:00", "end_date": "25/02/2026", "type":"warning", "message": "Library is closing at 5pm!"}
+//    ]
 
-    // 2. Set your message here
-    warningBar.innerHTML = '⚠️ <strong>Warning:</strong> Library is closing at 5pm!';
+    (function() {
+        // 1. Create the warning bar element
+        const warningBar = document.createElement('div');
+        warningBar.className = 'warning-bar';
 
-    // 3. Insert it into the page
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        // This places it right after the navbar in the HTML structure
-        navbar.parentNode.insertBefore(warningBar, navbar.nextSibling);
-    } else {
-        // Fallback if the navbar ID isn't found
-        document.body.prepend(warningBar);
-    }
-  })();
+        // 2. Set your message here
+        warningBar.innerHTML = '⚠️ <strong>Warning:</strong> Library is closing at 5pm!';
+
+        // 3. Insert it into the page
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+            // This places it right after the navbar in the HTML structure
+            navbar.parentNode.insertBefore(warningBar, navbar.nextSibling);
+        } else {
+            // Fallback if the navbar ID isn't found
+            document.body.prepend(warningBar);
+        }
+    })();
 </script>
 
 <div class="clock-container">
@@ -36,27 +40,27 @@
 <script>
     const btn = document.getElementById('main-clock');
     btn.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen(); // Request fullscreen
-      } else {
-        document.exitFullscreen(); // Exit fullscreen
-      }
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen(); // Request fullscreen
+        } else {
+            document.exitFullscreen(); // Exit fullscreen
+        }
     });
 </script>
 
 <style>
-    /* Page Specific Styles */
-    .clock-container {
-        height: 100vh; /* Occupy most of the screen */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: #F5F5F5;
-        position: relative;
-        padding: 0 5%;
-    }
+/* Page Specific Styles */
+.clock-container {
+    height: 100vh; /* Occupy most of the screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #F5F5F5;
+    position: relative;
+    padding: 0 5%;
+}
 
     .status-display {
         font-family: 'Unbounded', sans-serif;
@@ -132,7 +136,8 @@
             { start: "14:10", end: "15:15", name: "Period 5", type: "class" },
             { start: "15:15", end: "15:20", name: "Transition Time", type: "trans" },
             { start: "15:20", end: "16:35", name: "Period 6", type: "class" },
-            { start: "16:35", end: "17:30", name: "Library / After School", type: "free" }
+            { start: "16:35", end: "17:00", name: "Library / After School", type: "free" }
+            // WARNING FIX END TIME OF DAY !!!
         ];
 
         // Tuesday Schedule
@@ -221,7 +226,7 @@
         }
 
         function isInArray(array, value) {
-          return (array.find(item => {return item == value}) || []).length > 0;
+            return (array.find(item => {return item == value}) || []).length > 0;
         }
 
         function parseTime(timeStr, dateObj) {
@@ -262,9 +267,9 @@
 
             // Update Date
             const dateString = now.toLocaleDateString('en-GB',{
-              weekday: "long",
-              month: "long",
-              day: "numeric"
+                weekday: "long",
+                month: "long",
+                day: "numeric"
             });
             document.getElementById('main-date').textContent = dateString;
 
@@ -291,7 +296,7 @@
             if ( isClosedDay && !(isACD)) {
                 closedMessage = closedDates[formattedDate];
 
-            // Check if within open hours for Mon-Fri
+                // Check if within open hours for Mon-Fri
             } else if (todaysSchedule && todaysSchedule.length > 0) {
 
                 if (now >= openTime && now < closeTime) {
@@ -368,6 +373,6 @@
 
         // Run immediately and then every second
         setInterval(updateClock, 50); //didn't work: 1000 - (Date.now() % 1000));
-        updateClock();
-    })();
+    updateClock();
+})();
 </script>
