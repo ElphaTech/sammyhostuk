@@ -1,3 +1,24 @@
+<script>
+  (function() {
+    // 1. Create the warning bar element
+    const warningBar = document.createElement('div');
+    warningBar.className = 'warning-bar';
+
+    // 2. Set your message here
+    warningBar.innerHTML = '⚠️ <strong>Warning:</strong> Library is closing at 5pm!';
+
+    // 3. Insert it into the page
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        // This places it right after the navbar in the HTML structure
+        navbar.parentNode.insertBefore(warningBar, navbar.nextSibling);
+    } else {
+        // Fallback if the navbar ID isn't found
+        document.body.prepend(warningBar);
+    }
+  })();
+</script>
+
 <div class="clock-container">
     <div class="clock-content">
         <div id="main-date" class="date-display">Loading date...</div>
