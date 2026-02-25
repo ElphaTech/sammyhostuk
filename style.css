@@ -37,11 +37,10 @@ body {
     top: 60px;
     left: 0;
     right: 0;
-    background-color: #fff3cd; /* Light yellow warning */
-    color: #856404;
+    background-color: #000000; /* Light yellow warning */
+    color: #F5F5F5;
     padding: 0.75rem 2rem;
     text-align: center;
-    border-bottom: 1px solid #ffeeba;
     z-index: 99999; /* Just below the navbar's 1000000 */
     font-size: 0.9rem;
 }
