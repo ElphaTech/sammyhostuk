@@ -16,7 +16,28 @@
         </header>
 
         <main id="content">
-            <div class="clock-container">
+            <script>
+  (function() {
+    // 1. Create the warning bar element
+    const warningBar = document.createElement('div');
+    warningBar.className = 'warning-bar';
+
+    // 2. Set your message here
+    warningBar.innerHTML = '⚠️ <strong>Warning:</strong> Library is closing at 5pm!';
+
+    // 3. Insert it into the page
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        // This places it right after the navbar in the HTML structure
+        navbar.parentNode.insertBefore(warningBar, navbar.nextSibling);
+    } else {
+        // Fallback if the navbar ID isn't found
+        document.body.prepend(warningBar);
+    }
+  })();
+</script>
+
+<div class="clock-container">
     <div class="clock-content">
         <div id="main-date" class="date-display">Loading date...</div>
         <div id="main-clock" class="time-display">00:00:00</div>
@@ -385,7 +406,7 @@
                     </nav>
                     <p class="footer-email">
                     Contact us: <a href="mailto:admin@sammyhost.uk">admin@sammyhost.uk</a></br>
-                    Version: 72d49ce
+                    Version: b624899
                     </p>
                 </div>
             </div>
