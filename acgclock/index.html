@@ -249,12 +249,17 @@
         let lastBellTime = new Date();
         let soundEnabled = false;
         function toggleSound() {
-            const audio = document.getElementById('audio-toggle');
+            //const audio = document.getElementById('audio-toggle');
             soundEnabled = !soundEnabled;
+            if (soundEnabled) {
+                var audio = new Audio('../media/sounds/bells/454609__richcraftstudios__richcraft-chime-d-20181219.wav');
+                audio.play();
+            }
+            console.log(soundEnabled)
         }
         document.addEventListener('keydown', function(event) {
             if (event.key == "m") {
-                soundEnabled = true;
+                toggleSound();
             }
         });
 
@@ -526,7 +531,7 @@
                     </nav>
                     <p class="footer-email">
                     Contact us: <a href="mailto:admin@sammyhost.uk">admin@sammyhost.uk</a></br>
-                    Version: a5790a2
+                    Version: 5b46b6d
                     </p>
                 </div>
             </div>
