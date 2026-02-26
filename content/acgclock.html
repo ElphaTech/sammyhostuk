@@ -74,6 +74,8 @@
 
 </script>
 
+
+
 <div class="clock-container">
     <div class="clock-content">
         <div id="main-date" class="date-display">Loading date...</div>
@@ -81,6 +83,7 @@
         <div id="status-message" class="status-display">Loading schedule...</div>
         <div id="sub-status" class="next-event-display"></div>
     </div>
+
 
     <div class="progress-container">
         <div id="time-progress" class="progress-bar"></div>
@@ -224,11 +227,25 @@
             { start: "15:15", end: "16:00", name: "Library / After School", type: "free" } // Closes 16:00
         ];
 
+        // bell toggle and stuff
+        let lastBellTime = new Date();
+        let soundEnabled = false;
+        function toggleSound() {
+            const audio = document.getElementById('audio-toggle');
+            soundEnabled = !soundEnabled;
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key == "m") {
+                soundEnabled = true;
+            }
+        });
+
         // Achivement conference day
         const getFifteenMinSchedule = () => {
             const schedule = [];
             const startHour = 8;
             const endHour = 16;
+            const sessionLengthMinutes = 15;
 
             // Create a reference date starting at 08:00
             let current = new Date();
@@ -243,7 +260,7 @@
                 const startTime = current.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 
                 // Advance 15 minutes
-                current.setMinutes(current.getMinutes() + 15);
+                current.setMinutes(current.getMinutes() + sessionLengthMinutes);
 
                 const endTime = current.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 
@@ -401,6 +418,23 @@
                 const msRemaining = currentEvent.endTimeObj - now;
                 const msTotal = currentEvent.endTimeObj - currentEvent.startTimeObj;
                 const percent = 100 - ((msRemaining / msTotal) * 100);
+
+                // Bell sounds
+                if (soundEnabled && (new Date() - lastBellTime > 1500)) {
+                    const isThirtySecondsLeft = (msRemaining > 29000 && msRemaining < 30000)
+                    const isOneSecondLeft = (msRemaining < 1000)
+                    if (isThirtySecondsLeft || isOneSecondLeft) {
+                        // Reset bell time to avoid triggering twice
+                        lastBellTime = new Date()
+                        if (isThirtySecondsLeft) {
+                            var audio = new Audio('../media/sounds/bells/454609__richcraftstudios__richcraft-chime-d-20181219.wav');
+                            audio.play();
+                        } else if (isOneSecondLeft) {
+                            var audio = new Audio('../media/sounds/bells/454612__richcraftstudios__richcraft-chime-d6ish-20181219.wav');
+                            audio.play();
+                        }
+                    }
+                }
 
                 statusEl.textContent = currentEvent.name;
 
