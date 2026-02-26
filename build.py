@@ -20,12 +20,12 @@ def get_git_commit_hash():
             if diff_data:
                 # Create an MD5 of the diff and take the first 12 chars
                 diff_hash = hashlib.md5(diff_data).hexdigest()[:12]
-                return f"{head_hash}-{diff_hash}"
+                return f"LD-{head_hash}-{diff_hash}"
             
-            return head_hash
+            return f"LD-{head_hash}"
         except Exception as e:
             print(e)
-            return "local-no-git"
+            return "LD-no-git"
 
     try:
         return subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).decode().strip()

@@ -1,12 +1,16 @@
 <script>
     const notifications = [
-        {"start_time": "16:00", "start_date": "25/02/2026", "end_time": "20:00", "end_date": "25/02/2026", "type":"warning", "message": "Library is closing at 5pm!"}
+        {"start_time": "16:00", "start_date": "25/02/2026", "end_time": "20:00", "end_date": "25/02/2026", "type":"warning", "message": "Library is closing at 5pm!"},
+        {"start_time": "13:03", "start_date": "26/02/2026", "end_time": "13:05", "end_date": "26/02/2026", "type":"warning", "message": "Surprise"}
     ];
 
-    function createNotification(notifType, notifMessage) {
+    let activeNotifIndex = null;
+
+    function createNotification(notifType, notifMessage, notifID) {
         // 1. Create the warning bar element
         const warningBar = document.createElement('div');
         warningBar.className = 'warning-bar';
+        warningBar.id = 'warning-bar-' + notifID;
 
         // 2. Set your message here
         if (notifType == "warning") {
@@ -24,24 +28,49 @@
         }
     }
 
-    const now = new Date();
+    function removeAllNotifications() {
+        var paras = document.getElementsByClassName('warning-bar');
 
-    // Helper to convert your specific format into a JS Date object
-    const parseDateTime = (dateStr, timeStr) => {
-        const [day, month, year] = dateStr.split('/').map(Number);
-        const [hours, minutes] = timeStr.split(':').map(Number);
-        // Note: Month is 0-indexed in JS (January = 0)
-        return new Date(year, month - 1, day, hours, minutes);
-    };
-
-    for (const note of notifications) {
-        const start = parseDateTime(note.start_date, note.start_time);
-        const end = parseDateTime(note.end_date, note.end_time);
-
-        if (now >= start && now <= end) {
-            createNotification(note.type, note.message);
+        while(paras[0]) {
+            paras[0].parentNode.removeChild(paras[0]);
         }
     }
+
+    function checkForNotifs() {
+
+        const now = new Date();
+
+        // Helper to convert your specific format into a JS Date object
+        const parseDateTime = (dateStr, timeStr) => {
+            const [day, month, year] = dateStr.split('/').map(Number);
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            // Note: Month is 0-indexed in JS (January = 0)
+            return new Date(year, month - 1, day, hours, minutes);
+        };
+
+
+        for (const note of notifications) {
+            const noteIndex = notifications.indexOf(note);
+            const start = parseDateTime(note.start_date, note.start_time);
+            const end = parseDateTime(note.end_date, note.end_time);
+
+            if (activeNotifIndex == null) {
+                if (now >= start && now <= end) {
+                    createNotification(note.type, note.message, noteIndex);
+                    activeNotifIndex = noteIndex;
+                    break;
+                }
+            } else if (activeNotifIndex == noteIndex) {
+                if (!(now >= start && now <= end)) {
+                    removeAllNotifications();
+                    activeNotifIndex = null;
+                    break;
+                }
+            }
+        }
+    }
+    checkForNotifs();
+    setInterval(checkForNotifs, 10000);
 
 </script>
 
