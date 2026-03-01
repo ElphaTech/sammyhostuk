@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SammyHost.uk</title>
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="icon" type="image/x-icon" href="/media/images/sh.logo-whiteonblack.png">
+    </head>
+    <body>
+        <header class="navbar" id="navbar">
+            <a href="/" class="logo">sammyhost<span class="dot">.</span>uk</a>
+            <nav class="nav-links">
+                <a href="https://copyparty.sammyhost.uk/">Copyparty</a>
+            </nav>
+        </header>
+
+        <main id="content">
+            <div id="student-search-container" style="font-family: sans-serif; max-width: 500px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+    <h3>Student Lookup</h3>
+
+    <div style="margin-bottom: 15px;">
+        <label style="display:block; font-size: 12px; margin-bottom: 5px;">Upload data.csv:</label>
+        <input type="file" id="csvFile" accept=".csv" style="width: 100%;">
+    </div>
+
+    <div id="display-area" style="min-height: 120px; padding: 15px; background: #f9f9f9; border-radius: 4px; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+        <p id="output-text" style="font-size: 1.2em; font-weight: bold; margin: 0;">Waiting for CSV upload...</p>
+        <p id="warning-text" style="display: none; background: #ff4136; color: white; padding: 5px; margin-top: 10px; font-weight: bold;">⚠️ WARNING: DIFFERENT CLASS</p>
+    </div>
+
+    <div style="margin-top: 10px; font-size: 0.8em; color: #666;">
+        Type numbers and press <strong>Enter</strong> to search.
+        <br>Current buffer: <span id="buffer-preview">None</span>
+    </div>
+</div>
+
+<script>
+    let studentData = [];
+    let lastForm = '';
+    let inputBuffer = '';
+
+    const fileInput = document.getElementById('csvFile');
+    const outputText = document.getElementById('output-text');
+    const warningText = document.getElementById('warning-text');
+    const bufferPreview = document.getElementById('buffer-preview');
+
+    // Handle CSV Processing
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const text = event.target.result;
+            processData(text);
+        };
+        reader.readAsText(file);
+    });
+
+    function processData(csvText) {
+        const lines = csvText.split(/\r?\n/);
+        const headers = lines[0].split(',');
+
+        studentData = lines.slice(1).map(line => {
+            const values = line.split(',');
+            if (values.length < headers.length) return null;
+            let obj = {};
+            headers.forEach((header, i) => {
+                obj[header.trim()] = values[i]?.trim();
+            });
+            return obj;
+        }).filter(item => item !== null);
+
+        outputText.innerText = "Ready. Start typing codes.";
+        outputText.style.color = "black";
+    }
+
+    // Capture keystrokes globally (or you can scope this to a specific input)
+    document.addEventListener('keydown', function(e) {
+        // Ignore if user is typing in the file input
+        if (e.target.tagName === 'INPUT' && e.target.type === 'file') return;
+
+        if (e.key === 'Enter') {
+            searchStudent(inputBuffer);
+            inputBuffer = ''; // Reset cache
+            bufferPreview.innerText = "None";
+        } else if (/^\d$/.test(e.key)) { // Only capture numbers
+            inputBuffer += e.key;
+            bufferPreview.innerText = inputBuffer;
+        } else if (e.key === 'Backspace') {
+            inputBuffer = inputBuffer.slice(0, -1);
+            bufferPreview.innerText = inputBuffer || "None";
+        }
+    });
+
+    function searchStudent(code) {
+        if (studentData.length === 0) {
+            outputText.innerText = "Please upload a CSV first.";
+            return;
+        }
+
+        const student = studentData.find(s => s['Old School Code'] === code);
+
+        if (student) {
+            const currentForm = student['Form'];
+            const fullName = `${student['Forename']} ${student['Surname']}`;
+
+            // Logic for "Different Class" Warning
+            if (lastForm && lastForm !== currentForm) {
+                warningText.style.display = 'block';
+            } else {
+                warningText.style.display = 'none';
+            }
+
+            lastForm = currentForm;
+            outputText.innerText = `${currentForm} - ${fullName}`;
+            outputText.style.color = "green";
+        } else {
+            warningText.style.display = 'none';
+            outputText.innerText = `No student found with code: ${code}`;
+            outputText.style.color = "red";
+        }
+    }
+</script>
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <img src="/media/images/sh.logo-whiteonblue.png" alt="SammyHost Logo" class="footer-logo">
+                </div>
+                <div class="footer-right">
+                    <p>&copy; 2025 SammyHost. All rights reserved.</p>
+                    <nav class="footer-nav">
+                        <a href="/404/">About</a>
+                        <a href="/404/">Contact</a>
+                        <a href="/404/">Terms</a>
+                    </nav>
+                    <p class="footer-email">
+                    Contact us: <a href="mailto:admin@sammyhost.uk">admin@sammyhost.uk</a></br>
+                    Version: 0646ea6
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
