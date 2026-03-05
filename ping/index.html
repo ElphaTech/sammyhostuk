@@ -28,7 +28,8 @@
         const start = performance.now();
 
         try {
-            await fetch('https://api.sammyhost.uk/ping');
+            //await fetch('https://api.sammyhost.uk/ping');
+            await fetch('http://localhost:8001/ping');
             const end = performance.now();
             const duration = (end - start).toFixed(2);
 
@@ -40,6 +41,9 @@
             console.error(error);
         }
     }
+    setTimeout(() => {
+        measurePing();
+    }, 100);
 </script>
 
 <style>
@@ -89,7 +93,7 @@
                     </nav>
                     <p class="footer-email">
                     Contact us: <a href="mailto:admin@sammyhost.uk">admin@sammyhost.uk</a></br>
-                    Version: 78e7d58
+                    Version: 1ef42b8
                     </p>
                 </div>
             </div>
