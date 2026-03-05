@@ -10,8 +10,7 @@
         const start = performance.now();
 
         try {
-            //await fetch('https://api.sammyhost.uk/ping');
-            await fetch('http://localhost:8001/ping');
+            await fetch('https://api.sammyhost.uk/ping');
             const end = performance.now();
             const duration = (end - start).toFixed(2);
 
