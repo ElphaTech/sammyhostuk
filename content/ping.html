@@ -1,6 +1,6 @@
 <div class="ping-container">
-    <div id="ping-header" onclick="measurePing()">Current ping (click to re-ping):</div>
-    <div id="ping-time" onclick="measurePing()">0ms</div>
+    <div id="ping-header" onclick="measurePing()">Loading...</div>
+    <div id="ping-time" onclick="measurePing()">?ms</div>
 </div>
 
 <script>
@@ -22,9 +22,11 @@
             console.error(error);
         }
     }
-    setTimeout(() => {
-        measurePing();
-    }, 100);
+    window.onload = function() {
+        setTimeout(() => {
+            measurePing();
+        }, 100);
+    };
 </script>
 
 <style>
