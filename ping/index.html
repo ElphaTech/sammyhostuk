@@ -16,52 +16,62 @@
         </header>
 
         <main id="content">
-            <div id="logo-area">
-    <div class="center-logo">
-        <div class="center-line1">sammy</div>
-        <div class="center-line2">host<span class="dot">.</span>uk</div>
-    </div>
+            <div class="ping-container">
+    <div id="ping-header" onclick="measurePing()">Current ping (click to re-ping):</div>
+    <div id="ping-time" onclick="measurePing()">0ms</div>
 </div>
 
-<style>
-  /* Change the page background color here */
-  body {
-    background-color: #ffffff; /* A deep navy/slate */
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Styling for the numbers to keep them small and on one line */
-  .center-logo {
-    color: #000000; /* Subtle gray-blue text */
-    font-family: monospace; /* Monospace looks great for data lists */
-    font-size: 11px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Adds "..." if the screen is too small */
-    padding: 20px;
-    text-align: center;
-    margin: 50px 0 0 0;
-  }
-  #logo-area{
-      display: block;
-  }
-</style>
-
 <script>
-  (function() {
-    // 1. Generate the random list of 30 numbers (1-100)
-    const numbers = Array.from({ length: 30 }, () => Math.floor(Math.random() * 100) + 1);
+    async function measurePing() {
+        const header = document.getElementById('ping-header');
+        const display = document.getElementById('ping-time');
+        const start = performance.now();
 
-    // 2. Target the logo container
-    const logoArea = document.querySelector('.center-logo');
+        try {
+            await fetch('https://api.sammyhost.uk/ping');
+            const end = performance.now();
+            const duration = (end - start).toFixed(2);
 
-    if (logoArea) {
-      // 3. Replace the text with the comma-separated list
-      logoArea.textContent = numbers.join(', ');
+            header.innerText = "Last ping:"
+            display.innerText = `${duration} ms`;
+        } catch (error) {
+            header.innerText = "Error: Could not reach server";
+            display.innerText = "-1ms";
+            console.error(error);
+        }
     }
-  })();
 </script>
+
+<style>
+.ping-container {
+    height: 100vh; /* Occupy most of the screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #F5F5F5;
+    position: relative;
+    padding: 0 5%;
+}
+
+    #ping-header{
+        font-family: 'Unbounded', sans-serif;
+        font-weight: 400;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+        opacity: 0.9;
+    }
+
+    /* Big Clock Font */
+    #ping-time {
+        font-family: 'Unbounded', sans-serif;
+        font-weight: 700;
+        font-size: clamp(3rem, 15vw, 10rem); /* Responsive scaling for TVs */
+        line-height: 1.1;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+</style>
 
         </main>
 
