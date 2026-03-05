@@ -1,0 +1,56 @@
+<div class="ping-container">
+    <div id="ping-header" onclick="measurePing()">Current ping (click to re-ping):</div>
+    <div id="ping-time" onclick="measurePing()">0ms</div>
+</div>
+
+<script>
+    async function measurePing() {
+        const header = document.getElementById('ping-header');
+        const display = document.getElementById('ping-time');
+        const start = performance.now();
+
+        try {
+            await fetch('https://api.sammyhost.uk/ping');
+            const end = performance.now();
+            const duration = (end - start).toFixed(2);
+
+            header.innerText = "Last ping:"
+            display.innerText = `${duration} ms`;
+        } catch (error) {
+            header.innerText = "Error: Could not reach server";
+            display.innerText = "-1ms";
+            console.error(error);
+        }
+    }
+</script>
+
+<style>
+.ping-container {
+    height: 100vh; /* Occupy most of the screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #F5F5F5;
+    position: relative;
+    padding: 0 5%;
+}
+
+    #ping-header{
+        font-family: 'Unbounded', sans-serif;
+        font-weight: 400;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+        opacity: 0.9;
+    }
+
+    /* Big Clock Font */
+    #ping-time {
+        font-family: 'Unbounded', sans-serif;
+        font-weight: 700;
+        font-size: clamp(3rem, 15vw, 10rem); /* Responsive scaling for TVs */
+        line-height: 1.1;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+</style>
