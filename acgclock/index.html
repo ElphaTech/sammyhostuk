@@ -17,68 +17,83 @@
 
         <main id="content">
             <script>
-    const notifications = [
-        {"start_time": "16:00", "start_date": "23/03/2026", "end_time": "16:30", "end_date": "23/03/2026", "type":"warning", "message": "Library is closing at 4:15pm!"},
-        {"start_time": "13:03", "start_date": "26/02/2026", "end_time": "13:05", "end_date": "26/02/2026", "type":"warning", "message": "Surprise"}
-    ];
-
+    let notifications = [];
     let activeNotifIndex = null;
 
+    async function fetchNotifications() {
+        try {
+            const response = await fetch('https://api.sammyhost.uk/notifications?sites=acgclock&sites=main');
+            if (!response.ok) throw new Error('API fetch failed');
+
+            const data = await response.json();
+
+            // Error Check: Ensure data is an array
+            if (Array.isArray(data)) {
+                notifications = data;
+            } else {
+                console.error('API did not return an array');
+                return;
+            }
+
+            // Reset UI on data refresh to prevent index mismatch
+            if (activeNotifIndex !== null) {
+                removeAllNotifications();
+                activeNotifIndex = null;
+            }
+
+            checkForNotifs();
+        } catch (error) {
+            console.error('Error fetching notifications:', error);
+        }
+    }
+
     function createNotification(notifType, notifMessage, notifID) {
-        // 1. Create the warning bar element
         const warningBar = document.createElement('div');
         warningBar.className = 'warning-bar';
         warningBar.id = 'warning-bar-' + notifID;
 
-        // 2. Set your message here
-        if (notifType == "warning") {
-            warningBar.innerHTML = '⚠️ <strong>Warning:</strong> ' + notifMessage ;
+        if (notifType === "warning") {
+            warningBar.innerHTML = '⚠️ <strong>Warning:</strong> ' + notifMessage;
         }
 
-        // 3. Insert it into the page
         const navbar = document.getElementById('navbar');
         if (navbar) {
-            // This places it right after the navbar in the HTML structure
             navbar.parentNode.insertBefore(warningBar, navbar.nextSibling);
         } else {
-            // Fallback if the navbar ID isn't found
             document.body.prepend(warningBar);
         }
     }
 
     function removeAllNotifications() {
-        var paras = document.getElementsByClassName('warning-bar');
-
-        while(paras[0]) {
-            paras[0].parentNode.removeChild(paras[0]);
+        const bars = document.getElementsByClassName('warning-bar');
+        while(bars[0]) {
+            bars[0].parentNode.removeChild(bars[0]);
         }
     }
 
     function checkForNotifs() {
+        if (!notifications.length) return;
 
         const now = new Date();
 
-        // Helper to convert your specific format into a JS Date object
         const parseDateTime = (dateStr, timeStr) => {
             const [day, month, year] = dateStr.split('/').map(Number);
             const [hours, minutes] = timeStr.split(':').map(Number);
-            // Note: Month is 0-indexed in JS (January = 0)
             return new Date(year, month - 1, day, hours, minutes);
         };
 
-
-        for (const note of notifications) {
-            const noteIndex = notifications.indexOf(note);
+        for (let i = 0; i < notifications.length; i++) {
+            const note = notifications[i];
             const start = parseDateTime(note.start_date, note.start_time);
             const end = parseDateTime(note.end_date, note.end_time);
 
-            if (activeNotifIndex == null) {
+            if (activeNotifIndex === null) {
                 if (now >= start && now <= end) {
-                    createNotification(note.type, note.message, noteIndex);
-                    activeNotifIndex = noteIndex;
+                    createNotification(note.type, note.message, i);
+                    activeNotifIndex = i;
                     break;
                 }
-            } else if (activeNotifIndex == noteIndex) {
+            } else if (activeNotifIndex === i) {
                 if (!(now >= start && now <= end)) {
                     removeAllNotifications();
                     activeNotifIndex = null;
@@ -87,9 +102,29 @@
             }
         }
     }
-    checkForNotifs();
-    setInterval(checkForNotifs, 10000);
 
+    // Logic to run at the start of every minute
+    function startMinuteInterval() {
+        checkForNotifs(); // Run once immediately
+
+        const now = new Date();
+        const msUntilNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+
+        setTimeout(() => {
+            checkForNotifs();
+            // Once synced, run every 60 seconds
+            setInterval(checkForNotifs, 60000);
+        }, msUntilNextMinute);
+    }
+
+    // Initial Load
+    fetchNotifications();
+
+    // Refresh API data every 2 minutes
+    setInterval(fetchNotifications, 120000);
+
+    // Start the minute-synced checker
+    startMinuteInterval();
 </script>
 
 
@@ -190,299 +225,99 @@
 </style>
 
 <script>
-    (function() {
-        // --- Schedule Configuration ---
-        // Format: start: "HH:MM", name: "Event Name", type: "class"|"break"|"trans"|"free"
+(function() {
+    let todaysSchedule = [];
+    let soundEnabled = false;
+    let lastBellTime = 0;
 
-        // Helper to generate schedule for Mon, Wed, Thu
-        const getStandardDay = () => [
-            { start: "07:30", end: "08:30", name: "School Open / Before P1", type: "free" },
-            { start: "08:30", end: "09:35", name: "Period 1", type: "class" },
-            { start: "09:35", end: "09:40", name: "Transition Time", type: "trans" },
-            { start: "09:40", end: "10:45", name: "Period 2", type: "class" },
-            { start: "10:45", end: "11:15", name: "Break 1", type: "break" },
-            { start: "11:15", end: "12:20", name: "Period 3", type: "class" },
-            { start: "12:20", end: "12:25", name: "Transition Time", type: "trans" },
-            { start: "12:25", end: "13:30", name: "Period 4", type: "class" },
-            { start: "13:30", end: "14:10", name: "Break 2", type: "break" },
-            { start: "14:10", end: "15:15", name: "Period 5", type: "class" },
-            { start: "15:15", end: "15:20", name: "Transition Time", type: "trans" },
-            { start: "15:20", end: "16:35", name: "Period 6", type: "class" },
-            { start: "16:35", end: "17:30", name: "Library / After School", type: "free" }
-        ];
+    // Pre-load audio objects to prevent lag/memory leaks
+    const bell30s = new Audio('../media/sounds/bells/454609__richcraftstudios__richcraft-chime-d-20181219.wav');
+    const bellEnd = new Audio('../media/sounds/bells/454612__richcraftstudios__richcraft-chime-d6ish-20181219.wav');
 
-        // Tuesday Schedule
-        const getTuesday = () => [
-            { start: "07:30", end: "08:30", name: "School Open / Before P1", type: "free" },
-            { start: "08:30", end: "09:25", name: "Period 1", type: "class" },
-            { start: "09:25", end: "09:30", name: "Transition Time", type: "trans" },
-            { start: "09:30", end: "10:25", name: "Period 2", type: "class" },
-            { start: "10:25", end: "10:55", name: "Break 1", type: "break" },
-            { start: "10:55", end: "11:50", name: "Period 3", type: "class" },
-            { start: "11:50", end: "11:55", name: "Transition Time", type: "trans" },
-            { start: "11:55", end: "12:50", name: "Period 4", type: "class" },
-            { start: "12:50", end: "13:20", name: "Break 2", type: "break" },
-            { start: "13:20", end: "14:15", name: "Period 5", type: "class" },
-            { start: "14:15", end: "14:20", name: "Transition Time", type: "trans" },
-            { start: "14:20", end: "15:15", name: "Period 6", type: "class" },
-            { start: "15:15", end: "15:20", name: "Transition Time", type: "trans" },
-            { start: "15:20", end: "16:35", name: "Period 7", type: "class" },
-            { start: "16:35", end: "17:30", name: "Library / After School", type: "free" }
-        ];
-
-        // Friday Schedule
-        const getFriday = () => [
-            { start: "07:30", end: "08:30", name: "School Open / Before P1", type: "free" },
-            { start: "08:30", end: "09:35", name: "Period 1", type: "class" },
-            { start: "09:35", end: "09:40", name: "Transition Time", type: "trans" },
-            { start: "09:40", end: "10:45", name: "Period 2", type: "class" },
-            { start: "10:45", end: "11:15", name: "Break 1", type: "break" },
-            { start: "11:15", end: "12:20", name: "Period 3", type: "class" },
-            { start: "12:20", end: "12:25", name: "Transition Time", type: "trans" },
-            { start: "12:25", end: "13:30", name: "Period 4", type: "class" },
-            { start: "13:30", end: "14:10", name: "Break 2", type: "break" },
-            { start: "14:10", end: "15:15", name: "Period 5", type: "class" },
-            { start: "15:15", end: "16:00", name: "Library / After School", type: "free" } // Closes 16:00
-        ];
-
-        // bell toggle and stuff
-        let lastBellTime = new Date();
-        let soundEnabled = false;
-        function toggleSound() {
-            //const audio = document.getElementById('audio-toggle');
-            soundEnabled = !soundEnabled;
-            if (soundEnabled) {
-                var audio = new Audio('../media/sounds/bells/454609__richcraftstudios__richcraft-chime-d-20181219.wav');
-                audio.play();
-            }
-            console.log(soundEnabled)
+    async function fetchTimetable() {
+        try {
+            const response = await fetch('https://api.sammyhost.uk/timetable-for-date');
+            todaysSchedule = await response.json();
+        } catch (error) {
+            console.error('Failed to fetch timetable:', error);
         }
-        document.addEventListener('keydown', function(event) {
-            if (event.key == "m") {
-                toggleSound();
-            }
-        });
+    }
 
-        // Achivement conference day
-        const getFifteenMinSchedule = () => {
-            const schedule = [];
-            const startHour = 8;
-            const endHour = 16;
-            const sessionLengthMinutes = 15;
+    function toggleSound() {
+        soundEnabled = !soundEnabled;
+        if (soundEnabled) bell30s.play();
+    }
 
-            // Create a reference date starting at 08:00
-            let current = new Date();
-            current.setHours(startHour, 0, 0, 0);
+    document.addEventListener('keydown', (e) => { if (e.key === "m") toggleSound(); });
 
-            let sessionNum = 1;
+    function formatTimeRemaining(ms) {
+        const s = Math.floor(ms / 1000);
+        const h = Math.floor(s / 3600);
+        const m = Math.floor((s % 3600) / 60);
+        const sec = s % 60;
+        return h > 0 ? `${h}h ${m}m ${sec}s` : m > 0 ? `${m}m ${sec}s` : `${sec}s`;
+    }
 
-            schedule.push({ start: "07:30", end: "08:00", name: "School Open / Before P1", type: "free" });
+    function updateClock() {
+        const now = new Date();
+        const nowSec = now.getTime() / 1000;
 
-            // Loop until we reach 16:00
-            while (current.getHours() < endHour) {
-                const startTime = current.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+        // Update basic UI
+        document.getElementById('main-date').textContent = now.toLocaleDateString('en-GB', { weekday: "long", month: "long", day: "numeric" });
+        document.getElementById('main-clock').textContent = now.toLocaleTimeString('en-GB', { hour12: false });
 
-                // Advance 15 minutes
-                current.setMinutes(current.getMinutes() + sessionLengthMinutes);
+        const statusEl = document.getElementById('status-message');
+        const subStatusEl = document.getElementById('sub-status');
+        const progressBar = document.getElementById('time-progress');
 
-                const endTime = current.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+        // Find current and next events
+        const currentIndex = todaysSchedule.findIndex(s => nowSec >= s.start_time && nowSec < s.end_time);
+        const currentEvent = todaysSchedule[currentIndex];
+        const nextEvent = todaysSchedule[currentIndex + 1];
 
-                schedule.push({
-                    start: startTime,
-                    end: endTime,
-                    name: `Session ${sessionNum++}`,
-                    type: "free"
-                });
-            }
-
-            return schedule;
-        };
-
-        const schedules = {
-            1: getStandardDay(), // Mon
-            2: getTuesday(),     // Tue
-            3: getStandardDay(), // Wed
-            4: getStandardDay(), // Thu
-            5: getFriday(),      // Fri
-            6: [],               // Sat (Closed)
-            0: []                // Sun (Closed)
-        };
-
-        const closingTimes = { 1: "17:30", 2: "17:30", 3: "17:30", 4: "17:30", 5: "16:00" };
-
-        const closedDates = { // Extra dates where school is closed
-            "06/02/2026": "Waitangi Day",
-            "27/02/2026": "Achievement Conference Day",
-            "01/04/2026": "Parent Teacher Interviews",
-            "03/04/2026": "Good Friday",
+        if (!currentEvent) {
+            statusEl.textContent = "No currently scheduled events";
+            subStatusEl.textContent = "";
+            progressBar.style.width = "0%";
+            return;
         }
 
-        function isInArray(array, value) {
-            return (array.find(item => {return item == value}) || []).length > 0;
+        // Active Event Logic
+        statusEl.textContent = currentEvent.name;
+        const msRemaining = (currentEvent.end_time - nowSec) * 1000;
+
+        // Progress Bar logic (0% if all_day is true)
+        if (currentEvent.all_day) {
+            progressBar.style.width = "0%";
+        } else {
+            const totalMs = (currentEvent.end_time - currentEvent.start_time) * 1000;
+            const percent = 100 - ((msRemaining / totalMs) * 100);
+            progressBar.style.width = `${Math.max(0, Math.min(100, percent))}%`;
         }
 
-        function parseTime(timeStr, dateObj) {
-            const [h, m] = timeStr.split(':').map(Number);
-            const d = new Date(dateObj);
-            d.setHours(h, m, 0, 0);
-            return d;
-        }
-
-        function formatTimeRemaining(ms) {
-            const totalSeconds = Math.floor(ms / 1000);
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-
-            if (hours > 0) return `${hours}h ${minutes}m ${seconds}s`;
-            if (minutes > 0) return `${minutes}m ${seconds}s`;
-            return `${seconds}s`;
-        }
-
-        function getNextDayOpen(now) {
-            const next = new Date(now);
-            do {
-                next.setDate(next.getDate() + 1);
-            } while (next.getDay() === 0 || next.getDay() === 6 || isInArray(Object.keys(closedDates), next.toLocaleDateString('en-GB')));
-            next.setHours(7, 30, 0, 0);
-            // If today is Monday and it's before 7:30, the math above jumps a week. Fix:
-            if (now.getDay() === 1 && now.getHours() < 7) {
-                next.setDate(now.getDate());
-            }
-            return next;
-        }
-
-        function updateClock() {
-            const now = new Date();
-            const day = now.getDay();
-            const formattedDate = now.toLocaleDateString('en-GB');
-
-            // Update Date
-            const dateString = now.toLocaleDateString('en-GB',{
-                weekday: "long",
-                month: "long",
-                day: "numeric"
-            });
-            document.getElementById('main-date').textContent = dateString;
-
-            // Update Main Clock
-            const timeString = now.toLocaleTimeString('en-GB', { hour12: false });
-            document.getElementById('main-clock').textContent = timeString;
-
-            // 2. Determine Schedule State
-            let todaysSchedule = null;
-            const isClosedDay = isInArray(Object.keys(closedDates), formattedDate)
-            const isACD = isInArray(Object.values(closedDates), "Achievement Conference Day")
-            if ( isClosedDay && isACD ) {
-                todaysSchedule = getFifteenMinSchedule();
-            } else {
-                todaysSchedule = schedules[day];
-            }
-            const openTime = parseTime(todaysSchedule[0]['start'], now);
-            const closeTime = parseTime(todaysSchedule[todaysSchedule.length - 1]['end'], now);
-            let currentEvent = null;
-            let nextEvent = null;
-            let isClosed = true;
-            let closedMessage = "School Closed";
-
-            if ( isClosedDay && !(isACD)) {
-                closedMessage = closedDates[formattedDate];
-
-                // Check if within open hours for Mon-Fri
-            } else if (todaysSchedule && todaysSchedule.length > 0) {
-
-                if (now >= openTime && now < closeTime) {
-                    isClosed = false;
-                    // Find current slot
-                    for (let i = 0; i < todaysSchedule.length; i++) {
-                        const slot = todaysSchedule[i];
-                        const startT = parseTime(slot.start, now);
-                        const endT = parseTime(slot.end, now);
-
-                        if (now >= startT && now < endT) {
-                            currentEvent = slot;
-                            currentEvent.endTimeObj = endT;
-                            currentEvent.startTimeObj = startT;
-                            // Look ahead for next
-                            if (i + 1 < todaysSchedule.length) {
-                                nextEvent = todaysSchedule[i+1];
-                            }
-                            break;
-                        }
-                    }
-                }
-            }
-
-            const statusEl = document.getElementById('status-message');
-            const subStatusEl = document.getElementById('sub-status');
-            const progressBar = document.getElementById('time-progress');
-
-            if (isClosed) {
-                // Handle Closed State
-                let targetTime;
-                let targetName = "School Opens";
-
-                // If weekday before open
-                if (day >= 1 && day <= 5 && now < parseTime("07:30", now)) {
-                    targetTime = parseTime("07:30", now);
-                }
-                // If weekday after close or weekend
-                else {
-                    targetTime = getNextDayOpen(now);
-                }
-
-                const msUntilOpen = targetTime - now;
-                statusEl.textContent = closedMessage;
-                subStatusEl.textContent = `Opens in ${formatTimeRemaining(msUntilOpen)}`;
-                progressBar.style.width = "0%"; // No progress bar when closed
-
-            } else if (currentEvent) {
-                // Active School Day
-                const msRemaining = currentEvent.endTimeObj - now;
-                const msTotal = currentEvent.endTimeObj - currentEvent.startTimeObj;
-                const percent = 100 - ((msRemaining / msTotal) * 100);
-
-                // Bell sounds
-                if (soundEnabled && (new Date() - lastBellTime > 1500)) {
-                    const isThirtySecondsLeft = (msRemaining > 29000 && msRemaining < 30000)
-                    const isOneSecondLeft = (msRemaining < 1000)
-                    if (isThirtySecondsLeft || isOneSecondLeft) {
-                        // Reset bell time to avoid triggering twice
-                        lastBellTime = new Date()
-                        if (isThirtySecondsLeft) {
-                            var audio = new Audio('../media/sounds/bells/454609__richcraftstudios__richcraft-chime-d-20181219.wav');
-                            audio.play();
-                        } else if (isOneSecondLeft) {
-                            var audio = new Audio('../media/sounds/bells/454612__richcraftstudios__richcraft-chime-d6ish-20181219.wav');
-                            audio.play();
-                        }
-                    }
-                }
-
-                statusEl.textContent = currentEvent.name;
-
-                // Subtext logic
-                let nextText = "";
-                if (nextEvent) {
-                    nextText = `Next: ${nextEvent.name}`;
-                } else {
-                    nextText = "School Closing Soon";
-                }
-
-                subStatusEl.textContent = `${formatTimeRemaining(msRemaining)} remaining · ${nextText}`;
-                progressBar.style.width = `${percent}%`;
-
-            } else {
-                // Catch-all (should rarely hit given logic)
-                statusEl.textContent = "Transition Time";
-                subStatusEl.textContent = "";
-                progressBar.style.width = "0%";
+        // Bell logic
+        if (soundEnabled && (Date.now() - lastBellTime > 1500)) {
+            if (msRemaining > 29000 && msRemaining <= 30000) {
+                bell30s.play();
+                lastBellTime = Date.now();
+            } else if (msRemaining > 0 && msRemaining <= 1000) {
+                bellEnd.play();
+                lastBellTime = Date.now();
             }
         }
 
-        // Run immediately and then every second
-        setInterval(updateClock, 50); //didn't work: 1000 - (Date.now() % 1000));
-    updateClock();
+        const nextText = nextEvent ? `Next: ${nextEvent.name}` : "End of Schedule";
+        subStatusEl.textContent = `${formatTimeRemaining(msRemaining)} remaining · ${nextText}`;
+    }
+
+    // Precision timing: updates at the start of every second
+    function syncClock() {
+        updateClock();
+        setTimeout(syncClock, 1000 - (Date.now() % 1000));
+    }
+
+    fetchTimetable().then(syncClock);
+    setInterval(fetchTimetable, 1800000); // Refresh data every 30 mins
 })();
 </script>
 
@@ -531,7 +366,7 @@
                     </nav>
                     <p class="footer-email">
                     Contact us: <a href="mailto:admin@sammyhost.uk">admin@sammyhost.uk</a></br>
-                    Version: 65b4f98
+                    Version: e20be47
                     </p>
                 </div>
             </div>
