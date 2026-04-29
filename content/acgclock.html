@@ -1,3 +1,4 @@
+<!-- NOTIFICATIONS -->
 <script>
     let notifications = [];
     let activeNotifIndex = null;
@@ -206,108 +207,128 @@
     }
 </style>
 
+<!-- CLOCK LOGIC -->
 <script>
-(function() {
-    let todaysSchedule = [];
-    let soundEnabled = false;
-    let lastBellTime = 0;
+    (function() {
+        let todaysSchedule = [];
+        let lastFetchDate = ""; // Stores the date string (e.g., "Thursday, April 30, 2026")
+        let soundEnabled = false;
+        let lastBellTime = 0;
+        let isFetching = false;
 
-    // Pre-load audio objects to prevent lag/memory leaks
-    const bell30s = new Audio('../media/sounds/bells/454609__richcraftstudios__richcraft-chime-d-20181219.wav');
-    const bellEnd = new Audio('../media/sounds/bells/454612__richcraftstudios__richcraft-chime-d6ish-20181219.wav');
+        const bell30s = new Audio('../media/sounds/bells/454609__richcraftstudios__richcraft-chime-d-20181219.wav');
+        const bellEnd = new Audio('../media/sounds/bells/454612__richcraftstudios__richcraft-chime-d6ish-20181219.wav');
 
-    async function fetchTimetable() {
-        try {
-            const response = await fetch('https://api.sammyhost.uk/timetable-for-date');
-            todaysSchedule = await response.json();
-        } catch (error) {
-            console.error('Failed to fetch timetable:', error);
+        async function fetchTimetable() {
+            if (isFetching) return;
+            isFetching = true;
+
+            try {
+                const response = await fetch('https://api.sammyhost.uk/timetable-for-date');
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const data = await response.json();
+
+                // Sort and update state
+                todaysSchedule = data.sort((a, b) => a.start_time - b.start_time);
+                lastFetchDate = new Date().toDateString();
+                isFetching = false;
+                console.log("Schedule updated for:", lastFetchDate);
+            } catch (error) {
+                console.error('Fetch failed, retrying in 10s...', error);
+                isFetching = false;
+                // Retry logic for Wi-Fi wake-up lag
+                setTimeout(fetchTimetable, 10000);
+            }
         }
-    }
 
-    function toggleSound() {
-        soundEnabled = !soundEnabled;
-        if (soundEnabled) bell30s.play();
-    }
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            if (soundEnabled) bell30s.play();
+        }
 
-    document.addEventListener('keydown', (e) => { if (e.key === "m") toggleSound(); });
+        document.addEventListener('keydown', (e) => { if (e.key === "m") toggleSound(); });
 
-    function formatTimeRemaining(ms) {
-        const s = Math.floor(ms / 1000);
-        const h = Math.floor(s / 3600);
-        const m = Math.floor((s % 3600) / 60);
-        const sec = s % 60;
-        return h > 0 ? `${h}h ${m}m ${sec}s` : m > 0 ? `${m}m ${sec}s` : `${sec}s`;
-    }
+        function formatTimeRemaining(ms) {
+            const s = Math.floor(ms / 1000);
+            const h = Math.floor(s / 3600);
+            const m = Math.floor((s % 3600) / 60);
+            const sec = s % 60;
+            return h > 0 ? `${h}h ${m}m ${sec}s` : m > 0 ? `${m}m ${sec}s` : `${sec}s`;
+        }
 
-    function updateClock() {
-        const now = new Date();
-        const nowSec = now.getTime() / 1000;
+        function updateClock() {
+            const now = new Date();
+            const nowSec = now.getTime() / 1000;
+            const currentDateString = now.toDateString();
 
-        // Update basic UI
-        document.getElementById('main-date').textContent = now.toLocaleDateString('en-GB', { weekday: "long", month: "long", day: "numeric" });
-        document.getElementById('main-clock').textContent = now.toLocaleTimeString('en-GB', { hour12: false });
+            // 1. SMART WAKE CHECK: If the day changed while the TV was asleep, reset and fetch
+            if (lastFetchDate !== "" && lastFetchDate !== currentDateString) {
+                todaysSchedule = []; // Clear yesterday's data
+                fetchTimetable();
+            }
 
-        const statusEl = document.getElementById('status-message');
-        const subStatusEl = document.getElementById('sub-status');
-        const progressBar = document.getElementById('time-progress');
+            document.getElementById('main-date').textContent = now.toLocaleDateString('en-GB', { weekday: "long", month: "long", day: "numeric" });
+            document.getElementById('main-clock').textContent = now.toLocaleTimeString('en-GB', { hour12: false });
 
-        // Find current and next events
-        const currentIndex = todaysSchedule.findIndex(s => nowSec >= s.start_time && nowSec < s.end_time);
-        const currentEvent = todaysSchedule[currentIndex];
-        const nextEvent = todaysSchedule.find(s => s.start_time > nowSec);
+            const statusEl = document.getElementById('status-message');
+            const subStatusEl = document.getElementById('sub-status');
+            const progressBar = document.getElementById('time-progress');
 
+            // Handle loading state
+            if (todaysSchedule.length === 0) {
+                statusEl.textContent = "Updating Schedule...";
+                subStatusEl.textContent = "Please wait for sync...";
+                progressBar.style.width = "0%";
+                return;
+            }
 
-        if (!currentEvent) {
-            statusEl.textContent = "No currently scheduled events";
-            if (nextEvent) {
-                const msUntilStart = (nextEvent.start_time - nowSec) * 1000;
+            const currentEvent = todaysSchedule.find(s => nowSec >= s.start_time && nowSec < s.end_time);
+            const nextEvent = todaysSchedule.find(s => s.start_time > nowSec);
+
+            if (currentEvent) {
+                statusEl.textContent = currentEvent.name;
+                const msRemaining = (currentEvent.end_time - nowSec) * 1000;
+
+                if (currentEvent.all_day) {
+                    progressBar.style.width = "0%";
+                } else {
+                    const totalMs = (currentEvent.end_time - currentEvent.start_time) * 1000;
+                    const percent = 100 - ((msRemaining / totalMs) * 100);
+                    progressBar.style.width = `${Math.max(0, Math.min(100, percent))}%`;
+                }
+
+                // Bell Logic
+                if (soundEnabled && (Date.now() - lastBellTime > 1500)) {
+                    if (msRemaining > 29000 && msRemaining <= 30000) {
+                        bell30s.play(); lastBellTime = Date.now();
+                    } else if (msRemaining > 0 && msRemaining <= 1000) {
+                        bellEnd.play(); lastBellTime = Date.now();
+                    }
+                }
+
                 const nextText = nextEvent ? `Next: ${nextEvent.name}` : "End of Schedule";
-                subStatusEl.textContent = `${formatTimeRemaining(msUntilStart)} remaining · ${nextText}`;
+                subStatusEl.textContent = `${formatTimeRemaining(msRemaining)} remaining · ${nextText}`;
             } else {
-                subStatusEl.textContent = "";
-            }
-            progressBar.style.width = "0%";
-            return;
-        }
-
-        // Active Event Logic
-        statusEl.textContent = currentEvent.name;
-        const msRemaining = (currentEvent.end_time - nowSec) * 1000;
-
-        // Progress Bar logic (0% if all_day is true)
-        if (currentEvent.all_day) {
-            progressBar.style.width = "0%";
-        } else {
-            const totalMs = (currentEvent.end_time - currentEvent.start_time) * 1000;
-            const percent = 100 - ((msRemaining / totalMs) * 100);
-            progressBar.style.width = `${Math.max(0, Math.min(100, percent))}%`;
-        }
-
-        // Bell logic
-        if (soundEnabled && (Date.now() - lastBellTime > 1500)) {
-            if (msRemaining > 29000 && msRemaining <= 30000) {
-                bell30s.play();
-                lastBellTime = Date.now();
-            } else if (msRemaining > 0 && msRemaining <= 1000) {
-                bellEnd.play();
-                lastBellTime = Date.now();
+                statusEl.textContent = "No currently scheduled events";
+                progressBar.style.width = "0%";
+                subStatusEl.textContent = nextEvent
+                    ? `Next: ${nextEvent.name} (starts in ${formatTimeRemaining((nextEvent.start_time - nowSec) * 1000)})`
+                    : "Schedule Finished";
             }
         }
 
-        const nextText = nextEvent ? `Next: ${nextEvent.name}` : "End of Schedule";
-        subStatusEl.textContent = `${formatTimeRemaining(msRemaining)} remaining · ${nextText}`;
-    }
+        function syncClock() {
+            updateClock();
+            setTimeout(syncClock, 1000 - (Date.now() % 1000));
+        }
 
-    // Precision timing: updates at the start of every second
-    function syncClock() {
-        updateClock();
-        setTimeout(syncClock, 1000 - (Date.now() % 1000));
-    }
+        // Initial load
+        fetchTimetable().then(syncClock);
 
-    fetchTimetable().then(syncClock);
-    setInterval(fetchTimetable, 1800000); // Refresh data every 30 mins
-})();
+        // Background refresh every 30 minutes
+        setInterval(fetchTimetable, 1800000);
+    })();
 </script>
 
 <!-- RELOAD PAGE ON HASH UPDATE -->
@@ -316,22 +337,22 @@
     let initialHash = null;
 
     async function checkForUpdates() {
-      try {
-        // 'no-store' ensures we get the latest file from the server, not the cache
-        const response = await fetch('../hash.txt?t=' + Date.now(), { cache: 'no-store' });
-        const latestHash = (await response.text()).trim();
+        try {
+            // 'no-store' ensures we get the latest file from the server, not the cache
+            const response = await fetch('../hash.txt?t=' + Date.now(), { cache: 'no-store' });
+            const latestHash = (await response.text()).trim();
 
-        if (!initialHash) {
-          // Set the baseline on the first run
-          initialHash = latestHash;
-        } else if (latestHash !== initialHash) {
-          // If the hash changed, refresh the page
-          console.log('New version detected. Reloading...');
-          window.location.reload();
+            if (!initialHash) {
+                // Set the baseline on the first run
+                initialHash = latestHash;
+            } else if (latestHash !== initialHash) {
+                // If the hash changed, refresh the page
+                console.log('New version detected. Reloading...');
+                window.location.reload();
+            }
+        } catch (error) {
+            console.error('Failed to check for updates:', error);
         }
-      } catch (error) {
-        console.error('Failed to check for updates:', error);
-      }
     }
 
     // Check immediately on load, then every 60 seconds
