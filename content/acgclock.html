@@ -247,6 +247,21 @@
         if (soundEnabled) bell30s.play();
     }
 
+    // Find the specific anchor tag
+    const oldLink = document.querySelector('a[href="https://copyparty.sammyhost.uk/"]');
+
+    if (oldLink) {
+        // Create a new button element for the toggle
+        const toggleBtn = document.createElement('span');
+        toggleBtn.textContent = 'Toggle Bell';
+
+        // Attach the function call to the click event
+        toggleBtn.addEventListener('click', toggleSound);
+
+        // Replace the old link with the new button
+        oldLink.parentNode.replaceChild(toggleBtn, oldLink);
+    }
+
     document.addEventListener('keydown', (e) => { if (e.key === "m") toggleSound(); });
 
     function formatTimeRemaining(ms) {
