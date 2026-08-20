@@ -1,10 +1,10 @@
-from pathlib import Path
-import shutil
 import argparse
-import subprocess
-import os
 import hashlib
+import os
+import shutil
+import subprocess
 from datetime import datetime
+from pathlib import Path
 
 # === Get commit hash ===
 
@@ -13,31 +13,43 @@ def get_git_commit_hash():
     # If not in GitHub Actions, return the current local time
     if not os.getenv("GITHUB_ACTIONS"):
         try:
-            head_hash = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).decode().strip()
+            head_hash = (
+                subprocess.check_output(
+                    ["git", "rev-parse", "--short", "HEAD"])
+                .decode()
+                .strip()
+            )
             # Get the diff of all tracked and untracked changes
-            diff_data = subprocess.check_output(["git", "diff", "HEAD"]).strip()
-            
+            diff_data = subprocess.check_output(
+                ["git", "diff", "HEAD"]).strip()
+
             if diff_data:
                 # Create an MD5 of the diff and take the first 12 chars
                 diff_hash = hashlib.md5(diff_data).hexdigest()[:12]
                 return f"LD-{head_hash}-{diff_hash}"
-            
+
             return f"LD-{head_hash}"
         except Exception as e:
             print(e)
             return "LD-no-git"
 
     try:
-        return subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).decode().strip()
+        return (
+            subprocess.check_output(["git", "rev-parse", "--short", "HEAD"])
+            .decode()
+            .strip()
+        )
     except Exception:
         return "unknown"
 
 
-
 # === Parse arguments ===
 parser = argparse.ArgumentParser(description="Build the static site.")
-parser.add_argument('--prod', action='store_true',
-                    help='Output to build instead of .tempbuild')
+parser.add_argument(
+    "--prod",
+    action="store_true",
+    help="Output to build instead of .tempbuild",
+)
 args = parser.parse_args()
 
 # === Output directory ===
@@ -55,8 +67,9 @@ if output_dir.exists():
 output_dir.mkdir(parents=True)
 
 # === Create hash.txt file ===
-hash_file = output_dir / 'hash.txt'
+hash_file = output_dir / "hash.txt"
 hash_file.write_text(GIT_COMMIT_HASH)
+
 
 # === Function to apply template ===
 def apply_template(input_template, content_html, placeholder):
@@ -66,9 +79,16 @@ def apply_template(input_template, content_html, placeholder):
 # === Process .html content ===
 for file in content_dir.glob("*.html"):
     content = file.read_text()
-    output = apply_template(template, content, "<!-- Content goes here -->")
-    output = apply_template(output, GIT_COMMIT_HASH,
-                            "<!-- Git Commit Hash -->")
+
+    # Check if file starts with <!--No Template--> (ignoring leading whitespace)
+    if content.lstrip().startswith("<!-- No Template -->"):
+        output = content
+    else:
+        output = apply_template(
+            template, content, "<!-- Content goes here -->")
+        output = apply_template(
+            output, GIT_COMMIT_HASH, "<!-- Git Commit Hash -->"
+        )
 
     # Create directory for each HTML file, put output as index.html
     if file.stem == "index":
