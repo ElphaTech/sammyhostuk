@@ -278,6 +278,18 @@ body{
 </section>
 </main>
 
+<!-- Fullscreen when clock clicked -->
+<script>
+    const btn = document.getElementById('clock');
+    btn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen(); // Request fullscreen
+        } else {
+            document.exitFullscreen(); // Exit fullscreen
+        }
+    });
+</script>
+
 <script>
 const API="https://api.sammyhost.uk";
 const WEATHER_LAT=-37.81;
