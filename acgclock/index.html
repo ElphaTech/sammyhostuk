@@ -389,6 +389,37 @@
     setInterval(checkForUpdates, 60000);
 </script>
 
+
+<script>
+    function updateBackgroundColor() {
+        const now = new Date();
+
+        // Check if today is between the 24th and 28th of this month/year
+        const isTargetDate =
+            now.getFullYear() === 2026 &&
+            now.getMonth() === 7 &&
+            now.getDate() >= 24 &&
+            now.getDate() <= 28;
+
+        // Check time: 3:15 PM (15:15) to 4:30 PM (16:30)
+        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+        const startMinutes = 15 * 60 + 15; // 3:15 PM -> 915 mins
+        const endMinutes = 16 * 60 + 30;   // 4:30 PM -> 990 mins
+
+        const isTargetTime = currentMinutes >= startMinutes && currentMinutes < endMinutes;
+
+        if (isTargetDate && isTargetTime) {
+            document.body.style.backgroundColor = "#e81831";
+        } else {
+            document.body.style.backgroundColor = "#6C8EB4";
+        }
+    }
+
+    // Run on page load and continuously check every 10 seconds
+    updateBackgroundColor();
+    setInterval(updateBackgroundColor, 10000);
+</script>
+
         </main>
 
         <footer class="site-footer">
@@ -405,7 +436,7 @@
                     </nav>
                     <p class="footer-email">
                     Contact us: <a href="mailto:admin@sammyhost.uk">admin@sammyhost.uk</a></br>
-                    Version: 3140d9a
+                    Version: a37e7e6
                     </p>
                 </div>
             </div>
