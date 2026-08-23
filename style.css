@@ -14,6 +14,7 @@
 body {
     margin: 0;
     background-color: #6C8EB4;
+    transition: background-color 3s ease;
     font-family: 'Unbounded', sans-serif;
     font-weight: 400;
 }
