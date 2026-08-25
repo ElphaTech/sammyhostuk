@@ -4,361 +4,1977 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Library Clock</title>
+<title>Library Clock — Te Wiki o te Reo Māori</title>
+
 <style>
 :root{
-  --bg:#f5f5f7;
-  --text:#1d1d1f;
-  --muted:#6e6e73;
-  --glass:rgba(255,255,255,.58);
-  --glass-strong:rgba(255,255,255,.72);
-  --line:rgba(255,255,255,.85);
-  --shadow:0 20px 60px rgba(0,0,0,.08);
-  --accent:#7c5cff;
-  --blue:#4d9cff;
-  --green:#34c759;
+  --text:#111;
+  --muted:#666;
+  --glass:rgba(255,255,255,.76);
+  --line:rgba(255,255,255,.92);
+
+  --red:#a51c20;
+  --red-dark:#741417;
+  --black:#080808;
+  --white:#fff;
+
+  --shadow:0 20px 60px rgba(0,0,0,.18);
 }
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
 body{
   color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-  background:
-    radial-gradient(circle at 10% 5%,rgba(255,255,255,.95),transparent 30%),
-    radial-gradient(circle at 92% 8%,rgba(210,225,255,.55),transparent 28%),
-    linear-gradient(135deg,#fff 0%,#f5f5f7 58%,#e9e9ee 100%);
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    sans-serif;
+
+  background:#fff;
 }
-.background{position:fixed;inset:0;overflow:hidden;pointer-events:none}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.16}
-.orb.a{width:360px;height:360px;left:-120px;top:-120px;background:#8b75ff}
-.orb.b{width:420px;height:420px;right:-150px;bottom:-160px;background:#57b7ff}
-.orb.c{width:250px;height:250px;left:45%;top:45%;background:#ff8fdc;opacity:.08}
+
+
+/* =========================================================
+   STRONG RED / WHITE / BLACK BACKGROUND
+   ========================================================= */
+
+.background{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #ffffff 43%,
+      #a51c20 43%,
+      #a51c20 68%,
+      #080808 68%,
+      #080808 100%
+    );
+}
+
+
+/* Large white diagonal */
+
+.background::before{
+  content:"";
+
+  position:absolute;
+
+  width:145%;
+  height:38%;
+
+  left:-22%;
+  top:35%;
+
+  background:#fff;
+
+  transform:rotate(-9deg);
+
+  box-shadow:
+    0 -18px 0 rgba(0,0,0,.9),
+    0 18px 0 rgba(165,28,32,.95);
+}
+
+
+/* Strong red panel */
+
+.background::after{
+  content:"";
+
+  position:absolute;
+
+  width:75%;
+  height:110%;
+
+  left:-20%;
+  top:-20%;
+
+  background:
+    linear-gradient(
+      145deg,
+      transparent 0 18%,
+      rgba(165,28,32,.95) 18% 63%,
+      transparent 63%
+    );
+
+  opacity:.95;
+}
+
+
+/* =========================================================
+   BLACK GEOMETRIC ELEMENTS
+   ========================================================= */
+
+.black-shape{
+  position:absolute;
+
+  background:#080808;
+
+  opacity:.95;
+}
+
+.black-shape.one{
+  width:210px;
+  height:210px;
+
+  right:-80px;
+  top:-70px;
+
+  transform:rotate(45deg);
+}
+
+.black-shape.two{
+  width:160px;
+  height:500px;
+
+  left:7%;
+  bottom:-240px;
+
+  transform:
+    rotate(28deg);
+}
+
+.black-shape.three{
+  width:300px;
+  height:70px;
+
+  right:5%;
+  bottom:12%;
+
+  transform:rotate(-18deg);
+}
+
+.black-shape.four{
+  width:90px;
+  height:330px;
+
+  left:43%;
+  top:-180px;
+
+  transform:rotate(38deg);
+}
+
+
+/* =========================================================
+   RED GEOMETRIC ELEMENTS
+   ========================================================= */
+
+.red-shape{
+  position:absolute;
+
+  background:var(--red);
+}
+
+.red-shape.one{
+  width:330px;
+  height:80px;
+
+  right:8%;
+  top:17%;
+
+  transform:rotate(-17deg);
+}
+
+.red-shape.two{
+  width:100px;
+  height:360px;
+
+  left:15%;
+  bottom:-170px;
+
+  transform:rotate(-25deg);
+}
+
+.red-shape.three{
+  width:260px;
+  height:55px;
+
+  left:4%;
+  top:73%;
+
+  transform:rotate(14deg);
+}
+
+
+/* =========================================================
+   MAORI PHRASES
+   ========================================================= */
+
+.phrases{
+  position:absolute;
+  inset:0;
+
+  overflow:hidden;
+
+  font-weight:800;
+
+  letter-spacing:-.045em;
+
+  user-select:none;
+}
+
+.phrase{
+  position:absolute;
+
+  white-space:nowrap;
+
+  line-height:1;
+}
+
+.phrase.red{
+  color:rgba(165,28,32,.28);
+}
+
+.phrase.black{
+  color:rgba(0,0,0,.16);
+}
+
+.phrase.white{
+  color:rgba(255,255,255,.45);
+}
+
+
+/* Individual phrases */
+
+.p1{
+  left:2%;
+  top:10%;
+
+  font-size:
+    clamp(48px,6vw,105px);
+
+  transform:rotate(-9deg);
+}
+
+.p2{
+  right:-3%;
+  top:24%;
+
+  font-size:
+    clamp(42px,5vw,90px);
+
+  transform:rotate(9deg);
+}
+
+.p3{
+  left:8%;
+  bottom:20%;
+
+  font-size:
+    clamp(42px,5vw,90px);
+
+  transform:rotate(7deg);
+}
+
+.p4{
+  right:4%;
+  bottom:8%;
+
+  font-size:
+    clamp(38px,4.5vw,82px);
+
+  transform:rotate(-8deg);
+}
+
+.p5{
+  left:40%;
+  top:5%;
+
+  font-size:
+    clamp(28px,3vw,55px);
+
+  transform:rotate(-4deg);
+}
+
+.p6{
+  left:-2%;
+  top:56%;
+
+  font-size:
+    clamp(32px,4vw,70px);
+
+  transform:rotate(14deg);
+}
+
+.p7{
+  right:27%;
+  bottom:2%;
+
+  font-size:
+    clamp(26px,3vw,58px);
+
+  transform:rotate(5deg);
+}
+
+.p8{
+  right:14%;
+  top:7%;
+
+  font-size:
+    clamp(25px,2.5vw,48px);
+
+  transform:rotate(13deg);
+}
+
+
+/* =========================================================
+   KORU-STYLE ELEMENTS
+   ========================================================= */
+
+.koru{
+  position:absolute;
+
+  width:230px;
+  height:230px;
+
+  border-radius:50%;
+
+  border:
+    24px solid
+    rgba(255,255,255,.22);
+
+  opacity:.9;
+}
+
+.koru::before{
+  content:"";
+
+  position:absolute;
+
+  width:145px;
+  height:145px;
+
+  left:18px;
+  top:18px;
+
+  border-radius:50%;
+
+  border:
+    18px solid
+    rgba(0,0,0,.13);
+}
+
+.koru::after{
+  content:"";
+
+  position:absolute;
+
+  width:70px;
+  height:70px;
+
+  left:56px;
+  top:56px;
+
+  border-radius:50%;
+
+  border:
+    13px solid
+    rgba(165,28,32,.25);
+}
+
+.koru.one{
+  left:-125px;
+  top:18%;
+}
+
+.koru.two{
+  right:-120px;
+  bottom:16%;
+
+  transform:rotate(180deg);
+}
+
+
+/* =========================================================
+   GLASS
+   ========================================================= */
 
 .glass{
   background:var(--glass);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.95);
-  backdrop-filter:blur(24px) saturate(150%);
-  -webkit-backdrop-filter:blur(24px) saturate(150%);
+
+  border:
+    1px solid
+    var(--line);
+
+  box-shadow:
+    var(--shadow),
+    inset 0 1px 0
+    rgba(255,255,255,.98);
+
+  backdrop-filter:
+    blur(28px)
+    saturate(140%);
+
+  -webkit-backdrop-filter:
+    blur(28px)
+    saturate(140%);
 }
+
+
+/* =========================================================
+   APP
+   ========================================================= */
 
 .app{
   position:relative;
-  z-index:1;
+  z-index:5;
+
   width:100%;
   height:100vh;
-  padding:clamp(24px,3vw,52px);
+
+  padding:
+    clamp(24px,3vw,52px);
+
   display:grid;
-  grid-template-rows:auto 1fr auto;
-  gap:clamp(18px,3vh,34px);
+
+  grid-template-rows:
+    auto
+    1fr
+    auto;
+
+  gap:
+    clamp(18px,3vh,34px);
 }
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .header{
   width:100%;
+
   min-height:68px;
-  padding:12px 18px;
+
+  padding:
+    12px 18px;
+
   border-radius:22px;
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
 }
-.brand{display:flex;align-items:center;gap:13px}
+
+.brand{
+  display:flex;
+
+  align-items:center;
+
+  gap:13px;
+}
+
 .mark{
-  width:42px;height:42px;border-radius:14px;
-  display:grid;place-items:center;
-  color:white;font-size:35px;
-  background:#ffffff
-  box-shadow:0 8px 25px rgba(100,100,255,.2);
-  transform: translateY(-8px);
+  width:42px;
+  height:42px;
+
+  border-radius:14px;
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:25px;
+
+  background:#fff;
+
+  box-shadow:
+    0 8px 25px
+    rgba(0,0,0,.18);
 }
-.brand-title{font-size:clamp(22px,2vw,30px);font-weight:650;letter-spacing:-.03em}
-.brand-sub{margin-top:2px;color:var(--muted);font-size:12px}
+
+.brand-title{
+  font-size:
+    clamp(22px,2vw,30px);
+
+  font-weight:650;
+
+  letter-spacing:-.03em;
+}
+
+
+/* =========================================================
+   TE WIKI BADGE
+   ========================================================= */
+
+.language-week{
+  position:absolute;
+
+  left:50%;
+
+  transform:
+    translateX(-50%);
+
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  padding:
+    9px 17px;
+
+  border-radius:999px;
+
+  color:#fff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a51c20,
+      #741417
+    );
+
+  border:
+    1px solid
+    rgba(255,255,255,.5);
+
+  box-shadow:
+    0 9px 28px
+    rgba(100,0,0,.3);
+
+  font-size:11px;
+
+  font-weight:800;
+
+  letter-spacing:.065em;
+
+  white-space:nowrap;
+}
+
+.language-week .dot{
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:#fff;
+
+  box-shadow:
+    0 0 10px
+    rgba(255,255,255,.9);
+}
+
+
+/* =========================================================
+   API
+   ========================================================= */
+
 .api-pill{
-  display:flex;align-items:center;gap:8px;
-  padding:8px 12px;border-radius:999px;
-  background:rgba(255,255,255,.5);
-  border:1px solid rgba(255,255,255,.8);
-  color:var(--muted);font-size:11px;
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  padding:
+    8px 12px;
+
+  border-radius:999px;
+
+  background:
+    rgba(255,255,255,.58);
+
+  border:
+    1px solid
+    rgba(255,255,255,.9);
+
+  color:var(--muted);
+
+  font-size:11px;
 }
-.api-dot{width:7px;height:7px;border-radius:50%;background:#c7c7cc}
-.api-dot.ok{background:var(--green);box-shadow:0 0 10px rgba(52,199,89,.45)}
+
+.api-dot{
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:#c7c7cc;
+}
+
+.api-dot.ok{
+  background:#34c759;
+
+  box-shadow:
+    0 0 10px
+    rgba(52,199,89,.45);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
 
 .main{
   min-height:0;
+
   display:grid;
+
   place-items:center;
 }
+
 .clock-card{
   width:100%;
-  padding:clamp(38px,5vh,70px) clamp(30px,5vw,80px);
+
+  padding:
+    clamp(38px,5vh,70px)
+    clamp(30px,5vw,80px);
+
   border-radius:34px;
+
   text-align:center;
 }
+
 .clock{
   margin:0;
-  font-size:clamp(88px,14.5vw,220px);
+
+  font-size:
+    clamp(88px,14.5vw,220px);
+
   line-height:.86;
+
   font-weight:650;
+
   letter-spacing:-.075em;
-  font-variant-numeric:tabular-nums;
+
+  font-variant-numeric:
+    tabular-nums;
+
+  cursor:pointer;
+
+  user-select:none;
 }
-.seconds{font-size:50%;opacity:.42;vertical-align:baseline;letter-spacing:-.06em}
+
+.seconds{
+  font-size:50%;
+
+  opacity:.42;
+
+  vertical-align:baseline;
+
+  letter-spacing:-.06em;
+}
+
 .date{
-  margin-top:clamp(20px,3vh,32px);
-  font-size:clamp(20px,2.4vw,36px);
+  margin-top:
+    clamp(20px,3vh,32px);
+
+  font-size:
+    clamp(20px,2.4vw,36px);
+
   font-weight:500;
+
   letter-spacing:-.025em;
 }
-.today{
-  margin-top:10px;
-  color:var(--muted);
-  font-size:12px;
-}
+
+
+/* =========================================================
+   BOTTOM
+   ========================================================= */
 
 .bottom{
   display:grid;
-  grid-template-columns:minmax(210px,.65fr) minmax(0,2fr);
+
+  grid-template-columns:
+    1.25fr
+    1.25fr
+    1fr
+    1.15fr;
+
   gap:14px;
+
+  width:
+    min(1380px,94vw);
+
+  margin:0 auto;
 }
+
 .info-card{
-  min-height:118px;
-  padding:20px 22px;
+  min-height:132px;
+
+  padding:
+    20px 22px;
+
   border-radius:22px;
 }
+
 .label{
   color:var(--muted);
+
   font-size:10px;
+
   text-transform:uppercase;
+
   letter-spacing:.15em;
 }
-.status{
-  margin-top:10px;
-  font-size:clamp(22px,2vw,30px);
-  font-weight:650;
-}
-.status-detail{margin-top:4px;color:var(--muted);font-size:11px}
 
-.schedule-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.schedule-list{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:10px;
-  margin-top:12px;
-}
-.period{
-  min-width:0;
-  padding:11px 13px;
-  border-radius:15px;
-  background:rgba(255,255,255,.42);
-  border:1px solid rgba(255,255,255,.75);
-}
-.period.current{
-  background:linear-gradient(135deg,rgba(124,92,255,.13),rgba(77,156,255,.08));
-  border-color:rgba(124,92,255,.3);
-}
-.period-tag{
-  color:var(--muted);
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-}
-.period-name{
-  margin-top:5px;
-  font-size:clamp(13px,1.1vw,16px);
-  font-weight:600;
+
+/* =========================================================
+   PERIOD
+   ========================================================= */
+
+.period-main{
+  margin-top:9px;
+
+  font-size:
+    clamp(18px,1.65vw,25px);
+
+  line-height:1.1;
+
+  font-weight:650;
+
+  letter-spacing:-.025em;
+
   white-space:nowrap;
+
   overflow:hidden;
+
   text-overflow:ellipsis;
 }
-.period-time{
-  margin-top:4px;
+
+.period-meta{
+  margin-top:7px;
+
   color:var(--muted);
+
   font-size:11px;
-  font-variant-numeric:tabular-nums;
+
+  font-variant-numeric:
+    tabular-nums;
+}
+
+.remaining-row{
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-top:8px;
+}
+
+.remaining{
+  font-size:12px;
+
+  font-weight:600;
+}
+
+.remaining-row .remaining{
+  margin-top:0;
+
+  white-space:nowrap;
+}
+
+.progress-track{
+  height:5px;
+
+  flex:1;
+
+  min-width:70px;
+
+  max-width:180px;
+
+  background:
+    rgba(0,0,0,.09);
+
+  border-radius:999px;
+
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+
+  width:0%;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #a51c20,
+      #741417
+    );
+
+  transition:
+    width .5s ease;
+}
+
+
+/* =========================================================
+   WEATHER
+   ========================================================= */
+
+.weather-row{
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-top:8px;
+}
+
+.weather-icon{
+  font-size:30px;
+}
+
+.weather-temp{
+  font-size:28px;
+
+  line-height:1;
+
+  font-weight:650;
+}
+
+.weather-condition{
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+.weather-details{
+  margin-top:10px;
+
+  color:var(--muted);
+
+  font-size:10px;
+}
+
+
+/* =========================================================
+   NOTICE
+   ========================================================= */
+
+.notice-card{
+  min-height:132px;
+
+  padding:
+    18px 20px;
+
+  border-radius:22px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  text-align:center;
+}
+
+.notice{
+  font-size:
+    clamp(14px,1.2vw,18px);
+
+  font-weight:650;
+
+  letter-spacing:-.02em;
+}
+
+.notice-divider{
+  width:42px;
+
+  height:1px;
+
+  margin:
+    13px auto;
+
+  background:
+    rgba(0,0,0,.12);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:1100px){
+
+  .bottom{
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .language-week{
+    display:none;
+  }
+
 }
 
 @media(max-width:850px){
-  .app{padding:18px;gap:16px}
-  .bottom{grid-template-columns:1fr}
+
+  .app{
+    padding:18px;
+
+    gap:16px;
+  }
+
 }
+
 @media(max-width:600px){
-  html,body{overflow:auto}
-  .app{height:auto;min-height:100vh}
-  .api-pill{display:none}
-  .clock{font-size:clamp(68px,18vw,130px)}
-  .schedule-list{grid-template-columns:1fr}
-  .clock-card{width:100%;padding:45px 20px}
+
+  html,
+  body{
+    overflow:auto;
+  }
+
+  .app{
+    height:auto;
+
+    min-height:100vh;
+  }
+
+  .api-pill{
+    display:none;
+  }
+
+  .clock{
+    font-size:
+      clamp(68px,18vw,130px);
+  }
+
+  .clock-card{
+    width:100%;
+
+    padding:
+      45px 20px;
+  }
+
+  .bottom{
+    grid-template-columns:1fr;
+
+    width:100%;
+  }
+
+  .phrases{
+    opacity:.7;
+  }
+
 }
-
-.bottom{display:grid;grid-template-columns:1.25fr 1.25fr 1fr 1.15fr;gap:14px;width:min(1380px,94vw);margin:0 auto}
-.info-card{min-height:132px;padding:20px 22px;border-radius:22px}
-.period-main{margin-top:9px;font-size:clamp(18px,1.65vw,25px);line-height:1.1;font-weight:650;letter-spacing:-.025em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.period-meta{margin-top:7px;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
-.remaining{margin-top:8px;font-size:12px;font-weight:600}
-.weather-row{display:flex;align-items:center;gap:12px;margin-top:8px}.weather-icon{font-size:30px}
-.weather-temp{font-size:28px;line-height:1;font-weight:650}.weather-condition{margin-top:4px;color:var(--muted);font-size:11px}
-.weather-details{margin-top:10px;color:var(--muted);font-size:10px}
-.notice-card{min-height:132px;padding:18px 20px;border-radius:22px;display:flex;flex-direction:column;justify-content:center;text-align:center}
-.notice{font-size:clamp(14px,1.2vw,18px);font-weight:650;letter-spacing:-.02em}
-.notice-divider{width:42px;height:1px;margin:13px auto;background:rgba(0,0,0,.12)}
-@media(max-width:1100px){.bottom{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.bottom{grid-template-columns:1fr;width:100%}}
-
-.remaining-row{display:flex;align-items:center;gap:12px;margin-top:8px}
-.remaining-row .remaining{margin-top:0;white-space:nowrap}
-.progress-track{height:5px;flex:1;min-width:70px;max-width:180px;background:rgba(0,0,0,.08);border-radius:999px;overflow:hidden}
-.progress-fill{height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,#7c5cff,#4d9cff);transition:width .5s ease}
 </style>
 </head>
+
+
 <body>
+
+
+<!-- =======================================================
+     BACKGROUND
+     ======================================================= -->
+
 <div class="background">
-  <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+
+  <div class="black-shape one"></div>
+  <div class="black-shape two"></div>
+  <div class="black-shape three"></div>
+  <div class="black-shape four"></div>
+
+  <div class="red-shape one"></div>
+  <div class="red-shape two"></div>
+  <div class="red-shape three"></div>
+
+
+  <div class="phrases">
+
+    <div class="phrase red p1">
+      Kia ora
+    </div>
+
+    <div class="phrase black p2">
+      Kōrero Māori
+    </div>
+
+    <div class="phrase white p3">
+      Ka pai
+    </div>
+
+    <div class="phrase black p4">
+      Tēnā koutou
+    </div>
+
+    <div class="phrase red p5">
+      Aroha
+    </div>
+
+    <div class="phrase white p6">
+      Nau mai
+    </div>
+
+    <div class="phrase red p7">
+      Kia kaha
+    </div>
+
+    <div class="phrase black p8">
+      Whakamihi
+    </div>
+
+  </div>
+
+
+  <div class="koru one"></div>
+  <div class="koru two"></div>
+
 </div>
 
+
+
+<!-- =======================================================
+     APP
+     ======================================================= -->
+
 <main class="app">
+
+
+  <!-- HEADER -->
+
   <header class="glass header">
+
     <div class="brand">
-      <div class="mark">📖</div>
+
+      <div class="mark">
+        📖
+      </div>
+
       <div>
-        <div class="brand-title">Library</div>
+
+        <div class="brand-title">
+          Library
+        </div>
 
       </div>
+
     </div>
+
+
+    <div class="language-week">
+
+      <span class="dot"></span>
+
+      TE WIKI O TE REO MĀORI
+
+      <span>🗣️</span>
+
+    </div>
+
+
     <div class="api-pill">
-      <span class="api-dot" id="apiDot"></span>
-      <span id="apiStatus">ON</span>
+
+      <span
+        class="api-dot"
+        id="apiDot">
+      </span>
+
+      <span id="apiStatus">
+        ON
+      </span>
+
     </div>
+
   </header>
 
+
+
+  <!-- CLOCK -->
+
   <section class="main">
+
     <section class="glass clock-card">
-      <div class="clock" id="clock">00:00<span class="seconds">:00</span></div>
-      <div class="date" id="date">Loading…</div>
+
+      <div
+        class="clock"
+        id="clock">
+
+        00&nbsp;:&nbsp;00
+
+        <span class="seconds">
+          &nbsp;:&nbsp;00
+        </span>
+
+      </div>
+
+
+      <div
+        class="date"
+        id="date">
+
+        Loading…
+
+      </div>
 
     </section>
+
   </section>
 
 
-<section class="bottom">
-  <section class="glass info-card period-card">
-    <div class="label">Current period</div>
-    <div class="period-main" id="currentName">Loading…</div>
-    <div class="period-meta" id="currentMeta">—</div>
-    <div class="remaining-row"><div class="remaining" id="remaining">—</div><div class="progress-track"><div class="progress-fill" id="periodProgress"></div></div></div>
-  </section>
 
-  <section class="glass info-card period-card">
-    <div class="label">Next period</div>
-    <div class="period-main" id="nextName">Loading…</div>
-    <div class="period-meta" id="nextMeta">—</div>
-    <div class="remaining" id="nextStarts">—</div>
-  </section>
+  <!-- BOTTOM -->
 
-  <section class="glass info-card weather-card">
-    <div class="label">Weather</div>
-    <div class="weather-row">
-      <div class="weather-icon" id="weatherIcon">☀️</div>
-      <div>
-        <div class="weather-temp" id="weatherTemp">—°</div>
-        <div class="weather-condition" id="weatherCondition">Loading…</div>
+  <section class="bottom">
+
+
+    <!-- CURRENT PERIOD -->
+
+    <section class="glass info-card">
+
+      <div class="label">
+        Current period
       </div>
-    </div>
-    <div class="weather-details" id="weatherDetails">—</div>
+
+      <div
+        class="period-main"
+        id="currentName">
+
+        Loading…
+
+      </div>
+
+      <div
+        class="period-meta"
+        id="currentMeta">
+
+        —
+
+      </div>
+
+      <div class="remaining-row">
+
+        <div
+          class="remaining"
+          id="remaining">
+
+          —
+
+        </div>
+
+        <div class="progress-track">
+
+          <div
+            class="progress-fill"
+            id="periodProgress">
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- NEXT PERIOD -->
+
+    <section class="glass info-card">
+
+      <div class="label">
+        Next period
+      </div>
+
+      <div
+        class="period-main"
+        id="nextName">
+
+        Loading…
+
+      </div>
+
+      <div
+        class="period-meta"
+        id="nextMeta">
+
+        —
+
+      </div>
+
+      <div
+        class="remaining"
+        id="nextStarts">
+
+        —
+
+      </div>
+
+    </section>
+
+
+
+    <!-- WEATHER -->
+
+    <section class="glass info-card">
+
+      <div class="label">
+        Weather
+      </div>
+
+      <div class="weather-row">
+
+        <div
+          class="weather-icon"
+          id="weatherIcon">
+
+          ☀️
+
+        </div>
+
+        <div>
+
+          <div
+            class="weather-temp"
+            id="weatherTemp">
+
+            —°
+
+          </div>
+
+          <div
+            class="weather-condition"
+            id="weatherCondition">
+
+            Loading…
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div
+        class="weather-details"
+        id="weatherDetails">
+
+        —
+
+      </div>
+
+    </section>
+
+
+
+    <!-- NOTICES -->
+
+    <section class="glass notice-card">
+
+      <div class="notice">
+        🚫 No food or drink
+      </div>
+
+      <div class="notice-divider"></div>
+
+      <div class="notice">
+        🔕 Quiet study after 4pm
+      </div>
+
+    </section>
+
   </section>
 
-  <section class="glass notice-card">
-    <div class="notice">🚫 No food or drink</div>
-    <div class="notice-divider"></div>
-    <div class="notice">🔕 Quiet study after 4pm</div>
-  </section>
-</section>
 </main>
 
-<!-- Fullscreen when clock clicked -->
-<script>
-    const btn = document.getElementById('clock');
-    btn.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen(); // Request fullscreen
-        } else {
-            document.exitFullscreen(); // Exit fullscreen
-        }
-    });
-</script>
+
+
+<!-- =======================================================
+     FULLSCREEN
+     ======================================================= -->
 
 <script>
-const API="https://api.sammyhost.uk";
-const WEATHER_LAT=-37.81;
-const WEATHER_LON=175.77;
-const $=s=>document.querySelector(s);
-let timetable=[];
-function unixNow(){return Date.now()/1000}
-function fmtTime(sec){return new Intl.DateTimeFormat("en-NZ",{timeZone:"Pacific/Auckland",hour:"numeric",minute:"2-digit",hour12:false}).format(new Date(sec*1000))}
-function duration(sec){sec=Math.max(0,Math.round(sec));const m=Math.floor(sec/60),h=Math.floor(m/60),r=m%60;return h?`${h}h ${String(r).padStart(2,"0")}m`:`${m} min`}
-function updateClock(){
-  const now=new Date(), p=new Intl.DateTimeFormat("en-NZ",{timeZone:"Pacific/Auckland",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).formatToParts(now);
-  const h=p.find(x=>x.type==="hour")?.value||"00",m=p.find(x=>x.type==="minute")?.value||"00",s=p.find(x=>x.type==="second")?.value||"00";
-  $("#clock").innerHTML=`${h}&nbsp;:&nbsp;${m}<span class="seconds">&nbsp;:&nbsp;${s}</span>`;
-  $("#date").textContent=new Intl.DateTimeFormat("en-NZ",{timeZone:"Pacific/Auckland",weekday:"long",day:"numeric",month:"long"}).format(now);
-  updatePeriods();
-}
-async function getJSON(url){const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw Error(r.status);return r.json()}
-function normalise(x){
-  if(!x||typeof x!=="object")return null;
-  const s=Number(x.start_time??x.startTime??x.start),e=Number(x.end_time??x.endTime??x.end);
-  if(!Number.isFinite(s)||!Number.isFinite(e))return null;
-  return{name:String(x.name??x.title??x.label??x.period??"Period"),start:s,end:e}
-}
-function extract(data){
-  const a=[];
-  function walk(v){
-    if(Array.isArray(v))return v.forEach(walk);
-    if(v&&typeof v==="object"){const n=normalise(v);if(n)a.push(n);Object.values(v).forEach(walk)}
+
+const btn =
+  document.getElementById("clock");
+
+btn.addEventListener(
+  "click",
+  () => {
+
+    if(!document.fullscreenElement){
+
+      document
+        .documentElement
+        .requestFullscreen();
+
+    }else{
+
+      document.exitFullscreen();
+
+    }
+
   }
-  walk(data);
-  const seen=new Set();
-  return a.filter(x=>{const k=x.name+x.start+x.end;if(seen.has(k))return false;seen.add(k);return true}).sort((a,b)=>a.start-b.start);
-}
-async function loadSchool(){
-  try{
-    const data=await getJSON(`${API}/timetable-for-date?unix_time=${unixNow()}`);
-    timetable=extract(data);
-    $("#apiDot").classList.add("ok");$("#apiStatus").textContent="ON";
-    updatePeriods();
-  }catch(e){
-    $("#apiDot").classList.remove("ok");$("#apiStatus").textContent="School API unavailable";
-    $("#currentName").textContent="Unavailable";$("#currentMeta").textContent="";$("#remaining").textContent="";$("#periodProgress").style.width="0%";
-    $("#nextName").textContent="Unavailable";$("#nextMeta").textContent="";$("#nextStarts").textContent="";
-  }
-}
-function updatePeriods(){
-  if(!timetable.length)return;
-  const now=unixNow(),cur=timetable.find(x=>now>=x.start&&now<x.end),next=timetable.find(x=>x.start>now);
-  if(cur){
-  $("#currentName").textContent=cur.name;
-  $("#currentMeta").textContent=`${fmtTime(cur.start)} – ${fmtTime(cur.end)}`;
-  $("#remaining").textContent=`${duration(cur.end-now)} remaining`;
-  const pct=Math.max(0,Math.min(100,((now-cur.start)/(cur.end-cur.start))*100));
-  periodProgress.style.width=pct+"%";
-}
-  else{$("#currentName").textContent=now<timetable[0].start?"Before school":"School day finished";$("#currentMeta").textContent="";$("#remaining").textContent="";periodProgress.style.width="0%"}
-  if(next){$("#nextName").textContent=next.name;$("#nextMeta").textContent=`Starts ${fmtTime(next.start)}`;$("#nextStarts").textContent=`in ${duration(next.start-now)}`}
-  else{$("#nextName").textContent="No more periods";$("#nextMeta").textContent="";$("#nextStarts").textContent=""}
-}
-const wx={0:"Clear",1:"Mainly clear",2:"Partly cloudy",3:"Overcast",45:"Fog",48:"Fog",51:"Light drizzle",53:"Drizzle",55:"Heavy drizzle",61:"Light rain",63:"Rain",65:"Heavy rain",71:"Light snow",73:"Snow",75:"Heavy snow",80:"Rain showers",81:"Rain showers",82:"Heavy showers",95:"Thunderstorm",96:"Thunderstorm",99:"Thunderstorm"};
-const emoji=c=>[0,1].includes(c)?"☀️":[2,3].includes(c)?"☁️":[45,48].includes(c)?"🌫️":[51,53,55,61,63,65,80,81,82].includes(c)?"🌧️":[71,73,75].includes(c)?"❄️":[95,96,99].includes(c)?"⛈️":"🌤️";
-async function loadWeather(){
-  try{
-    const d=await getJSON(`https://api.open-meteo.com/v1/forecast?latitude=${WEATHER_LAT}&longitude=${WEATHER_LON}&current=temperature_2m,apparent_temperature,weather_code&timezone=Pacific%2FAuckland`);
-    const c=d.current;$("#weatherIcon").textContent=emoji(c.weather_code);$("#weatherTemp").textContent=`${Math.round(c.temperature_2m)}°`;$("#weatherCondition").textContent=wx[c.weather_code]||"Current conditions";$("#weatherDetails").textContent=`Feels ${Math.round(c.apparent_temperature)}° · `;
-  }catch(e){$("#weatherIcon").textContent="—";$("#weatherTemp").textContent="—°";$("#weatherCondition").textContent="Weather unavailable";$("#weatherDetails").textContent=""}
-}
-updateClock();loadSchool();loadWeather();
-setInterval(updateClock,1000);setInterval(loadSchool,60000);setInterval(loadWeather,600000);
+);
+
 </script>
+
+
+
+<!-- =======================================================
+     SCHOOL + WEATHER
+     ======================================================= -->
+
+<script>
+
+const API =
+  "https://api.sammyhost.uk";
+
+const WEATHER_LAT =
+  -37.81;
+
+const WEATHER_LON =
+  175.77;
+
+const $ =
+  s => document.querySelector(s);
+
+let timetable = [];
+
+
+/* =========================================================
+   TIME
+   ========================================================= */
+
+function unixNow(){
+
+  return Date.now() / 1000;
+
+}
+
+
+function fmtTime(sec){
+
+  return new Intl.DateTimeFormat(
+    "en-NZ",
+    {
+      timeZone:
+        "Pacific/Auckland",
+
+      hour:"numeric",
+
+      minute:"2-digit",
+
+      hour12:false
+    }
+  ).format(
+    new Date(sec * 1000)
+  );
+
+}
+
+
+function duration(sec){
+
+  sec =
+    Math.max(
+      0,
+      Math.round(sec)
+    );
+
+  const m =
+    Math.floor(sec / 60);
+
+  const h =
+    Math.floor(m / 60);
+
+  const r =
+    m % 60;
+
+  return h
+    ? `${h}h ${String(r).padStart(2,"0")}m`
+    : `${m} min`;
+
+}
+
+
+/* =========================================================
+   CLOCK
+   ========================================================= */
+
+function updateClock(){
+
+  const now =
+    new Date();
+
+  const p =
+    new Intl.DateTimeFormat(
+      "en-NZ",
+      {
+        timeZone:
+          "Pacific/Auckland",
+
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit",
+
+        hour12:false
+      }
+    ).formatToParts(now);
+
+  const h =
+    p.find(
+      x => x.type === "hour"
+    )?.value || "00";
+
+  const m =
+    p.find(
+      x => x.type === "minute"
+    )?.value || "00";
+
+  const s =
+    p.find(
+      x => x.type === "second"
+    )?.value || "00";
+
+
+  $("#clock").innerHTML =
+
+    `${h}&nbsp;:&nbsp;${m}` +
+
+    `<span class="seconds">` +
+
+    `&nbsp;:&nbsp;${s}` +
+
+    `</span>`;
+
+
+  $("#date").textContent =
+
+    new Intl.DateTimeFormat(
+      "en-NZ",
+      {
+        timeZone:
+          "Pacific/Auckland",
+
+        weekday:"long",
+
+        day:"numeric",
+
+        month:"long"
+      }
+    ).format(now);
+
+
+  updatePeriods();
+
+}
+
+
+/* =========================================================
+   JSON
+   ========================================================= */
+
+async function getJSON(url){
+
+  const r =
+    await fetch(
+      url,
+      {
+        cache:"no-store"
+      }
+    );
+
+  if(!r.ok){
+
+    throw Error(r.status);
+
+  }
+
+  return r.json();
+
+}
+
+
+/* =========================================================
+   NORMALISE
+   ========================================================= */
+
+function normalise(x){
+
+  if(
+    !x ||
+    typeof x !== "object"
+  ){
+
+    return null;
+
+  }
+
+  const s =
+    Number(
+      x.start_time ??
+      x.startTime ??
+      x.start
+    );
+
+  const e =
+    Number(
+      x.end_time ??
+      x.endTime ??
+      x.end
+    );
+
+  if(
+    !Number.isFinite(s) ||
+    !Number.isFinite(e)
+  ){
+
+    return null;
+
+  }
+
+  return{
+
+    name:String(
+      x.name ??
+      x.title ??
+      x.label ??
+      x.period ??
+      "Period"
+    ),
+
+    start:s,
+    end:e
+
+  };
+
+}
+
+
+/* =========================================================
+   EXTRACT
+   ========================================================= */
+
+function extract(data){
+
+  const a = [];
+
+  function walk(v){
+
+    if(Array.isArray(v)){
+
+      return v.forEach(walk);
+
+    }
+
+    if(
+      v &&
+      typeof v === "object"
+    ){
+
+      const n =
+        normalise(v);
+
+      if(n){
+
+        a.push(n);
+
+      }
+
+      Object.values(v)
+        .forEach(walk);
+
+    }
+
+  }
+
+  walk(data);
+
+  const seen =
+    new Set();
+
+  return a
+    .filter(x => {
+
+      const k =
+        x.name +
+        x.start +
+        x.end;
+
+      if(seen.has(k)){
+
+        return false;
+
+      }
+
+      seen.add(k);
+
+      return true;
+
+    })
+    .sort(
+      (a,b) =>
+        a.start -
+        b.start
+    );
+
+}
+
+
+/* =========================================================
+   SCHOOL API
+   ========================================================= */
+
+async function loadSchool(){
+
+  try{
+
+    const data =
+      await getJSON(
+        `${API}/timetable-for-date?unix_time=${unixNow()}`
+      );
+
+    timetable =
+      extract(data);
+
+    $("#apiDot")
+      .classList
+      .add("ok");
+
+    $("#apiStatus")
+      .textContent =
+      "ON";
+
+    updatePeriods();
+
+  }
+
+  catch(e){
+
+    $("#apiDot")
+      .classList
+      .remove("ok");
+
+    $("#apiStatus")
+      .textContent =
+      "School API unavailable";
+
+    $("#currentName")
+      .textContent =
+      "Unavailable";
+
+    $("#currentMeta")
+      .textContent =
+      "";
+
+    $("#remaining")
+      .textContent =
+      "";
+
+    $("#periodProgress")
+      .style
+      .width =
+      "0%";
+
+    $("#nextName")
+      .textContent =
+      "Unavailable";
+
+    $("#nextMeta")
+      .textContent =
+      "";
+
+    $("#nextStarts")
+      .textContent =
+      "";
+
+  }
+
+}
+
+
+/* =========================================================
+   PERIODS
+   ========================================================= */
+
+function updatePeriods(){
+
+  if(!timetable.length){
+
+    return;
+
+  }
+
+  const now =
+    unixNow();
+
+  const cur =
+    timetable.find(
+      x =>
+        now >= x.start &&
+        now < x.end
+    );
+
+  const next =
+    timetable.find(
+      x =>
+        x.start > now
+    );
+
+
+  if(cur){
+
+    $("#currentName")
+      .textContent =
+      cur.name;
+
+    $("#currentMeta")
+      .textContent =
+      `${fmtTime(cur.start)} – ${fmtTime(cur.end)}`;
+
+    $("#remaining")
+      .textContent =
+      `${duration(cur.end-now)} remaining`;
+
+
+    const pct =
+      Math.max(
+        0,
+        Math.min(
+          100,
+
+          (
+            (now-cur.start) /
+            (cur.end-cur.start)
+          ) * 100
+
+        )
+      );
+
+
+    $("#periodProgress")
+      .style
+      .width =
+      pct + "%";
+
+  }
+
+  else{
+
+    $("#currentName")
+      .textContent =
+      now < timetable[0].start
+        ? "Before school"
+        : "School day finished";
+
+    $("#currentMeta")
+      .textContent =
+      "";
+
+    $("#remaining")
+      .textContent =
+      "";
+
+    $("#periodProgress")
+      .style
+      .width =
+      "0%";
+
+  }
+
+
+  if(next){
+
+    $("#nextName")
+      .textContent =
+      next.name;
+
+    $("#nextMeta")
+      .textContent =
+      `Starts ${fmtTime(next.start)}`;
+
+    $("#nextStarts")
+      .textContent =
+      `in ${duration(next.start-now)}`;
+
+  }
+
+  else{
+
+    $("#nextName")
+      .textContent =
+      "No more periods";
+
+    $("#nextMeta")
+      .textContent =
+      "";
+
+    $("#nextStarts")
+      .textContent =
+      "";
+
+  }
+
+}
+
+
+/* =========================================================
+   WEATHER
+   ========================================================= */
+
+const wx={
+
+  0:"Clear",
+  1:"Mainly clear",
+  2:"Partly cloudy",
+  3:"Overcast",
+  45:"Fog",
+  48:"Fog",
+  51:"Light drizzle",
+  53:"Drizzle",
+  55:"Heavy drizzle",
+  61:"Light rain",
+  63:"Rain",
+  65:"Heavy rain",
+  71:"Light snow",
+  73:"Snow",
+  75:"Heavy snow",
+  80:"Rain showers",
+  81:"Rain showers",
+  82:"Heavy showers",
+  95:"Thunderstorm",
+  96:"Thunderstorm",
+  99:"Thunderstorm"
+
+};
+
+
+const emoji =
+  c =>
+
+    [0,1].includes(c)
+      ? "☀️"
+
+    : [2,3].includes(c)
+      ? "☁️"
+
+    : [45,48].includes(c)
+      ? "🌫️"
+
+    : [
+        51,53,55,
+        61,63,65,
+        80,81,82
+      ].includes(c)
+      ? "🌧️"
+
+    : [71,73,75].includes(c)
+      ? "❄️"
+
+    : [95,96,99].includes(c)
+      ? "⛈️"
+
+    : "🌤️";
+
+
+async function loadWeather(){
+
+  try{
+
+    const d =
+      await getJSON(
+
+        `https://api.open-meteo.com/v1/forecast` +
+
+        `?latitude=${WEATHER_LAT}` +
+
+        `&longitude=${WEATHER_LON}` +
+
+        `&current=temperature_2m,apparent_temperature,weather_code` +
+
+        `&timezone=Pacific%2FAuckland`
+
+      );
+
+    const c =
+      d.current;
+
+    $("#weatherIcon")
+      .textContent =
+      emoji(c.weather_code);
+
+    $("#weatherTemp")
+      .textContent =
+      `${Math.round(c.temperature_2m)}°`;
+
+    $("#weatherCondition")
+      .textContent =
+      wx[c.weather_code] ||
+      "Current conditions";
+
+    $("#weatherDetails")
+      .textContent =
+      `Feels ${Math.round(c.apparent_temperature)}°`;
+
+  }
+
+  catch(e){
+
+    $("#weatherIcon")
+      .textContent =
+      "—";
+
+    $("#weatherTemp")
+      .textContent =
+      "—°";
+
+    $("#weatherCondition")
+      .textContent =
+      "Weather unavailable";
+
+    $("#weatherDetails")
+      .textContent =
+      "";
+
+  }
+
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+updateClock();
+
+loadSchool();
+
+loadWeather();
+
+
+setInterval(
+  updateClock,
+  1000
+);
+
+setInterval(
+  loadSchool,
+  60000
+);
+
+setInterval(
+  loadWeather,
+  600000
+);
+
+</script>
+
 </body>
 </html>
