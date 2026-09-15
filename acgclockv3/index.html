@@ -1,0 +1,2484 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SammyHost.uk</title>
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="icon" type="image/x-icon" href="/media/images/sh.logo-whiteonblack.png">
+    </head>
+    <body>
+        <header class="navbar" id="navbar">
+            <a href="/" class="logo">sammyhost<span class="dot">.</span>uk</a>
+            <nav class="nav-links">
+                <a href="https://copyparty.sammyhost.uk/">Copyparty</a>
+            </nav>
+        </header>
+
+        <main id="content">
+            <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Library Clock</title>
+
+<style>
+
+:root{
+  --bg:#f5f5f7;
+  --text:#1d1d1f;
+  --muted:#6e6e73;
+  --glass:rgba(255,255,255,.58);
+  --glass-strong:rgba(255,255,255,.72);
+  --line:rgba(255,255,255,.85);
+  --shadow:0 20px 60px rgba(0,0,0,.08);
+  --accent:#7c5cff;
+  --blue:#4d9cff;
+  --green:#34c759;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  color:var(--text);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 10% 5%,
+      rgba(255,255,255,.95),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(210,225,255,.55),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #fff 0%,
+      #f5f5f7 58%,
+      #e9e9ee 100%
+    );
+}
+
+.background{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.16;
+}
+
+.orb.a{
+  width:360px;
+  height:360px;
+  left:-120px;
+  top:-120px;
+  background:#8b75ff;
+}
+
+.orb.b{
+  width:420px;
+  height:420px;
+  right:-150px;
+  bottom:-160px;
+  background:#57b7ff;
+}
+
+.orb.c{
+  width:250px;
+  height:250px;
+  left:45%;
+  top:45%;
+  background:#ff8fdc;
+  opacity:.08;
+}
+
+.glass{
+  background:var(--glass);
+  border:1px solid var(--line);
+  box-shadow:
+    var(--shadow),
+    inset 0 1px 0 rgba(255,255,255,.95);
+
+  backdrop-filter:
+    blur(24px)
+    saturate(150%);
+
+  -webkit-backdrop-filter:
+    blur(24px)
+    saturate(150%);
+}
+
+.app{
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:100vh;
+  padding:clamp(24px,3vw,52px);
+
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  gap:clamp(18px,3vh,34px);
+}
+
+.header{
+  width:100%;
+  min-height:68px;
+  padding:12px 18px;
+  border-radius:22px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.mark{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+
+  display:grid;
+  place-items:center;
+
+  color:white;
+  font-size:27px;
+
+  background:#ffffff;
+
+  box-shadow:
+    0 8px 25px rgba(100,100,255,.2);
+}
+
+.brand-title{
+  font-size:clamp(22px,2vw,30px);
+  font-weight:650;
+  letter-spacing:-.03em;
+}
+
+.api-pill{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  padding:8px 12px;
+  border-radius:999px;
+
+  background:rgba(255,255,255,.5);
+  border:1px solid rgba(255,255,255,.8);
+
+  color:var(--muted);
+  font-size:11px;
+}
+
+.api-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#c7c7cc;
+}
+
+.api-dot.ok{
+  background:var(--green);
+  box-shadow:0 0 10px rgba(52,199,89,.45);
+}
+
+.main{
+  min-height:0;
+
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:20px;
+  align-items:stretch;
+}
+
+.clock-card{
+  width:100%;
+  height:100%;
+
+  padding:
+    clamp(38px,5vh,70px)
+    clamp(30px,5vw,80px);
+
+  border-radius:34px;
+
+  text-align:center;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.clock{
+  margin:0;
+
+  font-size:
+    clamp(88px,10.5vw,220px);
+
+  line-height:.86;
+  font-weight:650;
+  letter-spacing:-.075em;
+
+  font-variant-numeric:tabular-nums;
+
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.seconds{
+  font-size:50%;
+  opacity:.42;
+  vertical-align:baseline;
+  letter-spacing:-.06em;
+}
+
+.date{
+  margin-top:clamp(20px,3vh,32px);
+
+  font-size:
+    clamp(20px,2.4vw,36px);
+
+  font-weight:500;
+  letter-spacing:-.025em;
+}
+
+#newBooksPanel{
+  width:100%;
+  height:100%;
+  min-width:0;
+  overflow:hidden;
+
+  padding:26px;
+  border-radius:28px;
+
+  background:var(--glass-strong);
+
+  border:1px solid var(--line);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.12),
+    inset 0 1px 0 rgba(255,255,255,.95);
+
+  backdrop-filter:
+    blur(30px)
+    saturate(160%);
+
+  -webkit-backdrop-filter:
+    blur(30px)
+    saturate(160%);
+
+  display:flex;
+  flex-direction:column;
+}
+
+.new-books-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:6px;
+  flex-shrink:0;
+}
+
+.new-books-title{
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:-.035em;
+}
+
+.new-books-subtitle{
+  color:var(--muted);
+  font-size:11px;
+  margin-bottom:14px;
+  flex-shrink:0;
+}
+
+#newBooksStatus{
+  margin:0 0 14px;
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  flex-shrink:0;
+}
+
+#newBooksGrid{
+  flex:1;
+  min-height:0;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  grid-template-rows:
+    repeat(
+      var(--book-rows,3),
+      minmax(0,1fr)
+    );
+
+  gap:14px;
+}
+
+.new-book-card{
+  min-width:0;
+  min-height:0;
+
+  padding:14px;
+  border-radius:18px;
+
+  background:rgba(255,255,255,.46);
+
+  border:1px solid rgba(255,255,255,.72);
+
+  text-align:center;
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease,
+    background .2s ease;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+
+  overflow:hidden;
+}
+
+.new-book-card:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.7);
+}
+
+.new-book-placeholder{
+  width:82px;
+  height:118px;
+
+  max-width:100%;
+
+  margin:
+    0 auto 10px;
+
+  border-radius:6px;
+
+  flex:1 1 auto;
+
+  min-height:0;
+
+  max-height:
+    calc(100% - 65px);
+
+  aspect-ratio:82 / 118;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:34px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c5cff,
+      #4d9cff
+    );
+
+  box-shadow:
+    0 6px 15px rgba(0,0,0,.12);
+}
+
+.new-book-cover{
+  display:block;
+  object-fit:cover;
+  background:#eee;
+}
+
+.new-book-title{
+  width:100%;
+  flex-shrink:0;
+
+  font-size:13px;
+  line-height:1.25;
+  font-weight:650;
+
+  min-height:
+    calc(13px * 1.25 * 2);
+
+  max-height:
+    calc(13px * 1.25 * 3);
+
+  overflow:hidden;
+
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+}
+
+.new-book-author{
+  width:100%;
+  margin-top:6px;
+  flex-shrink:0;
+
+  color:var(--muted);
+
+  font-size:10px;
+  line-height:1.25;
+
+  min-height:
+    calc(10px * 1.25);
+
+  max-width:100%;
+
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.new-books-beta{
+  margin-top:14px;
+
+  text-align:center;
+
+  color:var(--muted);
+  opacity:.55;
+
+  font-size:9px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+
+  flex-shrink:0;
+}
+
+.book-page-enter{
+  animation:
+    bookPageEnter .45s ease;
+}
+
+@keyframes bookPageEnter{
+
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+.bottom{
+  display:grid;
+
+  grid-template-columns:
+    1.25fr
+    1.25fr
+    1fr
+    1.15fr;
+
+  gap:14px;
+
+  width:100%;
+  margin:0 auto;
+}
+
+.info-card{
+  min-height:132px;
+  padding:20px 22px;
+  border-radius:22px;
+}
+
+.label{
+  color:var(--muted);
+
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+}
+
+.status{
+  margin-top:10px;
+
+  font-size:
+    clamp(22px,2vw,30px);
+
+  font-weight:650;
+}
+
+.status-detail{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.period-main{
+  margin-top:9px;
+
+  font-size:
+    clamp(18px,1.65vw,25px);
+
+  line-height:1.1;
+  font-weight:650;
+
+  letter-spacing:-.025em;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.period-meta{
+  margin-top:7px;
+
+  color:var(--muted);
+
+  font-size:11px;
+  font-variant-numeric:tabular-nums;
+}
+
+.remaining-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:8px;
+}
+
+.remaining-row .remaining{
+  margin-top:0;
+  white-space:nowrap;
+}
+
+.remaining{
+  margin-top:8px;
+
+  font-size:12px;
+  font-weight:600;
+}
+
+.progress-track{
+  height:5px;
+
+  flex:1;
+  min-width:70px;
+  max-width:180px;
+
+  background:rgba(0,0,0,.08);
+
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7c5cff,
+      #4d9cff
+    );
+
+  transition:width .5s ease;
+}
+
+.weather-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:8px;
+}
+
+.weather-icon{
+  font-size:30px;
+}
+
+.weather-temp{
+  font-size:28px;
+  line-height:1;
+  font-weight:650;
+}
+
+.weather-condition{
+  margin-top:4px;
+
+  color:var(--muted);
+  font-size:11px;
+}
+
+.weather-details{
+  margin-top:10px;
+
+  color:var(--muted);
+  font-size:10px;
+}
+
+.notice-card{
+  min-height:132px;
+
+  padding:18px 20px;
+  border-radius:22px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  text-align:center;
+}
+
+.notice{
+  font-size:
+    clamp(14px,1.2vw,18px);
+
+  font-weight:650;
+  letter-spacing:-.02em;
+}
+
+.notice-divider{
+  width:42px;
+  height:1px;
+
+  margin:13px auto;
+
+  background:rgba(0,0,0,.12);
+}
+
+@media(max-width:1100px){
+
+  .main{
+    grid-template-columns:1.5fr 1fr;
+    gap:14px;
+  }
+
+  .bottom{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .new-books-title{
+    font-size:22px;
+  }
+
+}
+
+@media(max-width:850px){
+
+  html,
+  body{
+    overflow:auto;
+  }
+
+  .app{
+    height:auto;
+    min-height:100vh;
+
+    padding:18px;
+    gap:16px;
+  }
+
+  .main{
+    grid-template-columns:1fr;
+    height:auto;
+  }
+
+  .clock-card{
+    min-height:420px;
+  }
+
+  #newBooksPanel{
+    height:auto;
+    max-height:none;
+    min-height:400px;
+  }
+
+  #newBooksGrid{
+    min-height:300px;
+  }
+
+  .bottom{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .api-pill{
+    display:none;
+  }
+
+  .clock{
+    font-size:
+      clamp(58px,17vw,120px);
+  }
+
+  .clock-card{
+    min-height:300px;
+    padding:45px 20px;
+  }
+
+  .date{
+    font-size:20px;
+  }
+
+  #newBooksPanel{
+    padding:20px;
+    border-radius:24px;
+  }
+
+  .new-books-title{
+    font-size:22px;
+  }
+
+  #newBooksGrid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
+    gap:10px;
+  }
+
+  .new-book-card{
+    padding:10px;
+  }
+
+  .new-book-placeholder{
+    width:75px;
+  }
+
+  .bottom{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:380px){
+
+  #newBooksGrid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background">
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+  <div class="orb c"></div>
+</div>
+
+<main class="app">
+
+<header class="glass header">
+
+  <div class="brand">
+
+    <div class="mark">
+      📖
+    </div>
+
+    <div class="brand-title">
+      Library
+    </div>
+
+  </div>
+
+  <div class="api-pill">
+
+    <span
+      class="api-dot"
+      id="apiDot">
+    </span>
+
+    <span id="apiStatus">
+      ON
+    </span>
+
+  </div>
+
+</header>
+
+
+<section class="main">
+
+  <section class="glass clock-card">
+
+    <div
+      class="clock"
+      id="clock"
+      title="Click to enter fullscreen">
+      00:00<span class="seconds">:00</span>
+    </div>
+
+    <div
+      class="date"
+      id="date">
+      Loading…
+    </div>
+
+  </section>
+
+
+  <section
+    class="glass"
+    id="newBooksPanel"
+    role="region"
+    aria-label="New books">
+
+    <div class="new-books-header">
+
+      <div class="new-books-title">
+        📚 New in the Library
+      </div>
+
+    </div>
+
+    <div class="new-books-subtitle">
+      Latest additions to the library
+    </div>
+
+    <div id="newBooksStatus">
+      Loading Accessit…
+    </div>
+
+    <div id="newBooksGrid"></div>
+
+    <div class="new-books-beta">
+      Accessit integration
+    </div>
+
+  </section>
+
+</section>
+
+
+<section class="bottom">
+
+  <section class="glass info-card period-card">
+
+    <div class="label">
+      Current period
+    </div>
+
+    <div
+      class="period-main"
+      id="currentName">
+      Loading…
+    </div>
+
+    <div
+      class="period-meta"
+      id="currentMeta">
+      —
+    </div>
+
+    <div class="remaining-row">
+
+      <div
+        class="remaining"
+        id="remaining">
+        —
+      </div>
+
+      <div class="progress-track">
+
+        <div
+          class="progress-fill"
+          id="periodProgress">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="glass info-card period-card">
+
+    <div class="label">
+      Next period
+    </div>
+
+    <div
+      class="period-main"
+      id="nextName">
+      Loading…
+    </div>
+
+    <div
+      class="period-meta"
+      id="nextMeta">
+      —
+    </div>
+
+    <div
+      class="remaining"
+      id="nextStarts">
+      —
+    </div>
+
+  </section>
+
+
+  <section class="glass info-card weather-card">
+
+    <div class="label">
+      Weather
+    </div>
+
+    <div class="weather-row">
+
+      <div
+        class="weather-icon"
+        id="weatherIcon">
+        ☀️
+      </div>
+
+      <div>
+
+        <div
+          class="weather-temp"
+          id="weatherTemp">
+          —°
+        </div>
+
+        <div
+          class="weather-condition"
+          id="weatherCondition">
+          Loading…
+        </div>
+
+      </div>
+
+    </div>
+
+    <div
+      class="weather-details"
+      id="weatherDetails">
+      —
+    </div>
+
+  </section>
+
+
+  <section class="glass notice-card">
+
+    <div class="notice">
+      🚫 No food or drink
+    </div>
+
+    <div class="notice-divider"></div>
+
+    <div class="notice">
+      🔕 Quiet study after 4pm
+    </div>
+
+  </section>
+
+</section>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   FULLSCREEN
+   ========================================================= */
+
+document
+  .getElementById("clock")
+  .addEventListener(
+    "click",
+    () => {
+
+      if(!document.fullscreenElement){
+
+        if(
+          document.documentElement.requestFullscreen
+        ){
+
+          document.documentElement.requestFullscreen();
+
+        }
+
+      }else{
+
+        if(document.exitFullscreen){
+
+          document.exitFullscreen();
+
+        }
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   CONFIG
+   ========================================================= */
+
+const API =
+  "https://nz.accessit.online/ACG01/?utm_source=chatgpt.com#!dashboard";
+
+
+const WEATHER_LAT =
+  -37.81;
+
+
+const WEATHER_LON =
+  175.77;
+
+
+/*
+   This is the Accessit page containing the carousel
+   you inspected.
+*/
+
+const ACCESSIT_URL =
+  "https://nz.accessit.online/ACG01/#!dashboard";
+
+
+/*
+   IMPORTANT:
+
+   The browser may block direct requests to Accessit
+   because of CORS.
+
+   If your API server has an Accessit proxy endpoint,
+   this is the endpoint the script will use.
+
+   If it doesn't exist yet, the script automatically
+   falls back to the embedded DOM extraction test.
+*/
+
+const ACCESSIT_PROXY =
+  `${API}/accessit-books`;
+
+
+const BOOKS_PER_PAGE =
+  2;
+
+
+const BOOK_PAGE_DURATION =
+  10000;
+
+
+const $ =
+  selector =>
+    document.querySelector(selector);
+
+
+let timetable=[];
+
+
+/* =========================================================
+   CLOCK HELPERS
+   ========================================================= */
+
+function unixNow(){
+
+  return Date.now()/1000;
+
+}
+
+
+function fmtTime(sec){
+
+  return new Intl.DateTimeFormat(
+    "en-NZ",
+    {
+      timeZone:"Pacific/Auckland",
+      hour:"numeric",
+      minute:"2-digit",
+      hour12:false
+    }
+  ).format(
+    new Date(sec*1000)
+  );
+
+}
+
+
+function duration(sec){
+
+  sec=Math.max(
+    0,
+    Math.round(sec)
+  );
+
+  const m =
+    Math.floor(sec/60);
+
+  const h =
+    Math.floor(m/60);
+
+  const r =
+    m%60;
+
+  return h
+    ? `${h}h ${String(r).padStart(2,"0")}m`
+    : `${m} min`;
+
+}
+
+
+/* =========================================================
+   CLOCK
+   ========================================================= */
+
+function updateClock(){
+
+  const now =
+    new Date();
+
+  const p =
+    new Intl.DateTimeFormat(
+      "en-NZ",
+      {
+        timeZone:"Pacific/Auckland",
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit",
+        hour12:false
+      }
+    ).formatToParts(now);
+
+  const h =
+    p.find(
+      x=>x.type==="hour"
+    )?.value || "00";
+
+  const m =
+    p.find(
+      x=>x.type==="minute"
+    )?.value || "00";
+
+  const s =
+    p.find(
+      x=>x.type==="second"
+    )?.value || "00";
+
+
+  $("#clock").innerHTML =
+    `${h}&nbsp;:&nbsp;${m}<span class="seconds">&nbsp;:&nbsp;${s}</span>`;
+
+
+  $("#date").textContent =
+    new Intl.DateTimeFormat(
+      "en-NZ",
+      {
+        timeZone:"Pacific/Auckland",
+        weekday:"long",
+        day:"numeric",
+        month:"long"
+      }
+    ).format(now);
+
+
+  updatePeriods();
+
+}
+
+
+/* =========================================================
+   JSON
+   ========================================================= */
+
+async function getJSON(url){
+
+  const response =
+    await fetch(
+      url,
+      {
+        cache:"no-store"
+      }
+    );
+
+
+  if(!response.ok){
+
+    throw Error(
+      response.status
+    );
+
+  }
+
+
+  return response.json();
+
+}
+
+
+/* =========================================================
+   TIMETABLE
+   ========================================================= */
+
+function normaliseTimetableItem(x){
+
+  if(
+    !x ||
+    typeof x!=="object"
+  ){
+
+    return null;
+
+  }
+
+
+  const s =
+    Number(
+      x.start_time ??
+      x.startTime ??
+      x.start
+    );
+
+
+  const e =
+    Number(
+      x.end_time ??
+      x.endTime ??
+      x.end
+    );
+
+
+  if(
+    !Number.isFinite(s) ||
+    !Number.isFinite(e)
+  ){
+
+    return null;
+
+  }
+
+
+  return {
+
+    name:String(
+      x.name ??
+      x.title ??
+      x.label ??
+      x.period ??
+      "Period"
+    ),
+
+    start:s,
+    end:e
+
+  };
+
+}
+
+
+function extractTimetable(data){
+
+  const result=[];
+
+
+  function walk(value){
+
+    if(Array.isArray(value)){
+
+      value.forEach(walk);
+      return;
+
+    }
+
+
+    if(
+      value &&
+      typeof value==="object"
+    ){
+
+      const item =
+        normaliseTimetableItem(
+          value
+        );
+
+
+      if(item){
+
+        result.push(item);
+
+      }
+
+
+      Object
+        .values(value)
+        .forEach(walk);
+
+    }
+
+  }
+
+
+  walk(data);
+
+
+  const seen =
+    new Set();
+
+
+  return result
+
+    .filter(x=>{
+
+      const key =
+        x.name+
+        x.start+
+        x.end;
+
+
+      if(seen.has(key)){
+
+        return false;
+
+      }
+
+
+      seen.add(key);
+
+      return true;
+
+    })
+
+    .sort(
+      (a,b)=>
+        a.start-b.start
+    );
+
+}
+
+
+/* =========================================================
+   SCHOOL API
+   ========================================================= */
+
+async function loadSchool(){
+
+  try{
+
+    const data =
+      await getJSON(
+        `${API}/timetable-for-date?unix_time=${unixNow()}`
+      );
+
+
+    timetable =
+      extractTimetable(
+        data
+      );
+
+
+    $("#apiDot")
+      .classList
+      .add("ok");
+
+
+    $("#apiStatus")
+      .textContent =
+      "ON";
+
+
+    updatePeriods();
+
+  }
+
+  catch(error){
+
+    console.error(
+      "School API error:",
+      error
+    );
+
+
+    $("#apiDot")
+      .classList
+      .remove("ok");
+
+
+    $("#apiStatus")
+      .textContent =
+      "School API unavailable";
+
+
+    $("#currentName")
+      .textContent =
+      "Unavailable";
+
+
+    $("#nextName")
+      .textContent =
+      "Unavailable";
+
+  }
+
+}
+
+
+/* =========================================================
+   PERIODS
+   ========================================================= */
+
+function updatePeriods(){
+
+  if(!timetable.length){
+
+    return;
+
+  }
+
+
+  const now =
+    unixNow();
+
+
+  const cur =
+    timetable.find(
+      x =>
+        now >= x.start &&
+        now < x.end
+    );
+
+
+  const next =
+    timetable.find(
+      x =>
+        x.start > now
+    );
+
+
+  if(cur){
+
+    $("#currentName")
+      .textContent =
+      cur.name;
+
+
+    $("#currentMeta")
+      .textContent =
+      `${fmtTime(cur.start)} – ${fmtTime(cur.end)}`;
+
+
+    $("#remaining")
+      .textContent =
+      `${duration(cur.end-now)} remaining`;
+
+
+    const pct =
+      Math.max(
+        0,
+        Math.min(
+          100,
+          (
+            (now-cur.start) /
+            (cur.end-cur.start)
+          )*100
+        )
+      );
+
+
+    $("#periodProgress")
+      .style.width =
+      pct+"%";
+
+  }else{
+
+    $("#currentName")
+      .textContent =
+      now < timetable[0].start
+        ? "Before school"
+        : "School day finished";
+
+
+    $("#currentMeta")
+      .textContent =
+      "";
+
+
+    $("#remaining")
+      .textContent =
+      "";
+
+
+    $("#periodProgress")
+      .style.width =
+      "0%";
+
+  }
+
+
+  if(next){
+
+    $("#nextName")
+      .textContent =
+      next.name;
+
+
+    $("#nextMeta")
+      .textContent =
+      `Starts ${fmtTime(next.start)}`;
+
+
+    $("#nextStarts")
+      .textContent =
+      `in ${duration(next.start-now)}`;
+
+  }else{
+
+    $("#nextName")
+      .textContent =
+      "No more periods";
+
+
+    $("#nextMeta")
+      .textContent =
+      "";
+
+
+    $("#nextStarts")
+      .textContent =
+      "";
+
+  }
+
+}
+
+
+/* =========================================================
+   WEATHER
+   ========================================================= */
+
+const wx={
+
+  0:"Clear",
+  1:"Mainly clear",
+  2:"Partly cloudy",
+  3:"Overcast",
+  45:"Fog",
+  48:"Fog",
+  51:"Light drizzle",
+  53:"Drizzle",
+  55:"Heavy drizzle",
+  61:"Light rain",
+  63:"Rain",
+  65:"Heavy rain",
+  71:"Light snow",
+  73:"Snow",
+  75:"Heavy snow",
+  80:"Rain showers",
+  81:"Rain showers",
+  82:"Heavy showers",
+  95:"Thunderstorm",
+  96:"Thunderstorm",
+  99:"Thunderstorm"
+
+};
+
+
+function weatherEmoji(code){
+
+  if(
+    [0,1].includes(code)
+  ){
+    return "☀️";
+  }
+
+  if(
+    [2,3].includes(code)
+  ){
+    return "☁️";
+  }
+
+  if(
+    [45,48].includes(code)
+  ){
+    return "🌫️";
+  }
+
+  if(
+    [
+      51,53,55,
+      61,63,65,
+      80,81,82
+    ].includes(code)
+  ){
+    return "🌧️";
+  }
+
+  if(
+    [71,73,75].includes(code)
+  ){
+    return "❄️";
+  }
+
+  if(
+    [95,96,99].includes(code)
+  ){
+    return "⛈️";
+  }
+
+  return "🌤️";
+
+}
+
+
+async function loadWeather(){
+
+  try{
+
+    const data =
+      await getJSON(
+        `https://api.open-meteo.com/v1/forecast?latitude=${WEATHER_LAT}&longitude=${WEATHER_LON}&current=temperature_2m,apparent_temperature,weather_code&timezone=Pacific%2FAuckland`
+      );
+
+
+    const current =
+      data.current;
+
+
+    $("#weatherIcon")
+      .textContent =
+      weatherEmoji(
+        current.weather_code
+      );
+
+
+    $("#weatherTemp")
+      .textContent =
+      `${Math.round(current.temperature_2m)}°`;
+
+
+    $("#weatherCondition")
+      .textContent =
+      wx[current.weather_code]
+      || "Current conditions";
+
+
+    $("#weatherDetails")
+      .textContent =
+      `Feels ${Math.round(current.apparent_temperature)}°`;
+
+  }
+
+  catch(error){
+
+    console.error(
+      "Weather error:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIT BOOKS
+   ========================================================= */
+
+let betaBooks=[];
+
+let currentBookPage=0;
+
+
+const fallbackBooks=[
+
+  {
+    title:"The Wild Robot",
+    author:"Peter Brown",
+    cover:""
+  },
+
+  {
+    title:"The Hobbit",
+    author:"J.R.R. Tolkien",
+    cover:""
+  },
+
+  {
+    title:"Wonder",
+    author:"R.J. Palacio",
+    cover:""
+  },
+
+  {
+    title:"Percy Jackson",
+    author:"Rick Riordan",
+    cover:""
+  }
+
+];
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   ACCESSIT IMAGE URL
+   ========================================================= */
+
+function makeAccessitCover(src){
+
+  if(!src){
+
+    return "";
+
+  }
+
+
+  try{
+
+    return new URL(
+      src,
+      "https://nz.accessit.online/ACG01/"
+    ).href;
+
+  }
+
+  catch{
+
+    return src;
+
+  }
+
+}
+
+
+/* =========================================================
+   PARSE ACCESSIT CAROUSEL HTML
+   ========================================================= */
+
+/*
+   THIS MATCHES THE EXACT HTML YOU FOUND.
+
+   Example:
+
+   <img
+      src="vimage?...&bookimage=34772&ISBN=..."
+      data-flip-title="Mars awakens"
+      data-flip-reference="34772"
+   >
+*/
+
+function parseAccessitCarousel(root){
+
+  const books=[];
+
+
+  const images =
+    root.querySelectorAll(
+      'img[data-flip-title][data-flip-reference]'
+    );
+
+
+  images.forEach(img=>{
+
+    const title =
+      img.getAttribute(
+        "data-flip-title"
+      );
+
+
+    const reference =
+      img.getAttribute(
+        "data-flip-reference"
+      );
+
+
+    const src =
+      img.getAttribute(
+        "src"
+      );
+
+
+    if(
+      !title ||
+      !reference
+    ){
+
+      return;
+
+    }
+
+
+    /*
+       Only accept images from the
+       "New books in the library"
+       carousel.
+    */
+
+    const category =
+      img.getAttribute(
+        "data-flip-category"
+      );
+
+
+    if(
+      category &&
+      category.toLowerCase()
+        !== "new books in the library"
+    ){
+
+      return;
+
+    }
+
+
+    let isbn="";
+
+
+    if(src){
+
+      try{
+
+        const url =
+          new URL(
+            src,
+            "https://nz.accessit.online/ACG01/"
+          );
+
+
+        isbn =
+          url.searchParams.get(
+            "ISBN"
+          ) || "";
+
+      }
+
+      catch{
+
+        const match =
+          src.match(
+            /[?&]ISBN=([^&]+)/i
+          );
+
+
+        if(match){
+
+          isbn =
+            decodeURIComponent(
+              match[1]
+            );
+
+        }
+
+      }
+
+    }
+
+
+    books.push({
+
+      title:title.trim(),
+
+      author:"",
+
+      isbn,
+
+      reference,
+
+      cover:
+        makeAccessitCover(
+          src
+        )
+
+    });
+
+  });
+
+
+  /*
+     Remove duplicates.
+  */
+
+  const seen =
+    new Set();
+
+
+  return books.filter(book=>{
+
+    const key =
+      `${book.reference}|${book.title}`;
+
+
+    if(seen.has(key)){
+
+      return false;
+
+    }
+
+
+    seen.add(key);
+
+    return true;
+
+  });
+
+}
+
+
+/* =========================================================
+   DIRECT DOM MODE
+   ========================================================= */
+
+/*
+   If this script is actually running on the Accessit page,
+   we can read the carousel immediately.
+
+   This is the exact DOM structure you supplied.
+*/
+
+function readAccessitFromCurrentPage(){
+
+  try{
+
+    const books =
+      parseAccessitCarousel(
+        document
+      );
+
+
+    if(books.length){
+
+      return books;
+
+    }
+
+  }
+
+  catch(error){
+
+    console.warn(
+      "Accessit DOM read failed:",
+      error
+    );
+
+  }
+
+
+  return [];
+
+}
+
+
+/* =========================================================
+   LOAD ACCESSIT
+   ========================================================= */
+
+async function loadAccessitBooks(){
+
+  const status =
+    $("#newBooksStatus");
+
+
+  /*
+     FIRST:
+
+     Try the actual Accessit carousel if this page
+     contains it.
+  */
+
+  const localBooks =
+    readAccessitFromCurrentPage();
+
+
+  if(localBooks.length){
+
+    betaBooks =
+      localBooks;
+
+
+    currentBookPage=0;
+
+
+    displayCurrentBookPage();
+
+
+    status.textContent =
+      `${betaBooks.length} books from Accessit`;
+
+
+    console.log(
+      "Accessit carousel books:",
+      betaBooks
+    );
+
+
+    return;
+
+  }
+
+
+  /*
+     SECOND:
+
+     Try the API proxy.
+  */
+
+  status.textContent =
+    "Connecting to Accessit…";
+
+
+  try{
+
+    const response =
+      await fetch(
+        ACCESSIT_PROXY,
+        {
+          cache:"no-store"
+        }
+      );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        `Proxy HTTP ${response.status}`
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    const books =
+      Array.isArray(data)
+        ? data
+        : data.books;
+
+
+    if(
+      !Array.isArray(books) ||
+      !books.length
+    ){
+
+      throw new Error(
+        "No books returned"
+      );
+
+    }
+
+
+    betaBooks =
+      books;
+
+
+    currentBookPage=0;
+
+
+    displayCurrentBookPage();
+
+
+    status.textContent =
+      `${betaBooks.length} books from Accessit`;
+
+
+    console.log(
+      "Accessit API books:",
+      betaBooks
+    );
+
+  }
+
+  catch(error){
+
+    console.warn(
+      "Accessit unavailable:",
+      error
+    );
+
+
+    betaBooks =
+      fallbackBooks.slice();
+
+
+    currentBookPage=0;
+
+
+    displayCurrentBookPage();
+
+
+    status.textContent =
+      "Accessit unavailable";
+
+  }
+
+}
+
+
+/* =========================================================
+   BOOK PAGES
+   ========================================================= */
+
+function getBookPages(){
+
+  const pages=[];
+
+
+  for(
+    let i=0;
+    i<betaBooks.length;
+    i+=BOOKS_PER_PAGE
+  ){
+
+    pages.push(
+      betaBooks.slice(
+        i,
+        i+BOOKS_PER_PAGE
+      )
+    );
+
+  }
+
+
+  return pages;
+
+}
+
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+function updateBookGridRows(count){
+
+  const columns =
+    window.innerWidth <= 380
+      ? 1
+      : 2;
+
+
+  const rows =
+    Math.max(
+      1,
+      Math.ceil(
+        count / columns
+      )
+    );
+
+
+  $("#newBooksGrid")
+    .style
+    .setProperty(
+      "--book-rows",
+      rows
+    );
+
+}
+
+
+/* =========================================================
+   DISPLAY BOOKS
+   ========================================================= */
+
+function displayNewBooks(
+  books,
+  pageNumber,
+  totalPages
+){
+
+  const grid =
+    $("#newBooksGrid");
+
+
+  grid.innerHTML="";
+
+
+  updateBookGridRows(
+    books.length
+  );
+
+
+  books.forEach(book=>{
+
+    const card =
+      document.createElement(
+        "article"
+      );
+
+
+    card.className =
+      "new-book-card book-page-enter";
+
+
+    const coverHTML =
+      book.cover
+
+        ? `
+
+          <img
+            class="new-book-placeholder new-book-cover"
+            src="${escapeHTML(book.cover)}"
+            alt=""
+            loading="lazy"
+            draggable="false"
+          >
+
+        `
+
+        : `
+
+          <div class="new-book-placeholder">
+            📖
+          </div>
+
+        `;
+
+
+    card.innerHTML = `
+
+      ${coverHTML}
+
+      <div class="new-book-title">
+        ${escapeHTML(book.title)}
+      </div>
+
+      <div class="new-book-author">
+        ${escapeHTML(
+          book.author ||
+          "New addition"
+        )}
+      </div>
+
+    `;
+
+
+    grid.appendChild(
+      card
+    );
+
+  });
+
+
+  $("#newBooksStatus")
+    .textContent =
+    `${books.length} books · Page ${pageNumber} of ${totalPages}`;
+
+}
+
+
+/* =========================================================
+   CURRENT PAGE
+   ========================================================= */
+
+function displayCurrentBookPage(){
+
+  const pages =
+    getBookPages();
+
+
+  if(!pages.length){
+
+    return;
+
+  }
+
+
+  if(
+    currentBookPage >= pages.length
+  ){
+
+    currentBookPage=0;
+
+  }
+
+
+  displayNewBooks(
+    pages[currentBookPage],
+    currentBookPage+1,
+    pages.length
+  );
+
+}
+
+
+/* =========================================================
+   ROTATE
+   ========================================================= */
+
+function cycleBooks(){
+
+  const pages =
+    getBookPages();
+
+
+  if(!pages.length){
+
+    return;
+
+  }
+
+
+  currentBookPage =
+    (
+      currentBookPage+1
+    ) %
+    pages.length;
+
+
+  displayCurrentBookPage();
+
+}
+
+
+/* =========================================================
+   RESIZE
+   ========================================================= */
+
+window.addEventListener(
+  "resize",
+  () => {
+
+    const pages =
+      getBookPages();
+
+
+    if(
+      pages.length &&
+      pages[currentBookPage]
+    ){
+
+      updateBookGridRows(
+        pages[currentBookPage].length
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   START BOOKS
+   ========================================================= */
+
+betaBooks =
+  fallbackBooks.slice();
+
+
+displayCurrentBookPage();
+
+
+loadAccessitBooks();
+
+
+setInterval(
+  cycleBooks,
+  BOOK_PAGE_DURATION
+);
+
+
+/* =========================================================
+   START EVERYTHING
+   ========================================================= */
+
+updateClock();
+
+loadSchool();
+
+loadWeather();
+
+
+setInterval(
+  updateClock,
+  1000
+);
+
+
+setInterval(
+  loadSchool,
+  60000
+);
+
+
+setInterval(
+  loadWeather,
+  600000
+);
+
+</script>
+
+</body>
+</html>
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <img src="/media/images/sh.logo-whiteonblue.png" alt="SammyHost Logo" class="footer-logo">
+                </div>
+                <div class="footer-right">
+                    <p>&copy; 2026 SammyHost. All rights reserved.</p>
+                    <nav class="footer-nav">
+                        <a href="/404/">About</a>
+                        <a href="/404/">Contact</a>
+                        <a href="/404/">Terms</a>
+                    </nav>
+                    <p class="footer-email">
+                    Contact us: <a href="mailto:admin@sammyhost.uk">admin@sammyhost.uk</a></br>
+                    Version: 5956f85
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
