@@ -1,0 +1,4975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fast Food Compare NZ</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Segoe UI",
+        sans-serif;
+
+    background: #f5f5f7;
+    color: #111113;
+    min-height: 100vh;
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --background: #f5f5f7;
+
+    --surface:
+        rgba(255,255,255,.72);
+
+    --surface-strong:
+        rgba(255,255,255,.92);
+
+    --surface-hover:
+        rgba(255,255,255,.98);
+
+    --border:
+        rgba(0,0,0,.08);
+
+    --border-strong:
+        rgba(0,0,0,.14);
+
+    --text:
+        #111113;
+
+    --secondary:
+        #6e6e73;
+
+    --tertiary:
+        #98989d;
+
+    --accent:
+        #007aff;
+
+    --accent-soft:
+        rgba(0,122,255,.10);
+
+    --green:
+        #34c759;
+
+    --orange:
+        #ff9500;
+
+    --shadow:
+        0 12px 40px rgba(0,0,0,.07);
+
+    --shadow-large:
+        0 30px 90px rgba(0,0,0,.16);
+
+    --radius:
+        24px;
+}
+
+
+body.dark {
+
+    --background:
+        #08090b;
+
+    --surface:
+        #151619;
+
+    --surface-strong:
+        #1c1d20;
+
+    --surface-hover:
+        #25262a;
+
+    --border:
+        rgba(255,255,255,.09);
+
+    --border-strong:
+        rgba(255,255,255,.16);
+
+    --text:
+        #ffffff;
+
+    --secondary:
+        #b8b8bd;
+
+    --tertiary:
+        #77777d;
+
+    --accent:
+        #0a84ff;
+
+    --accent-soft:
+        rgba(10,132,255,.14);
+
+    --green:
+        #30d158;
+
+    --orange:
+        #ff9f0a;
+
+    --shadow:
+        0 12px 35px rgba(0,0,0,.48);
+
+    --shadow-large:
+        0 30px 90px rgba(0,0,0,.75);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark {
+
+    background:
+        #08090b !important;
+
+    color:
+        #ffffff !important;
+}
+
+body.dark .topbar,
+body.dark .controls,
+body.dark .item-card,
+body.dark .source-card,
+body.dark .empty-state {
+
+    background:
+        #151619;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+
+    width:
+        min(1500px,calc(100% - 32px));
+
+    margin:
+        auto;
+
+    min-height:
+        100vh;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+
+    position:
+        sticky;
+
+    top:
+        12px;
+
+    z-index:
+        50;
+
+    margin-top:
+        12px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        12px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        22px;
+
+    background:
+        var(--surface);
+
+    backdrop-filter:
+        blur(25px)
+        saturate(180%);
+
+    -webkit-backdrop-filter:
+        blur(25px)
+        saturate(180%);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+}
+
+.brand-icon {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #444
+        );
+
+    color:
+        white;
+
+    font-size:
+        20px;
+}
+
+body.dark .brand-icon {
+
+    background:
+        #ffffff;
+
+    color:
+        #08090b;
+}
+
+.brand-title {
+
+    color:
+        var(--text);
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -.03em;
+}
+
+.brand-subtitle {
+
+    color:
+        var(--secondary);
+
+    font-size:
+        12px;
+
+    margin-top:
+        2px;
+}
+
+
+/* =========================================================
+   TOP ACTIONS
+========================================================= */
+
+.top-actions {
+
+    display:
+        flex;
+
+    gap:
+        8px;
+}
+
+.icon-button,
+.location-button {
+
+    min-height:
+        42px;
+
+    padding:
+        0 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        14px;
+
+    background:
+        var(--surface-strong);
+
+    color:
+        var(--text);
+
+    transition:
+        .18s ease;
+}
+
+.icon-button:hover,
+.location-button:hover {
+
+    transform:
+        translateY(-1px);
+
+    background:
+        var(--surface-hover);
+}
+
+.location-button {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    padding:
+        78px 8px 40px;
+}
+
+.hero-eyebrow {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        999px;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--secondary);
+
+    font-size:
+        13px;
+}
+
+.hero h1 {
+
+    margin-top:
+        18px;
+
+    max-width:
+        900px;
+
+    color:
+        var(--text);
+
+    font-size:
+        clamp(42px,6vw,78px);
+
+    line-height:
+        .98;
+
+    letter-spacing:
+        -.065em;
+}
+
+.hero h1 span {
+
+    color:
+        var(--secondary);
+}
+
+.hero-description {
+
+    max-width:
+        680px;
+
+    margin-top:
+        20px;
+
+    color:
+        var(--secondary);
+
+    font-size:
+        17px;
+
+    line-height:
+        1.55;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-shell {
+
+    position:
+        relative;
+
+    max-width:
+        850px;
+
+    margin-top:
+        30px;
+}
+
+.search-icon {
+
+    position:
+        absolute;
+
+    left:
+        18px;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--tertiary);
+
+    font-size:
+        20px;
+}
+
+.search-input {
+
+    width:
+        100%;
+
+    height:
+        62px;
+
+    padding:
+        0 20px 0 52px;
+
+    border:
+        1px solid var(--border-strong);
+
+    border-radius:
+        20px;
+
+    background:
+        var(--surface-strong);
+
+    color:
+        var(--text);
+
+    outline:
+        none;
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        .25s ease;
+}
+
+.search-input::placeholder {
+
+    color:
+        var(--tertiary);
+}
+
+.search-input:focus {
+
+    border-color:
+        rgba(0,122,255,.5);
+
+    box-shadow:
+        0 0 0 4px var(--accent-soft),
+        var(--shadow);
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.controls {
+
+    padding:
+        18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--surface);
+
+    backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.control-label {
+
+    color:
+        var(--secondary);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+}
+
+body.dark .control-label,
+body.dark .sort-label {
+
+    color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   CHIPS
+========================================================= */
+
+.chips {
+
+    display:
+        flex;
+
+    gap:
+        8px;
+
+    flex-wrap:
+        wrap;
+
+    margin-top:
+        15px;
+}
+
+.chip {
+
+    padding:
+        9px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        999px;
+
+    background:
+        var(--surface-strong);
+
+    color:
+        var(--secondary);
+
+    font-size:
+        13px;
+
+    transition:
+        .18s ease;
+}
+
+.chip:hover {
+
+    transform:
+        translateY(-1px);
+
+    color:
+        var(--text);
+}
+
+.chip.active {
+
+    background:
+        var(--text);
+
+    color:
+        var(--background);
+
+    border-color:
+        var(--text);
+}
+
+body.dark .chip {
+
+    background:
+        #1c1d20;
+
+    color:
+        #ffffff;
+
+    border-color:
+        rgba(255,255,255,.10);
+}
+
+body.dark .chip.active {
+
+    background:
+        #ffffff;
+
+    color:
+        #08090b;
+
+    border-color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   PRICE / BUDGET ROW
+========================================================= */
+
+.budget-row {
+
+    margin-top:
+        18px;
+
+    padding-top:
+        18px;
+
+    border-top:
+        1px solid var(--border);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    width:
+        100%;
+
+    gap:
+        22px;
+}
+
+
+.budget-left {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    flex:
+        0 0 245px;
+
+    width:
+        245px;
+
+    min-width:
+        245px;
+}
+
+
+/* =========================================================
+   TOGGLE
+========================================================= */
+
+.toggle {
+
+    width:
+        48px;
+
+    height:
+        28px;
+
+    padding:
+        3px;
+
+    border:
+        none;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--border-strong);
+
+    flex-shrink:
+        0;
+}
+
+.toggle-knob {
+
+    width:
+        22px;
+
+    height:
+        22px;
+
+    border-radius:
+        50%;
+
+    background:
+        white;
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,.2);
+
+    transition:
+        .2s ease;
+}
+
+.toggle.active {
+
+    background:
+        var(--accent);
+}
+
+.toggle.active .toggle-knob {
+
+    transform:
+        translateX(20px);
+}
+
+
+/* =========================================================
+   BUDGET TEXT
+========================================================= */
+
+.budget-value {
+
+    color:
+        var(--text);
+
+    font-weight:
+        700;
+
+    font-size:
+        15px;
+
+    white-space:
+        nowrap;
+}
+
+.budget-description {
+
+    color:
+        var(--secondary);
+
+    font-size:
+        12px;
+
+    margin-top:
+        3px;
+
+    white-space:
+        nowrap;
+
+    width:
+        175px;
+}
+
+
+/* =========================================================
+   RANGE SLIDER
+========================================================= */
+
+.range-slider {
+
+    position:
+        relative;
+
+    height:
+        34px;
+
+    flex:
+        1 1 auto;
+
+    min-width:
+        220px;
+}
+
+.range-track {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    top:
+        50%;
+
+    height:
+        5px;
+
+    transform:
+        translateY(-50%);
+
+    border-radius:
+        999px;
+
+    background:
+        var(--border-strong);
+
+    overflow:
+        hidden;
+}
+
+.range-selected {
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    bottom:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--accent);
+}
+
+
+.range-slider input[type="range"] {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        100%;
+
+    height:
+        34px;
+
+    margin:
+        0;
+
+    pointer-events:
+        none;
+
+    appearance:
+        none;
+
+    -webkit-appearance:
+        none;
+
+    background:
+        transparent;
+
+    outline:
+        none;
+}
+
+
+.range-slider input[type="range"]::-webkit-slider-runnable-track {
+
+    height:
+        5px;
+
+    background:
+        transparent;
+}
+
+.range-slider input[type="range"]::-moz-range-track {
+
+    height:
+        5px;
+
+    background:
+        transparent;
+}
+
+
+.range-slider input[type="range"]::-webkit-slider-thumb {
+
+    appearance:
+        none;
+
+    -webkit-appearance:
+        none;
+
+    width:
+        22px;
+
+    height:
+        22px;
+
+    margin-top:
+        -8.5px;
+
+    border:
+        3px solid var(--background);
+
+    border-radius:
+        50%;
+
+    background:
+        var(--accent);
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.22);
+
+    pointer-events:
+        auto;
+
+    cursor:
+        grab;
+}
+
+.range-slider input[type="range"]::-moz-range-thumb {
+
+    width:
+        22px;
+
+    height:
+        22px;
+
+    border:
+        3px solid var(--background);
+
+    border-radius:
+        50%;
+
+    background:
+        var(--accent);
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.22);
+
+    pointer-events:
+        auto;
+
+    cursor:
+        grab;
+}
+
+
+#maxBudgetSlider {
+
+    z-index:
+        3;
+}
+
+#minBudgetSlider {
+
+    z-index:
+        4;
+}
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+.sort-control {
+
+    margin-left:
+        auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    flex:
+        0 0 auto;
+}
+
+.sort-label {
+
+    color:
+        var(--secondary);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    white-space:
+        nowrap;
+}
+
+.sort-select {
+
+    padding:
+        10px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        13px;
+
+    background:
+        var(--surface-strong);
+
+    color:
+        var(--text);
+
+    outline:
+        none;
+
+    cursor:
+        pointer;
+}
+
+body.dark .sort-select {
+
+    background:
+        #1c1d20;
+
+    color:
+        #ffffff;
+
+    border-color:
+        rgba(255,255,255,.10);
+}
+
+body.dark .sort-select option {
+
+    background:
+        #1c1d20;
+
+    color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   RESULTS HEADER
+========================================================= */
+
+.results-header {
+
+    margin:
+        42px 5px 18px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-end;
+
+    gap:
+        20px;
+}
+
+.results-title {
+
+    color:
+        var(--text);
+
+    font-size:
+        27px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -.04em;
+}
+
+.results-count {
+
+    color:
+        var(--secondary);
+
+    font-size:
+        13px;
+
+    margin-top:
+        4px;
+}
+
+.source-status {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    color:
+        var(--secondary);
+
+    font-size:
+        12px;
+}
+
+.status-dot {
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--green);
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+.results-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    gap:
+        14px;
+}
+
+.item-card {
+
+    min-height:
+        275px;
+
+    padding:
+        20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--surface);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        var(--shadow);
+
+    cursor:
+        pointer;
+
+    transition:
+        .2s ease;
+}
+
+.item-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        var(--border-strong);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.12);
+}
+
+
+/* =========================================================
+   ITEM TOP
+========================================================= */
+
+.item-top {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-start;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        17px;
+}
+
+.food-icon {
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(127,127,127,.1);
+
+    border:
+        1px solid var(--border);
+
+    font-size:
+        30px;
+}
+
+.brand-pill {
+
+    padding:
+        6px 9px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--accent-soft);
+
+    color:
+        var(--accent);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+}
+
+.item-name {
+
+    margin-top:
+        19px;
+
+    color:
+        var(--text);
+
+    font-size:
+        20px;
+
+    line-height:
+        1.15;
+
+    letter-spacing:
+        -.035em;
+
+    font-weight:
+        700;
+}
+
+.item-category {
+
+    color:
+        var(--secondary);
+
+    font-size:
+        12px;
+
+    margin-top:
+        5px;
+}
+
+.item-description {
+
+    margin-top:
+        12px;
+
+    min-height:
+        38px;
+
+    color:
+        var(--secondary);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.45;
+}
+
+.item-bottom {
+
+    margin-top:
+        20px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-end;
+}
+
+.price-label {
+
+    color:
+        var(--tertiary);
+
+    font-size:
+        11px;
+}
+
+.price {
+
+    margin-top:
+        2px;
+
+    color:
+        var(--text);
+
+    font-size:
+        27px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -.045em;
+}
+
+.price-status {
+
+    margin-top:
+        6px;
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+}
+
+.price-status.sourced {
+
+    color:
+        var(--green);
+}
+
+.price-status.estimate {
+
+    color:
+        var(--orange);
+}
+
+.details-button {
+
+    padding:
+        9px 12px;
+
+    border:
+        none;
+
+    border-radius:
+        12px;
+
+    background:
+        var(--text);
+
+    color:
+        var(--background);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+}
+
+body.dark .details-button {
+
+    background:
+        #ffffff;
+
+    color:
+        #08090b;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+
+    display:
+        none;
+
+    text-align:
+        center;
+
+    padding:
+        70px 20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    background:
+        var(--surface);
+}
+
+.empty-state.show {
+
+    display:
+        block;
+}
+
+.empty-icon {
+
+    font-size:
+        40px;
+}
+
+.empty-title {
+
+    margin-top:
+        14px;
+
+    color:
+        var(--text);
+
+    font-size:
+        22px;
+
+    font-weight:
+        700;
+}
+
+.empty-text {
+
+    margin-top:
+        7px;
+
+    color:
+        var(--secondary);
+}
+
+
+/* =========================================================
+   SOURCES
+========================================================= */
+
+.sources-section {
+
+    margin:
+        80px 0 50px;
+}
+
+.section-heading {
+
+    color:
+        var(--text);
+
+    font-size:
+        30px;
+
+    letter-spacing:
+        -.045em;
+}
+
+.section-description {
+
+    margin-top:
+        8px;
+
+    color:
+        var(--secondary);
+}
+
+.source-grid {
+
+    margin-top:
+        22px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:
+        12px;
+}
+
+.source-card {
+
+    padding:
+        17px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        19px;
+
+    background:
+        var(--surface);
+}
+
+.source-name {
+
+    color:
+        var(--text);
+
+    font-weight:
+        700;
+
+    font-size:
+        15px;
+}
+
+.source-updated {
+
+    margin-top:
+        4px;
+
+    color:
+        var(--secondary);
+
+    font-size:
+        11px;
+}
+
+.source-count {
+
+    margin-top:
+        12px;
+
+    color:
+        var(--text);
+
+    font-size:
+        22px;
+
+    font-weight:
+        800;
+}
+
+.source-link {
+
+    display:
+        inline-block;
+
+    margin-top:
+        12px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        12px;
+
+    text-decoration:
+        none;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        100;
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    background:
+        rgba(0,0,0,.35);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+.modal.show {
+
+    display:
+        flex;
+}
+
+.modal-card {
+
+    width:
+        min(520px,100%);
+
+    max-height:
+        calc(100vh - 40px);
+
+    overflow:
+        auto;
+
+    padding:
+        25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        28px;
+
+    background:
+        var(--surface-strong);
+
+    box-shadow:
+        var(--shadow-large);
+
+    backdrop-filter:
+        blur(30px);
+}
+
+.modal-top {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    color:
+        var(--text);
+}
+
+.modal-close {
+
+    width:
+        36px;
+
+    height:
+        36px;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(127,127,127,.12);
+
+    color:
+        var(--text);
+
+    font-size:
+        19px;
+}
+
+.modal-icon {
+
+    width:
+        80px;
+
+    height:
+        80px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    margin:
+        25px 0 18px;
+
+    border-radius:
+        22px;
+
+    background:
+        rgba(127,127,127,.1);
+
+    font-size:
+        40px;
+}
+
+.modal-title {
+
+    color:
+        var(--text);
+
+    font-size:
+        30px;
+
+    letter-spacing:
+        -.05em;
+}
+
+.modal-brand {
+
+    margin-top:
+        4px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+}
+
+.modal-description {
+
+    margin-top:
+        15px;
+
+    color:
+        var(--secondary);
+
+    line-height:
+        1.6;
+}
+
+.modal-price {
+
+    margin-top:
+        22px;
+
+    color:
+        var(--text);
+
+    font-size:
+        36px;
+
+    font-weight:
+        800;
+}
+
+.modal-status {
+
+    margin-top:
+        7px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+}
+
+.modal-status.sourced {
+
+    color:
+        var(--green);
+}
+
+.modal-status.estimate {
+
+    color:
+        var(--orange);
+}
+
+.modal-meta {
+
+    margin-top:
+        18px;
+}
+
+.meta-row {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding:
+        11px 0;
+
+    border-bottom:
+        1px solid var(--border);
+
+    color:
+        var(--text);
+
+    font-size:
+        13px;
+}
+
+.meta-row span:first-child {
+
+    color:
+        var(--secondary);
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error-panel {
+
+    display:
+        none;
+
+    margin-top:
+        20px;
+
+    padding:
+        18px;
+
+    border:
+        1px solid rgba(255,59,48,.25);
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(255,59,48,.07);
+
+    color:
+        var(--secondary);
+}
+
+.error-panel.show {
+
+    display:
+        block;
+}
+
+.error-title {
+
+    color:
+        #ff3b30;
+
+    font-weight:
+        700;
+
+    margin-bottom:
+        5px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        20px 0 50px;
+
+    text-align:
+        center;
+
+    color:
+        var(--tertiary);
+
+    font-size:
+        12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1150px) {
+
+    .results-grid {
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .source-grid {
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .budget-row {
+
+        flex-wrap:
+            wrap;
+    }
+
+    .range-slider {
+
+        flex:
+            1 1 300px;
+    }
+
+}
+
+
+@media(max-width:850px) {
+
+    .results-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .source-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .budget-left {
+
+        flex:
+            0 0 auto;
+
+        width:
+            auto;
+
+        min-width:
+            245px;
+    }
+
+    .sort-control {
+
+        margin-left:
+            auto;
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .app {
+
+        width:
+            calc(100% - 20px);
+    }
+
+    .hero {
+
+        padding-top:
+            55px;
+    }
+
+    .hero h1 {
+
+        font-size:
+            45px;
+    }
+
+    .results-grid,
+    .source-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .results-header {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+    .brand-subtitle {
+
+        display:
+            none;
+    }
+
+    .budget-row {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            15px;
+    }
+
+    .budget-left {
+
+        width:
+            100%;
+
+        min-width:
+            0;
+
+        flex:
+            none;
+    }
+
+    .range-slider {
+
+        width:
+            100%;
+
+        min-width:
+            0;
+
+        flex:
+            none;
+    }
+
+    .sort-control {
+
+        width:
+            100%;
+
+        margin-left:
+            0;
+
+        justify-content:
+            space-between;
+    }
+
+    .sort-select {
+
+        flex:
+            1;
+
+        max-width:
+            240px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+
+<header class="topbar">
+
+<div class="brand">
+
+    <div class="brand-icon">
+        🍔
+    </div>
+
+    <div>
+
+        <div class="brand-title">
+            Fast Food Compare
+        </div>
+
+        <div class="brand-subtitle">
+            New Zealand
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="top-actions">
+
+    <button
+        class="icon-button"
+        id="themeButton"
+    >
+        🌙
+    </button>
+
+    <!-- ADDED: FULLSCREEN BUTTON -->
+    <button
+        class="icon-button"
+        id="fullscreenButton"
+        aria-label="Toggle fullscreen"
+        title="Fullscreen"
+    >
+        🖥️
+    </button>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-eyebrow">
+
+    🇳🇿
+
+    Price data from PriceMyMeal
+
+</div>
+
+
+<h1>
+
+    Find the best price
+
+    <span>
+        for your order.
+    </span>
+
+</h1>
+
+
+<p class="hero-description">
+
+    Compare New Zealand fast-food menus using data
+    retrieved directly from PriceMyMeal. Prices and
+    menu information are never hard-coded into this app.
+
+</p>
+
+
+<div class="search-shell">
+
+    <div class="search-icon">
+         🔎 
+    </div>
+
+
+    <input
+        id="searchInput"
+        class="search-input"
+        type="search"
+        placeholder="Search burgers, chicken, pizza, drinks..."
+    >
+
+</div>
+
+</section>
+
+
+<section class="controls">
+
+<div>
+
+    <div class="control-label">
+        Category
+    </div>
+
+    <div
+        class="chips"
+        id="categoryChips"
+    ></div>
+
+</div>
+
+
+<div
+    class="chips"
+    id="brandChips"
+></div>
+
+
+<div class="budget-row">
+
+    <div class="budget-left">
+
+        <button
+            class="toggle"
+            id="budgetToggle"
+            aria-label="Toggle budget mode"
+        >
+
+            <div class="toggle-knob"></div>
+
+        </button>
+
+
+        <div>
+
+            <div class="budget-value">
+                Price range
+            </div>
+
+            <div
+                class="budget-description"
+                id="budgetDescription"
+            >
+                Show everything
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="range-slider">
+
+        <div class="range-track">
+
+            <div
+                class="range-selected"
+                id="rangeSelected"
+            ></div>
+
+        </div>
+
+
+        <input
+            id="minBudgetSlider"
+            type="range"
+            min="1"
+            max="100"
+            value="1"
+            step=".50"
+            aria-label="Minimum price"
+        >
+
+
+        <input
+            id="maxBudgetSlider"
+            type="range"
+            min="1"
+            max="100"
+            value="15"
+            step=".50"
+            aria-label="Maximum price"
+        >
+
+    </div>
+
+
+    <div class="sort-control">
+
+        <div class="sort-label">
+            Sort
+        </div>
+
+
+        <select
+            id="sortSelect"
+            class="sort-select"
+        >
+
+            <option value="relevance">
+                Relevance
+            </option>
+
+            <option value="priceAsc">
+                Price: Low → High
+            </option>
+
+            <option value="priceDesc">
+                Price: High → Low
+            </option>
+
+            <option value="name">
+                Name
+            </option>
+
+            <option value="brand">
+                Brand
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<div
+    class="error-panel"
+    id="errorPanel"
+>
+
+    <div class="error-title">
+        PriceMyMeal could not be loaded
+    </div>
+
+    <div id="errorText">
+        The browser was unable to retrieve the source.
+    </div>
+
+</div>
+
+
+<div class="results-header">
+
+<div>
+
+    <div class="results-title">
+        Compare prices
+    </div>
+
+    <div
+        class="results-count"
+        id="resultsCount"
+    >
+        Loading PriceMyMeal...
+    </div>
+
+</div>
+
+
+<div class="source-status">
+
+    <span
+        class="status-dot"
+        id="statusDot"
+    ></span>
+
+    <span id="sourceStatus">
+        Loading live source...
+    </span>
+
+</div>
+
+</div>
+
+
+<main>
+
+<div
+    class="results-grid"
+    id="resultsGrid"
+></div>
+
+
+<div
+    class="empty-state"
+    id="emptyState"
+>
+
+    <div class="empty-icon">
+        🔎
+    </div>
+
+    <div class="empty-title">
+        No matches found
+    </div>
+
+    <div class="empty-text">
+        Try another search, category or price range.
+    </div>
+
+</div>
+
+</main>
+
+
+<section class="sources-section">
+
+<h2 class="section-heading">
+    Live source coverage
+</h2>
+
+
+<p class="section-description">
+
+    These cards are generated from the PriceMyMeal NZ
+    country page and its individual chain pages.
+
+</p>
+
+
+<div
+    class="source-grid"
+    id="sourceGrid"
+></div>
+
+</section>
+
+
+<footer>
+
+Fast Food Compare NZ ·
+Data retrieved from PriceMyMeal
+
+</footer>
+
+</div>
+
+
+<div
+    class="modal"
+    id="itemModal"
+>
+
+<div class="modal-card">
+
+    <div
+        class="modal-icon"
+        id="modalIcon"
+    >
+        🍔
+    </div>
+
+
+    <div
+        class="modal-title"
+        id="modalTitle"
+    ></div>
+
+
+    <div
+        class="modal-brand"
+        id="modalBrand"
+    ></div>
+
+
+    <div
+        class="modal-description"
+        id="modalDescription"
+    ></div>
+
+
+    <div
+        class="modal-price"
+        id="modalPrice"
+    ></div>
+
+
+    <div
+        class="modal-status"
+        id="modalStatus"
+    ></div>
+
+
+    <div class="modal-meta">
+
+        <div class="meta-row">
+
+            <span>
+                Category
+            </span>
+
+            <span id="modalCategory"></span>
+
+        </div>
+
+
+        <div class="meta-row">
+
+            <span>
+                Source
+            </span>
+
+            <span>
+                PriceMyMeal
+            </span>
+
+        </div>
+
+
+        <div class="meta-row">
+
+            <span>
+                Updated
+            </span>
+
+            <span id="modalUpdated"></span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   PRICE MY MEAL
+========================================================= */
+
+const PRICE_MY_MEAL_BASE =
+    "https://pricemymeal.com";
+
+const NZ_COUNTRY_PAGE =
+    `${PRICE_MY_MEAL_BASE}/countries/new-zealand/`;
+
+
+const KNOWN_CHAIN_PATHS = {
+
+    "mcdonalds":
+        "/mcdonalds/new-zealand/",
+
+    "burger-king":
+        "/burger-king/new-zealand/",
+
+    "kfc":
+        "/kfc/new-zealand/",
+
+    "subway":
+        "/subway/new-zealand/",
+
+    "taco-bell":
+        "/taco-bell/new-zealand/",
+
+    "pizza-hut":
+        "/pizza-hut/new-zealand/",
+
+    "dominos":
+        "/dominos/new-zealand/",
+
+    "starbucks":
+        "/starbucks/new-zealand/",
+
+    "wendys":
+        "/wendys/new-zealand/",
+
+    "popeyes":
+        "/popeyes/new-zealand/",
+
+    "nandos":
+        "/nandos/new-zealand/"
+
+};
+
+
+const state = {
+
+    items: [],
+
+    chains: [],
+
+    search: "",
+
+    category: "All",
+
+    brand: "All",
+
+    sort: "relevance",
+
+    budgetMode: false,
+
+    minBudget: 1,
+
+    maxBudget: 15,
+
+    location: "All NZ",
+
+    dark: false,
+
+    updated: ""
+
+};
+
+
+/* =========================================================
+   DOM
+========================================================= */
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+const sortSelect =
+    document.getElementById(
+        "sortSelect"
+    );
+
+const resultsGrid =
+    document.getElementById(
+        "resultsGrid"
+    );
+
+const emptyState =
+    document.getElementById(
+        "emptyState"
+    );
+
+const resultsCount =
+    document.getElementById(
+        "resultsCount"
+    );
+
+const sourceStatus =
+    document.getElementById(
+        "sourceStatus"
+    );
+
+const statusDot =
+    document.getElementById(
+        "statusDot"
+    );
+
+const errorPanel =
+    document.getElementById(
+        "errorPanel"
+    );
+
+const errorText =
+    document.getElementById(
+        "errorText"
+    );
+
+const categoryChips =
+    document.getElementById(
+        "categoryChips"
+    );
+
+const brandChips =
+    document.getElementById(
+        "brandChips"
+    );
+
+const sourceGrid =
+    document.getElementById(
+        "sourceGrid"
+    );
+
+const budgetToggle =
+    document.getElementById(
+        "budgetToggle"
+    );
+
+const minBudgetSlider =
+    document.getElementById(
+        "minBudgetSlider"
+    );
+
+const maxBudgetSlider =
+    document.getElementById(
+        "maxBudgetSlider"
+    );
+
+const rangeSelected =
+    document.getElementById(
+        "rangeSelected"
+    );
+
+const budgetDescription =
+    document.getElementById(
+        "budgetDescription"
+    );
+
+
+/*
+    LOCATION BUTTON
+
+    The HTML does not currently contain a locationButton.
+    Therefore we intentionally do NOT call
+    addEventListener on a possibly-null element.
+*/
+
+const locationButton =
+    document.getElementById(
+        "locationButton"
+    );
+
+const themeButton =
+    document.getElementById(
+        "themeButton"
+    );
+
+
+/* =========================================================
+   FETCH
+========================================================= */
+
+async function fetchHTML(url) {
+
+    const response =
+        await fetch(
+            url,
+            {
+                method:
+                    "GET",
+
+                headers: {
+                    "Accept":
+                        "text/html"
+                },
+
+                cache:
+                    "no-store"
+            }
+        );
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            `HTTP ${response.status} while loading ${url}`
+        );
+
+    }
+
+
+    return await response.text();
+
+}
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function cleanText(text) {
+
+    return String(text || "")
+        .replace(/\s+/g," ")
+        .replace(/\u00a0/g," ")
+        .trim();
+
+}
+
+
+function escapeHTML(value) {
+
+    return String(value || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+function parsePrice(text) {
+
+    if (!text) {
+        return null;
+    }
+
+
+    const match =
+        text
+            .replace(/,/g,"")
+            .match(
+                /(?:NZ\$|\$)\s*([0-9]+(?:\.[0-9]{1,2})?)/
+            );
+
+
+    if (!match) {
+        return null;
+    }
+
+
+    return Number(
+        match[1]
+    );
+
+}
+
+
+/* =========================================================
+   PRICE STATUS
+========================================================= */
+
+function detectPriceStatus(rowText) {
+
+    const text =
+        cleanText(rowText);
+
+
+    if (
+        text.includes("Sourced price") ||
+        text.includes("✓")
+    ) {
+
+        return {
+
+            type:
+                "sourced",
+
+            label:
+                "Sourced"
+
+        };
+
+    }
+
+
+    if (
+        text.includes("Chain-calibrated") ||
+        text.includes("≈")
+    ) {
+
+        return {
+
+            type:
+                "estimate",
+
+            label:
+                "Chain-calibrated estimate"
+
+        };
+
+    }
+
+
+    if (
+        text.includes("PPP") ||
+        text.includes("~")
+    ) {
+
+        return {
+
+            type:
+                "estimate",
+
+            label:
+                "PPP estimate"
+
+        };
+
+    }
+
+
+    return {
+
+        type:
+            "unknown",
+
+        label:
+            "PriceMyMeal"
+
+    };
+
+}
+
+
+/* =========================================================
+   CATEGORY EMOJI
+========================================================= */
+
+function categoryEmoji(category) {
+
+    const c =
+        String(category || "")
+            .toLowerCase();
+
+
+    if (c.includes("pizza"))
+        return "🍕";
+
+    if (c.includes("chicken"))
+        return "🍗";
+
+    if (c.includes("sandwich"))
+        return "🥪";
+
+    if (c.includes("burger"))
+        return "🍔";
+
+    if (c.includes("drink"))
+        return "🥤";
+
+    if (c.includes("dessert"))
+        return "🍦";
+
+    if (c.includes("side"))
+        return "🍟";
+
+    if (c.includes("pasta"))
+        return "🍝";
+
+    if (c.includes("wrap"))
+        return "🌯";
+
+    if (c.includes("bowl"))
+        return "🥣";
+
+    if (c.includes("breakfast"))
+        return "🍳";
+
+
+    return "🍽️";
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+function detectBrandFromDocument(document) {
+
+    const title =
+        cleanText(
+            document.title
+        );
+
+
+    const candidates = [
+
+        "McDonald's",
+        "Burger King",
+        "KFC",
+        "Subway",
+        "Taco Bell",
+        "Pizza Hut",
+        "Domino's",
+        "Starbucks",
+        "Wendy's",
+        "Popeyes",
+        "Nando's"
+
+    ];
+
+
+    for (
+        const brand of candidates
+    ) {
+
+        if (
+            title
+                .toLowerCase()
+                .includes(
+                    brand.toLowerCase()
+                )
+        ) {
+
+            return brand;
+
+        }
+
+    }
+
+
+    return "Unknown";
+
+}
+
+
+/* =========================================================
+   UPDATED
+========================================================= */
+
+function detectUpdatedDate(document) {
+
+    const text =
+        cleanText(
+            document.body?.textContent
+        );
+
+
+    const match =
+        text.match(
+            /Updated\s+([A-Za-z]+\s+\d{1,2},\s+\d{4})/i
+        );
+
+
+    if (match) {
+
+        return match[1];
+
+    }
+
+
+    return "Not specified";
+
+}
+
+
+/* =========================================================
+   PARSE MENU
+========================================================= */
+
+function parseMenuPage(html,url) {
+
+    const parser =
+        new DOMParser();
+
+
+    const document =
+        parser.parseFromString(
+            html,
+            "text/html"
+        );
+
+
+    const items = [];
+
+
+    const rows =
+        [
+            ...document.querySelectorAll(
+                "tr"
+            )
+        ];
+
+
+    let currentCategory =
+        "Other";
+
+
+    rows.forEach(row => {
+
+        const text =
+            cleanText(
+                row.textContent
+            );
+
+
+        if (!text) {
+            return;
+        }
+
+
+        const cells =
+            [
+                ...row.querySelectorAll(
+                    "th,td"
+                )
+            ];
+
+
+        const firstCell =
+            cells[0];
+
+
+        if (
+            firstCell &&
+            cells.length <= 2
+        ) {
+
+            const categoryText =
+                cleanText(
+                    firstCell.textContent
+                );
+
+
+            const lower =
+                categoryText.toLowerCase();
+
+
+            if (
+
+                lower.includes("chicken") ||
+                lower.includes("burgers") ||
+                lower.includes("sandwich") ||
+                lower.includes("pizzas") ||
+                lower.includes("sides") ||
+                lower.includes("drinks") ||
+                lower.includes("desserts") ||
+                lower.includes("wraps") ||
+                lower.includes("bowls") ||
+                lower.includes("pasta") ||
+                lower.includes("breakfast")
+
+            ) {
+
+                currentCategory =
+                    categoryText
+                        .replace(
+                            /^[^\w]+/,
+                            ""
+                        )
+                        .trim();
+
+
+                return;
+
+            }
+
+        }
+
+
+        const price =
+            parsePrice(text);
+
+
+        if (price === null) {
+            return;
+        }
+
+
+        const lower =
+            text.toLowerCase();
+
+
+        if (
+
+            lower.includes("usd equiv") ||
+            lower.includes("price range") ||
+            lower.includes("average item") ||
+            lower.includes("sales tax")
+
+        ) {
+
+            return;
+
+        }
+
+
+        let name = "";
+
+
+        const image =
+            row.querySelector(
+                "img[alt]"
+            );
+
+
+        if (image) {
+
+            name =
+                cleanText(
+                    image.getAttribute(
+                        "alt"
+                    )
+                );
+
+        }
+
+
+        if (!name) {
+
+            const links =
+                [
+                    ...row.querySelectorAll(
+                        "a"
+                    )
+                ];
+
+
+            for (
+                const link of links
+            ) {
+
+                const candidate =
+                    cleanText(
+                        link.textContent
+                    );
+
+
+                if (
+                    candidate &&
+                    !candidate.includes("Price") &&
+                    !candidate.includes("Order")
+                ) {
+
+                    name =
+                        candidate;
+
+                    break;
+
+                }
+
+            }
+
+        }
+
+
+        if (!name) {
+
+            const possible =
+                cells
+                    .map(
+                        cell =>
+                            cleanText(
+                                cell.textContent
+                            )
+                    )
+                    .filter(Boolean);
+
+
+            name =
+                possible[0] ||
+                "";
+
+        }
+
+
+        name =
+            name
+                .replace(
+                    /🔥\s*Popular/gi,
+                    ""
+                )
+                .replace(
+                    /ℹ.*$/g,
+                    ""
+                )
+                .replace(
+                    /^[^\p{L}\p{N}]+/u,
+                    ""
+                )
+                .trim();
+
+
+        if (!name) {
+            return;
+        }
+
+
+        const duplicate =
+            items.some(
+                item =>
+                    item.name === name &&
+                    item.price === price
+            );
+
+
+        if (duplicate) {
+            return;
+        }
+
+
+        const priceStatus =
+            detectPriceStatus(
+                text
+            );
+
+
+        let category =
+            currentCategory;
+
+
+        if (
+            lower.includes("pizza")
+        ) {
+
+            category =
+                "Pizza";
+
+        }
+
+        else if (
+
+            lower.includes("chicken") ||
+            lower.includes("tenders") ||
+            lower.includes("nuggets")
+
+        ) {
+
+            category =
+                "Chicken";
+
+        }
+
+        else if (
+
+            lower.includes("burger") ||
+            lower.includes("whopper")
+
+        ) {
+
+            category =
+                "Burgers";
+
+        }
+
+        else if (
+            lower.includes("drink")
+        ) {
+
+            category =
+                "Drinks";
+
+        }
+
+        else if (
+
+            lower.includes("dessert") ||
+            lower.includes("cookie") ||
+            lower.includes("cake")
+
+        ) {
+
+            category =
+                "Desserts";
+
+        }
+
+        else if (
+
+            lower.includes("side") ||
+            lower.includes("fries") ||
+            lower.includes("chips")
+
+        ) {
+
+            category =
+                "Sides";
+
+        }
+
+
+        items.push({
+
+            id:
+                `${Date.now()}-${items.length}-${Math.random()}`,
+
+            brand:
+                detectBrandFromDocument(
+                    document
+                ),
+
+            name,
+
+            category,
+
+            price,
+
+            emoji:
+                categoryEmoji(
+                    category
+                ),
+
+            description:
+                "",
+
+            location:
+                "New Zealand",
+
+            source:
+                "PriceMyMeal",
+
+            sourceUrl:
+                url,
+
+            priceType:
+                priceStatus.type,
+
+            priceStatus:
+                priceStatus.label,
+
+            available:
+                true
+
+        });
+
+    });
+
+
+    return {
+
+        items,
+
+        updated:
+            detectUpdatedDate(
+                document
+            )
+
+    };
+
+}
+
+
+/* =========================================================
+   COUNTRY PAGE
+========================================================= */
+
+async function loadCountryPage() {
+
+    const html =
+        await fetchHTML(
+            NZ_COUNTRY_PAGE
+        );
+
+
+    const parser =
+        new DOMParser();
+
+
+    const document =
+        parser.parseFromString(
+            html,
+            "text/html"
+        );
+
+
+    const links =
+        [
+            ...document.querySelectorAll(
+                "a[href]"
+            )
+        ];
+
+
+    const chains = [];
+
+
+    links.forEach(link => {
+
+        const href =
+            link.href;
+
+
+        const text =
+            cleanText(
+                link.textContent
+            );
+
+
+        if (
+            !href.includes(
+                "pricemymeal.com"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        const match =
+            href.match(
+                /pricemymeal\.com\/([^/]+)\/new-zealand\/?/i
+            );
+
+
+        if (!match) {
+            return;
+        }
+
+
+        const slug =
+            match[1];
+
+
+        if (
+            !KNOWN_CHAIN_PATHS[slug]
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            chains.some(
+                chain =>
+                    chain.url === href
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        chains.push({
+
+            name:
+                text
+                    .replace(
+                        /in New Zealand/i,
+                        ""
+                    )
+                    .trim(),
+
+            url:
+                href,
+
+            slug
+
+        });
+
+    });
+
+
+    if (!chains.length) {
+
+        Object.entries(
+            KNOWN_CHAIN_PATHS
+        ).forEach(
+            ([slug,path]) => {
+
+                chains.push({
+
+                    name:
+                        slug
+                            .split("-")
+                            .map(
+                                word =>
+                                    word
+                                        .charAt(0).toUpperCase() +
+                                    word.slice(1)
+                            )
+                            .join(" "),
+
+                    url:
+                        PRICE_MY_MEAL_BASE +
+                        path,
+
+                    slug
+
+                });
+
+            }
+        );
+
+    }
+
+
+    state.chains =
+        chains;
+
+
+    state.updated =
+        detectUpdatedDate(
+            document
+        );
+
+}
+
+
+/* =========================================================
+   LOAD MENUS
+========================================================= */
+
+async function loadAllMenus() {
+
+    showLoading();
+
+
+    try {
+
+        await loadCountryPage();
+
+
+        if (
+            !state.chains.length
+        ) {
+
+            throw new Error(
+                "No New Zealand chain pages were found on PriceMyMeal."
+            );
+
+        }
+
+
+        let allItems = [];
+
+
+        for (
+            let i = 0;
+            i < state.chains.length;
+            i++
+        ) {
+
+            const chain =
+                state.chains[i];
+
+
+            sourceStatus.textContent =
+                `Loading ${chain.name}...`;
+
+
+            try {
+
+                const html =
+                    await fetchHTML(
+                        chain.url
+                    );
+
+
+                const parsed =
+                    parseMenuPage(
+                        html,
+                        chain.url
+                    );
+
+
+                if (
+                    parsed.updated !==
+                    "Not specified"
+                ) {
+
+                    state.updated =
+                        parsed.updated;
+
+                }
+
+
+                allItems =
+                    allItems.concat(
+                        parsed.items
+                    );
+
+            }
+
+            catch(error) {
+
+                console.warn(
+                    `Could not load ${chain.url}`,
+                    error
+                );
+
+            }
+
+        }
+
+
+        const unique = [];
+
+
+        allItems.forEach(item => {
+
+            const key =
+                [
+                    item.brand,
+                    item.name,
+                    item.price
+                ]
+                .join("|")
+                .toLowerCase();
+
+
+            if (
+                !unique.some(
+                    existing =>
+                        [
+                            existing.brand,
+                            existing.name,
+                            existing.price
+                        ]
+                        .join("|")
+                        .toLowerCase()
+                        === key
+                )
+            ) {
+
+                unique.push(item);
+
+            }
+
+        });
+
+
+        state.items =
+            unique;
+
+
+        if (
+            !state.items.length
+        ) {
+
+            throw new Error(
+                "PriceMyMeal pages loaded, but no menu items could be parsed."
+            );
+
+        }
+
+
+        hideError();
+
+
+        sourceStatus.textContent =
+            `${state.items.length} live items loaded`;
+
+
+        statusDot.style.background =
+            "var(--green)";
+
+
+        renderAll();
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+
+        state.items = [];
+
+
+        sourceStatus.textContent =
+            "PriceMyMeal unavailable";
+
+
+        statusDot.style.background =
+            "#ff3b30";
+
+
+        showError(
+            `
+            ${escapeHTML(error.message)}
+
+            <br><br>
+
+            This version intentionally does NOT use
+            fallback or hard-coded menu data.
+            `
+        );
+
+
+        renderAll();
+
+    }
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+function showLoading() {
+
+    resultsGrid.innerHTML = `
+
+        <div
+            style="
+                grid-column:1/-1;
+                padding:70px;
+                text-align:center;
+                color:var(--secondary);
+            "
+        >
+
+            <div style="font-size:35px">
+                🍔
+            </div>
+
+            <div style="margin-top:12px">
+                Loading live PriceMyMeal data...
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+function showError(message) {
+
+    errorText.innerHTML =
+        message;
+
+    errorPanel.classList.add(
+        "show"
+    );
+
+}
+
+
+function hideError() {
+
+    errorPanel.classList.remove(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+function getCategories() {
+
+    const categories =
+        state.items
+            .map(
+                item =>
+                    cleanText(
+                        item.category
+                    )
+            )
+            .filter(Boolean);
+
+
+    return [
+
+        "All",
+
+        ...[
+            ...new Set(
+                categories
+            )
+        ]
+        .sort(
+            (a,b) =>
+                a.localeCompare(b)
+        )
+
+    ];
+
+}
+
+
+function renderCategoryChips() {
+
+    categoryChips.innerHTML =
+        "";
+
+
+    getCategories()
+        .forEach(
+            category => {
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.className =
+                    "chip" +
+                    (
+                        state.category ===
+                        category
+                            ? " active"
+                            : ""
+                    );
+
+
+                button.textContent =
+                    category;
+
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        state.category =
+                            category;
+
+                        renderCategoryChips();
+
+                        renderResults();
+
+                    }
+                );
+
+
+                categoryChips.appendChild(
+                    button
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   BRANDS
+========================================================= */
+
+function renderBrandChips() {
+
+    const brands = [
+
+        "All",
+
+        ...[
+            ...new Set(
+                state.items
+                    .map(
+                        item =>
+                            item.brand
+                    )
+                    .filter(Boolean)
+            )
+        ]
+        .sort(
+            (a,b) =>
+                a.localeCompare(b)
+        )
+
+    ];
+
+
+    brandChips.innerHTML =
+        "";
+
+
+    brands.forEach(
+        brand => {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.className =
+                "chip" +
+                (
+                    state.brand ===
+                    brand
+                        ? " active"
+                        : ""
+                );
+
+
+            button.textContent =
+                brand;
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    state.brand =
+                        brand;
+
+                    renderBrandChips();
+
+                    renderResults();
+
+                }
+            );
+
+
+            brandChips.appendChild(
+                button
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function getFilteredItems() {
+
+    let items =
+        [...state.items];
+
+
+    if (
+        state.search.trim()
+    ) {
+
+        const query =
+            state.search
+                .toLowerCase()
+                .trim();
+
+
+        items =
+            items.filter(
+                item => {
+
+                    const searchable =
+                        [
+                            item.name,
+                            item.brand,
+                            item.category,
+                            item.description
+                        ]
+                        .join(" ")
+                        .toLowerCase();
+
+
+                    return searchable.includes(
+                        query
+                    );
+
+                }
+            );
+
+    }
+
+
+    if (
+        state.category !== "All"
+    ) {
+
+        items =
+            items.filter(
+                item =>
+                    item.category ===
+                    state.category
+            );
+
+    }
+
+
+    if (
+        state.brand !== "All"
+    ) {
+
+        items =
+            items.filter(
+                item =>
+                    item.brand ===
+                    state.brand
+            );
+
+    }
+
+
+    if (
+        state.budgetMode
+    ) {
+
+        items =
+            items.filter(
+                item =>
+                    item.price >=
+                    state.minBudget &&
+                    item.price <=
+                    state.maxBudget
+            );
+
+    }
+
+
+    return items;
+
+}
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+function sortItems(items) {
+
+    const sorted =
+        [...items];
+
+
+    switch(state.sort) {
+
+        case "priceAsc":
+
+            sorted.sort(
+                (a,b) =>
+                    a.price -
+                    b.price
+            );
+
+            break;
+
+
+        case "priceDesc":
+
+            sorted.sort(
+                (a,b) =>
+                    b.price -
+                    a.price
+            );
+
+            break;
+
+
+        case "name":
+
+            sorted.sort(
+                (a,b) =>
+                    a.name.localeCompare(
+                        b.name
+                    )
+            );
+
+            break;
+
+
+        case "brand":
+
+            sorted.sort(
+                (a,b) =>
+                    a.brand.localeCompare(
+                        b.brand
+                    )
+            );
+
+            break;
+
+    }
+
+
+    return sorted;
+
+}
+
+
+/* =========================================================
+   RENDER RESULTS
+========================================================= */
+
+function renderResults() {
+
+    const filtered =
+        sortItems(
+            getFilteredItems()
+        );
+
+
+    resultsGrid.innerHTML =
+        "";
+
+
+    resultsCount.textContent =
+        `${filtered.length} item${filtered.length === 1 ? "" : "s"} found`;
+
+
+    if (
+        !filtered.length
+    ) {
+
+        emptyState.classList.add(
+            "show"
+        );
+
+        return;
+
+    }
+
+
+    emptyState.classList.remove(
+        "show"
+    );
+
+
+    filtered.forEach(item => {
+
+        const card =
+            document.createElement(
+                "article"
+            );
+
+
+        card.className =
+            "item-card";
+
+
+        const statusClass =
+            item.priceType ===
+            "sourced"
+                ? "sourced"
+                : "estimate";
+
+
+        card.innerHTML = `
+
+            <div class="item-top">
+
+                <div class="food-icon">
+                    ${item.emoji}
+                </div>
+
+                <div class="brand-pill">
+                    ${escapeHTML(item.brand)}
+                </div>
+
+            </div>
+
+
+            <div class="item-name">
+                ${escapeHTML(item.name)}
+            </div>
+
+
+            <div class="item-category">
+                ${escapeHTML(item.category)}
+            </div>
+
+
+            <div class="item-description">
+                Price and menu information
+                from PriceMyMeal.
+            </div>
+
+
+            <div class="item-bottom">
+
+                <div>
+
+                    <div class="price-label">
+                        NZD
+                    </div>
+
+                    <div class="price">
+                        $${item.price.toFixed(2)}
+                    </div>
+
+                    <div
+                        class="price-status ${statusClass}"
+                    >
+                        ${escapeHTML(
+                            item.priceStatus
+                        )}
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="details-button"
+                >
+                    Details
+                </button>
+
+            </div>
+
+        `;
+
+
+        card.addEventListener(
+            "click",
+            () =>
+                openItemModal(item)
+        );
+
+
+        resultsGrid.appendChild(
+            card
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   SOURCES
+========================================================= */
+
+function renderSources() {
+
+    sourceGrid.innerHTML =
+        "";
+
+
+    state.chains.forEach(
+        chain => {
+
+            const count =
+                state.items.filter(
+                    item =>
+                        item.sourceUrl ===
+                        chain.url
+                ).length;
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "source-card";
+
+
+            card.innerHTML = `
+
+                <div class="source-name">
+                    ${escapeHTML(chain.name)}
+                </div>
+
+                <div class="source-updated">
+                    PriceMyMeal ·
+                    ${escapeHTML(
+                        state.updated
+                    )}
+                </div>
+
+                <div class="source-count">
+
+                    ${count}
+
+                    <span
+                        style="
+                            font-size:12px;
+                            font-weight:500;
+                            color:var(--secondary)
+                        "
+                    >
+                        items
+                    </span>
+
+                </div>
+
+                <a
+                    class="source-link"
+                    href="${chain.url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View source →
+                </a>
+
+            `;
+
+
+            sourceGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+function openItemModal(item) {
+
+    document.getElementById(
+        "modalIcon"
+    ).textContent =
+        item.emoji;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        item.name;
+
+
+    document.getElementById(
+        "modalBrand"
+    ).textContent =
+        item.brand;
+
+
+    document.getElementById(
+        "modalDescription"
+    ).textContent =
+        item.description ||
+        "Menu information retrieved from PriceMyMeal.";
+
+
+    document.getElementById(
+        "modalPrice"
+    ).textContent =
+        `NZ$${item.price.toFixed(2)}`;
+
+
+    const status =
+        document.getElementById(
+            "modalStatus"
+        );
+
+
+    status.textContent =
+        item.priceStatus;
+
+
+    status.className =
+        "modal-status " +
+        (
+            item.priceType ===
+            "sourced"
+                ? "sourced"
+                : "estimate"
+        );
+
+
+    document.getElementById(
+        "modalCategory"
+    ).textContent =
+        item.category;
+
+
+    document.getElementById(
+        "modalUpdated"
+    ).textContent =
+        state.updated;
+
+
+    document.getElementById(
+        "itemModal"
+    ).classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+searchInput.addEventListener(
+    "input",
+    event => {
+
+        state.search =
+            event.target.value;
+
+        renderResults();
+
+    }
+);
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+sortSelect.addEventListener(
+    "change",
+    event => {
+
+        state.sort =
+            event.target.value;
+
+        renderResults();
+
+    }
+);
+
+
+/* =========================================================
+   BUDGET TOGGLE
+========================================================= */
+
+budgetToggle.addEventListener(
+    "click",
+    () => {
+
+        state.budgetMode =
+            !state.budgetMode;
+
+
+        budgetToggle.classList.toggle(
+            "active",
+            state.budgetMode
+        );
+
+
+        updateBudget();
+
+        renderResults();
+
+    }
+);
+
+
+/* =========================================================
+   RANGE VISUAL
+========================================================= */
+
+function updateRangeVisual() {
+
+    const min =
+        Number(
+            minBudgetSlider.min
+        );
+
+    const max =
+        Number(
+            minBudgetSlider.max
+        );
+
+
+    const minValue =
+        state.minBudget;
+
+    const maxValue =
+        state.maxBudget;
+
+
+    const minPercent =
+        (
+            (minValue - min) /
+            (max - min)
+        ) * 100;
+
+
+    const maxPercent =
+        (
+            (maxValue - min) /
+            (max - min)
+        ) * 100;
+
+
+    rangeSelected.style.left =
+        `${minPercent}%`;
+
+
+    rangeSelected.style.width =
+        `${maxPercent - minPercent}%`;
+
+}
+
+
+/* =========================================================
+   MIN SLIDER
+========================================================= */
+
+minBudgetSlider.addEventListener(
+    "input",
+    event => {
+
+        let value =
+            Number(
+                event.target.value
+            );
+
+
+        if (
+            value >
+            state.maxBudget
+        ) {
+
+            value =
+                state.maxBudget;
+
+            event.target.value =
+                value;
+
+        }
+
+
+        state.minBudget =
+            value;
+
+
+        updateBudget();
+
+
+        if (
+            state.budgetMode
+        ) {
+
+            renderResults();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MAX SLIDER
+========================================================= */
+
+maxBudgetSlider.addEventListener(
+    "input",
+    event => {
+
+        let value =
+            Number(
+                event.target.value
+            );
+
+
+        if (
+            value <
+            state.minBudget
+        ) {
+
+            value =
+                state.minBudget;
+
+            event.target.value =
+                value;
+
+        }
+
+
+        state.maxBudget =
+            value;
+
+
+        updateBudget();
+
+
+        if (
+            state.budgetMode
+        ) {
+
+            renderResults();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   BUDGET TEXT
+========================================================= */
+
+function updateBudget() {
+
+    if (
+        state.budgetMode
+    ) {
+
+        budgetDescription.textContent =
+            `From NZ$${state.minBudget.toFixed(2)} to NZ$${state.maxBudget.toFixed(2)}`;
+
+    }
+
+    else {
+
+        budgetDescription.textContent =
+            "Show everything";
+
+    }
+
+
+    updateRangeVisual();
+
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+themeButton.addEventListener(
+    "click",
+    () => {
+
+        state.dark =
+            !state.dark;
+
+
+        document.body.classList.toggle(
+            "dark",
+            state.dark
+        );
+
+
+        themeButton.textContent =
+            state.dark
+                ? "☀️"
+                : "🌙";
+
+    }
+);
+
+
+/* =========================================================
+   FULLSCREEN
+========================================================= */
+
+/* ADDED: FULLSCREEN BUTTON ONLY */
+
+const fullscreenButton =
+    document.getElementById(
+        "fullscreenButton"
+    );
+
+
+fullscreenButton.addEventListener(
+    "click",
+    async () => {
+
+        try {
+
+            if (
+                !document.fullscreenElement
+            ) {
+
+                await document.documentElement.requestFullscreen();
+
+                fullscreenButton.textContent =
+                    "🖥️";
+
+            }
+
+            else {
+
+                await document.exitFullscreen();
+
+                fullscreenButton.textContent =
+                    "🖥️";
+
+            }
+
+        }
+
+        catch(error) {
+
+            console.warn(
+                "Fullscreen could not be enabled.",
+                error
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+/*
+    locationButton is not present in the current HTML.
+    Keep this listener conditional so a missing button
+    cannot stop the entire application from starting.
+*/
+
+if (locationButton) {
+
+    locationButton.addEventListener(
+        "click",
+        () => {
+
+            alert(
+                "PriceMyMeal currently provides national New Zealand menu prices rather than store-specific prices. This beta therefore uses New Zealand-wide data."
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   MODAL CLOSE
+========================================================= */
+
+document
+    .querySelectorAll(
+        "[data-close]"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .getElementById(
+                        button.dataset.close
+                    )
+                    .classList.remove(
+                        "show"
+                    );
+
+            }
+        );
+
+    });
+
+
+document
+    .querySelectorAll(
+        ".modal"
+    )
+    .forEach(modal => {
+
+        modal.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target === modal
+                ) {
+
+                    modal.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            document
+                .querySelectorAll(
+                    ".modal.show"
+                )
+                .forEach(
+                    modal =>
+                        modal.classList.remove(
+                            "show"
+                        )
+                );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   RENDER ALL
+========================================================= */
+
+function renderAll() {
+
+    renderCategoryChips();
+
+    renderBrandChips();
+
+    renderResults();
+
+    renderSources();
+
+    updateBudget();
+
+}
+
+
+/* =========================================================
+   INIT
+========================================================= */
+
+async function init() {
+
+    await loadAllMenus();
+
+}
+
+
+init();
+
+</script>
+
+</body>
+</html>
