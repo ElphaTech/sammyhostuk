@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#f5f5f7"><meta name="apple-mobile-web-app-capable" content="yes">
+<title>Cardle — Daily Car Guess</title>
+<style>
+:root{color-scheme:light;--bg:#f5f5f7;--panel:#fff;--ink:#17181b;--muted:#737780;--line:#e2e4e9;--soft:#f0f1f4;--green:#d8f5df;--greenink:#176b32;--orange:#ffedcf;--orangeink:#86520a;--red:#ffe0e0;--redink:#a52828;--shadow:0 10px 34px #2020300b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #80aaff;outline-offset:2px}.shell{max-width:1120px;margin:auto;padding:25px 20px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:32px}.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:850;letter-spacing:-.7px}.logo{display:grid;place-items:center;width:40px;height:40px;background:#17181b;color:white;border-radius:13px;font-size:22px}.actions{display:flex;gap:8px}.btn{border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:var(--panel);color:var(--ink);font-size:13px;font-weight:700}.hero{text-align:center;margin:14px 0 28px}.eyebrow{text-transform:uppercase;letter-spacing:2px;color:var(--muted);font-size:11px;font-weight:800}h1{font-size:clamp(32px,5vw,47px);letter-spacing:-2px;margin:9px 0 8px}.sub{color:var(--muted);font-size:14px;line-height:1.6;margin:0}.game{background:var(--panel);border:1px solid var(--line);border-radius:23px;padding:23px;box-shadow:var(--shadow)}.gamehead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}.day{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.5px}.count{font-size:12px;font-weight:750;color:var(--muted);background:var(--soft);border-radius:99px;padding:7px 10px}.searchrow{display:flex;gap:9px}.searchbox{position:relative;flex:1;min-width:0}.search{width:100%;height:51px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:13px;padding:0 15px;font-size:15px}.guessbtn{height:51px;padding:0 20px;background:#17181b;color:#fff;border:0;border-radius:13px;font-weight:800}.guessbtn:disabled{opacity:.35;cursor:not-allowed}.suggestions{display:none;position:absolute;z-index:9999;top:calc(100% + 6px);left:0;right:0;background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:0 16px 36px #0002;max-height:280px;overflow-y:auto}.suggestions.show{display:block}.suggestion{position:relative;z-index:1;width:100%;border:0;background:transparent;color:var(--ink);padding:12px 14px;text-align:left;display:flex;justify-content:space-between;gap:10px}.suggestion:hover,.suggestion:focus{background:var(--soft);outline:2px solid #80aaff;outline-offset:-2px}.suggestion small{color:var(--muted)}.hint{font-size:12px;color:var(--muted);margin:9px 2px 20px}.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}.gridtable{width:100%;border-collapse:separate;border-spacing:5px;min-width:760px;padding:4px}.gridtable th{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:850;padding:8px 5px;text-align:center;white-space:nowrap}.gridtable th:first-child{text-align:left;width:180px}.gridtable td{padding:0;vertical-align:stretch}.modelcell{min-width:150px;padding:12px!important;background:var(--soft);border-radius:9px;font-weight:800;font-size:13px;vertical-align:middle!important}.modelcell small{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-top:4px}.tile{height:72px;min-width:75px;border-radius:9px;padding:8px 6px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;font-weight:750;line-height:1.3;white-space:normal;overflow-wrap:anywhere;position:relative}.tile.green{background:var(--green);color:var(--greenink)}.tile.orange{background:var(--orange);color:var(--orangeink)}.tile.red{background:var(--red);color:var(--redink)}.tile.year{padding-right:20px}.arrow{font-size:18px;position:absolute;right:5px;top:50%;transform:translateY(-50%)}.empty{padding:38px 15px;text-align:center;color:var(--muted);font-size:13px}.result{display:none;margin-top:17px;padding:17px;border-radius:14px;background:var(--green);color:var(--greenink);text-align:center}.result.show{display:block}.result strong{display:block;font-size:20px;margin-bottom:5px}.below{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:15px}.infobox{border:1px solid var(--line);background:var(--panel);border-radius:17px;padding:16px}.infobox h3{font-size:13px;margin:0 0 10px}.infobox p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}.legend{display:flex;gap:12px;flex-wrap:wrap}.legend span{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}.dot{width:11px;height:11px;border-radius:3px}.stats{display:flex;gap:18px;justify-content:center;margin:23px 0 0}.stat{text-align:center;min-width:70px}.stat strong{display:block;font-size:22px}.stat span{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:800}.footer{text-align:center;color:var(--muted);font-size:11px;line-height:1.6;margin-top:25px}.modal{position:fixed;inset:0;background:#10111680;display:none;align-items:center;justify-content:center;padding:18px;z-index:30}.modal.show{display:flex}.modalbox{width:min(490px,100%);background:var(--panel);color:var(--ink);border-radius:22px;padding:24px;box-shadow:0 20px 80px #0003}.modalhead{display:flex;justify-content:space-between;align-items:center}.modal h2{margin:0;letter-spacing:-.7px}.modal p,.modal li{font-size:13px;line-height:1.65;color:var(--muted)}.modal ul{padding-left:19px}.close{border:0;border-radius:10px;padding:8px 10px;background:var(--soft);color:var(--ink)}.reset{margin-top:10px;border:0;background:transparent;color:var(--muted);font-size:11px;text-decoration:underline}
+
+.mode-switch{display:inline-flex;background:var(--soft);padding:3px;border-radius:10px;gap:3px}.modebtn{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:800;padding:7px 10px;border-radius:8px}.modebtn.active{background:var(--panel);color:var(--ink);box-shadow:0 1px 4px #0001}.practice-actions{display:flex;justify-content:center;margin-top:14px}.practice-actions .guessbtn{width:100%}.calendar-panel{margin-top:18px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}.calendar-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.calendar-head h2{font-size:18px;letter-spacing:-.5px;margin:0 auto 0 0}.calendar-desc{font-size:12px;line-height:1.6;color:var(--muted)}.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}.cal-weekday{text-align:center;font-size:10px;font-weight:850;color:var(--muted);padding:5px 0}.cal-day{min-height:66px;border:1px solid var(--line);border-radius:10px;background:var(--soft);padding:6px;text-align:left;color:var(--ink);font-size:12px;display:flex;flex-direction:column;justify-content:space-between}.cal-day.blank{border-color:transparent;background:transparent}.cal-day.today{outline:2px solid var(--ink);outline-offset:-2px}.cal-day.solved{background:var(--green);color:var(--greenink);border-color:transparent}.cal-day .score{font-size:10px;font-weight:850;line-height:1.2}.calendar-legend{display:flex;gap:14px;margin-top:12px;font-size:11px;color:var(--muted)}
+@media(max-width:650px){.gamehead{align-items:flex-start;flex-direction:column}.gamehead>div:last-child{width:100%;justify-content:space-between}.calendar-panel{padding:12px}.calendar-grid{gap:4px}.cal-day{min-height:55px;padding:4px;font-size:11px}.cal-day .score{font-size:9px}.modebtn{padding:7px 9px}}
+
+
+/* Settings and stats */
+.settings-modal .modalbox{width:min(760px,100%);max-height:min(88vh,900px);overflow:auto}
+.settings-section{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.settings-section h3{margin:0 0 6px;font-size:15px;letter-spacing:-.25px}
+.settings-note{margin:0 0 14px;font-size:12px;color:var(--muted);line-height:1.55}
+.theme-options{display:flex;gap:8px;flex-wrap:wrap}
+.theme-option{border:1px solid var(--line);border-radius:12px;background:var(--soft);color:var(--ink);padding:11px 14px;font-size:13px;font-weight:750}
+.theme-option.active{outline:2px solid var(--ink);outline-offset:-2px;background:var(--panel)}
+.stat-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0 20px}
+.stat-card{border:1px solid var(--line);background:var(--soft);border-radius:13px;padding:13px;min-width:0}
+.stat-card strong{display:block;font-size:24px;letter-spacing:-.8px;overflow-wrap:anywhere}
+.stat-card span{display:block;margin-top:4px;font-size:10px;color:var(--muted);font-weight:800;letter-spacing:.7px;text-transform:uppercase}
+.chart{display:flex;flex-direction:column;gap:9px;margin:13px 0 0}
+.chart-row{display:grid;grid-template-columns:78px minmax(30px,1fr) 28px;gap:10px;align-items:center;font-size:12px}
+.chart-label{font-weight:700;color:var(--ink)}
+.chart-track{height:17px;border-radius:5px;background:var(--soft);overflow:hidden}
+.chart-bar{height:100%;min-width:0;border-radius:5px;background:#258653;transition:width .25s ease}
+.chart-count{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
+.stats-empty{padding:18px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:12px;line-height:1.6}
+.stats-footnote{font-size:11px;color:var(--muted);line-height:1.6;margin:14px 0 0}
+@media(max-width:520px){.stat-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.chart-row{grid-template-columns:66px minmax(20px,1fr) 22px;gap:7px}.settings-modal .modalbox{padding:18px}}
+
+body.dark{color-scheme:dark;--bg:#08090c;--panel:#141519;--ink:#f5f5f7;--muted:#a0a3ad;--line:#2a2c33;--soft:#202228;--green:#183d26;--greenink:#9ce7ae;--orange:#493719;--orangeink:#ffcf7a;--red:#482324;--redink:#ffaaaa;--shadow:0 10px 34px #0003}.dark .logo{background:#f5f5f7;color:#17181b}.dark .guessbtn{background:#f5f5f7;color:#17181b}.dark .suggestion:hover{background:#252730}
+@media(max-width:650px){.shell{padding:17px 11px 35px}.top{margin-bottom:25px}.brand{font-size:18px}.logo{width:36px;height:36px}.hero{margin-bottom:21px}.game{padding:13px;border-radius:18px}.gamehead{margin:3px 2px 15px}.searchrow{flex-direction:column}.guessbtn{width:100%}.hint{margin-bottom:14px}.below{grid-template-columns:1fr}.stats{gap:13px}.gridtable{min-width:740px}.gridtable th:first-child{width:145px}.tile{height:66px;font-size:11px}.modelcell{min-width:135px!important;padding:9px!important}}
+
+
+/* Mobile, iPhone and iPad layout / touch support */
+html{min-height:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:12px}
+body{min-width:0;overflow-x:hidden;min-height:100vh;min-height:100dvh;-webkit-tap-highlight-color:transparent}
+button,.btn,.modebtn,.theme-option,.close,.cal-day,.suggestion{-webkit-appearance:none;appearance:none;touch-action:manipulation; -webkit-user-select:none;user-select:none}
+input,button{max-width:100%}
+input{font-size:16px}
+.tablewrap{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;max-width:100%}
+.modal{padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));overflow-y:auto;-webkit-overflow-scrolling:touch;align-items:center}
+.modalbox{max-height:calc(100dvh - 24px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.settings-modal .modalbox{max-height:calc(100dvh - 24px)}
+.btn,.close,.modebtn,.theme-option{min-height:42px}
+.suggestion{min-height:46px}
+@media (max-width: 900px){
+ .shell{max-width:100%;padding:20px 16px 36px}
+ .top{gap:10px;align-items:flex-start;flex-wrap:wrap;margin-bottom:26px}
+ .actions{flex-wrap:wrap;justify-content:flex-end;gap:7px}
+ .btn{padding:10px 11px}
+ .game{padding:18px}
+ .below{gap:10px}
+ .stat-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width: 650px){
+ .shell{padding:calc(12px + env(safe-area-inset-top)) 10px calc(26px + env(safe-area-inset-bottom))}
+ .top{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:22px}
+ .brand{font-size:19px;gap:9px}
+ .logo{width:36px;height:36px;border-radius:11px}
+ .actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:7px}
+ .actions .btn{min-width:0;padding:10px 5px;font-size:12px;white-space:nowrap}
+ .hero{text-align:left;margin:10px 3px 18px}
+ .eyebrow{font-size:10px;letter-spacing:1.5px}
+ h1{font-size:clamp(32px,9vw,42px);letter-spacing:-1.5px;margin:7px 0}
+ .sub{font-size:13px;line-height:1.5;max-width:38rem}
+ .game{padding:12px;border-radius:17px}
+ .gamehead{gap:11px;margin:2px 0 14px}
+ .gamehead>div:first-child{width:100%;justify-content:space-between}
+ .gamehead>div:last-child{width:100%;justify-content:space-between}
+ .day{font-size:10px;letter-spacing:.2px}
+ .mode-switch{flex-shrink:0}
+ .modebtn{font-size:12px;padding:8px 10px;min-height:38px}
+ .count{font-size:11px;padding:7px 9px}
+ .searchrow{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+ .search{height:48px;font-size:16px;padding:0 12px}
+ .guessbtn{height:auto;min-height:46px;width:100%;padding:12px 14px;font-size:14px}
+ .hint{font-size:11px;line-height:1.5;margin:9px 2px 13px}
+ .tablewrap{border-radius:11px}
+ .gridtable{min-width:720px;border-spacing:4px}
+ .gridtable th{font-size:9px;letter-spacing:.5px;padding:7px 4px}
+ .gridtable th:first-child{width:128px}
+ .modelcell{min-width:125px!important;padding:9px!important;font-size:12px}
+ .modelcell small{font-size:10px}
+ .tile{min-width:68px;height:61px;padding:6px 5px;font-size:10px}
+ .tile.year{padding-right:17px}
+ .arrow{right:3px;font-size:15px}
+ .result{padding:14px;font-size:13px}
+ .result strong{font-size:18px}
+ .stats{gap:0;justify-content:space-around;margin:18px 0 0}
+ .stat{min-width:0;flex:1}
+ .stat strong{font-size:21px}
+ .stat span{font-size:9px;letter-spacing:.6px}
+ .reset{font-size:11px;padding:10px 0;min-height:38px}
+ .below{grid-template-columns:1fr;gap:10px;margin-top:12px}
+ .infobox{padding:13px;border-radius:14px}
+ .calendar-panel{padding:11px;margin-top:12px;border-radius:15px}
+ .calendar-head{gap:6px}
+ .calendar-head h2{font-size:16px;flex:1 1 100%;order:-1}
+ .calendar-head .btn{min-height:40px;padding:8px 10px}
+ .calendar-desc{font-size:11px}
+ .calendar-grid{gap:3px}
+ .cal-weekday{font-size:9px}
+ .cal-day{min-width:0;min-height:48px;padding:4px 3px;border-radius:7px;font-size:10px}
+ .cal-day .score{font-size:8px;overflow-wrap:anywhere}
+ .calendar-legend{font-size:10px;gap:9px;flex-wrap:wrap}
+ .footer{font-size:10px;margin-top:19px}
+ .modal{align-items:flex-start;padding:calc(8px + env(safe-area-inset-top)) 8px calc(8px + env(safe-area-inset-bottom))}
+ .modalbox,.settings-modal .modalbox{width:100%;max-width:100%;max-height:calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom));border-radius:17px;padding:17px}
+ .modal h2{font-size:21px}
+ .modal p,.modal li{font-size:13px;line-height:1.6}
+ .theme-options{display:grid;grid-template-columns:1fr;gap:7px}
+ .theme-option{text-align:left;min-height:44px}
+ .settings-section{margin-top:18px;padding-top:15px}
+ .stat-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:12px 0 17px}
+ .stat-card{padding:11px;border-radius:11px}
+ .stat-card strong{font-size:23px}
+ .stat-card span{font-size:9px;letter-spacing:.5px}
+ .chart{gap:8px}
+ .chart-row{grid-template-columns:70px minmax(20px,1fr) 22px;gap:6px;font-size:11px}
+ .chart-track{height:15px}
+ #doneSettings{width:100%}
+}
+@media (min-width: 651px) and (max-width: 900px){
+ .actions .btn{font-size:12px}
+ .hero{margin-top:8px}
+ .gridtable{min-width:740px}
+ .settings-modal .modalbox{width:min(720px,100%)}
+ .stat-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width: 360px){
+ .shell{padding-left:8px;padding-right:8px}
+ .actions{gap:5px}
+ .actions .btn{font-size:11px;padding-left:3px;padding-right:3px}
+ .game{padding:10px}
+ .day{font-size:9px}
+ .modebtn{padding:7px 8px;font-size:11px}
+ .chart-row{grid-template-columns:62px minmax(15px,1fr) 20px;gap:5px}
+}
+@media (prefers-reduced-motion: reduce){.chart-bar{transition:none}html{scroll-behavior:auto}}
+
+@media (hover:none) and (pointer:coarse){
+ .suggestions{max-height:min(44vh,360px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y}
+ .suggestion{min-height:50px;cursor:pointer;touch-action:manipulation}
+ .suggestion:active{background:var(--soft)}
+ .searchbox{isolation:isolate}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top"><div class="brand"><div class="logo">🚘</div><span>cardle <span style="font-weight:500;color:var(--muted)">classic</span></span></div><div class="actions"><button class="btn" id="helpBtn">How to play</button><button class="btn" id="settingsBtn" aria-label="Open settings">⚙ Settings</button></div></header>
+<section class="hero"><div class="eyebrow" id="dateLabel">DAILY CAR CHALLENGE</div><h1>Guess the car.</h1><p class="sub">Every guess reveals how close you are. Use the specs to find today's mystery car.</p></section>
+<main class="game"><div class="gamehead"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="day" id="modeTitle">TODAY’S MYSTERY CAR</span><div class="mode-switch"><button class="modebtn active" id="dailyMode">Daily</button><button class="modebtn" id="practiceMode">Practice</button></div></div><div style="display:flex;align-items:center;gap:8px"><button class="btn" id="calendarBtn">▦ Calendar</button><span class="count" id="guessCount">0 guesses</span></div></div>
+<form id="guessForm" autocomplete="off"><div class="searchrow"><div class="searchbox"><input id="search" class="search" placeholder="Search a car model… e.g. 911 GT3" aria-label="Search car model"><div id="suggestions" class="suggestions"></div></div><button class="guessbtn" id="guessBtn" type="submit">Submit guess ↗</button></div></form>
+<p class="hint">Search the included car database. Select a model to compare its specs with the mystery car.</p>
+<div class="tablewrap"><table class="gridtable"><thead><tr><th>Model</th><th>Fuel</th><th>Car type</th><th>Drive wheel</th><th>Engine config</th><th>Brand</th><th>Year</th></tr></thead><tbody id="rows"><tr><td class="empty" colspan="7">Make a guess to start revealing clues.</td></tr></tbody></table></div>
+<div class="result" id="result" role="status"></div><div id="practiceActions" class="practice-actions" style="display:none"><button class="guessbtn" id="nextPractice">New practice car ↻</button></div>
+<div class="stats"><div class="stat"><strong id="played">0</strong><span>Played</span></div><div class="stat"><strong id="wins">0</strong><span>Wins</span></div><div class="stat"><strong id="streak">0</strong><span>Streak</span></div></div><button class="reset" id="resetBtn">Reset today's game (testing)</button>
+</main>
+<section class="calendar-panel" id="calendarPanel" style="display:none"><div class="calendar-head"><button class="btn" id="prevMonth">←</button><h2 id="calendarTitle">Game calendar</h2><button class="btn" id="nextMonth">→</button><button class="btn" id="closeCalendar">Close</button></div><p class="calendar-desc">Your daily score is the number of guesses needed to solve that day’s car. Practice rounds are tracked separately.</p><div class="calendar-grid" id="calendarGrid"></div><div class="calendar-legend"><span>🏆 Solved</span><span>— No recorded score</span></div></section>
+<section class="below"><div class="infobox"><h3>Colour key</h3><div class="legend"><span><i class="dot" style="background:var(--green)"></i> Exact match</span><span><i class="dot" style="background:var(--orange)"></i> Partial match</span><span><i class="dot" style="background:var(--red)"></i> No match</span></div><p style="margin-top:10px">Year arrows point toward the mystery car’s year.</p></div><div class="infobox"><h3>About this remake</h3><p>A self-contained fan-made guessing game inspired by Cardle Classic. The expanded bundled database contains hundreds of cars across manufacturers and eras; some cars have multiple possible specs, represented as sets. Practice mode and a daily score calendar are included.</p></div></section>
+<div class="footer">Daily puzzle changes at midnight UTC · Practice any time · Your calendar, stats and theme are saved in this browser</div>
+</div>
+<div class="modal" id="help"><div class="modalbox"><div class="modalhead"><h2>How to play</h2><button class="close" id="closeHelp">✕</button></div><p>Guess the mystery car by entering any model from the built-in database.</p><ul><li><b>Green:</b> exact match for that property.</li><li><b>Orange:</b> a partial match — for properties with multiple values, at least one value overlaps.</li><li><b>Red:</b> no matching values.</li><li><b>Year:</b> an arrow tells you if the mystery car is newer (↑) or older (↓) than your guess. The year is green when it matches exactly.</li><li>Everyone gets the same daily answer, which changes at midnight UTC.</li><li>Use Practice to play random cars as often as you like.</li><li>Open Calendar to review your daily results and the number of guesses you needed.</li></ul><p>Note: the real Cardle database is hand-curated. This remake includes its own starter dataset and does not copy or connect to Cardle's private database.</p><button class="guessbtn" id="gotIt" style="width:100%">Got it</button></div></div>
+<div class="modal settings-modal" id="settings"><div class="modalbox"><div class="modalhead"><div><div class="eyebrow">CARDLE CLASSIC</div><h2 style="margin-top:5px">Settings & stats</h2></div><button class="close" id="closeSettings" aria-label="Close settings">✕</button></div>
+<section class="settings-section" style="margin-top:12px;padding-top:0;border-top:0"><h3>Appearance</h3><p class="settings-note">Choose how Cardle looks. Your preference is saved in this browser.</p><div class="theme-options"><button class="theme-option" id="lightTheme">☀ Light mode</button><button class="theme-option" id="darkTheme">◐ Dark mode</button><button class="theme-option" id="systemTheme">◑ System</button></div></section>
+<section class="settings-section"><h3>Your stats</h3><p class="settings-note">A summary of recorded daily puzzles and completed practice rounds on this browser.</p><div class="stat-cards"><div class="stat-card"><strong id="statSolved">0</strong><span>Games solved</span></div><div class="stat-card"><strong id="statDaily">0</strong><span>Daily wins</span></div><div class="stat-card"><strong id="statPractice">0</strong><span>Practice wins</span></div><div class="stat-card"><strong id="statAverage">—</strong><span>Avg. guesses</span></div><div class="stat-card"><strong id="statOneShot">0</strong><span>1-guess wins</span></div><div class="stat-card"><strong id="statBest">—</strong><span>Best solve</span></div><div class="stat-card"><strong id="statCurrentStreak">0</strong><span>Current streak</span></div><div class="stat-card"><strong id="statRate">—</strong><span>Daily win rate</span></div></div>
+<h3>Guess distribution</h3><p class="settings-note">Number of completed games solved in each number of guesses.</p><div id="guessChart" class="chart" role="img" aria-label="Bar chart showing solved games by number of guesses"></div><p class="stats-footnote" id="statsFootnote">Stats are stored locally in this browser and are not synced between devices.</p></section>
+<div style="display:flex;justify-content:flex-end;margin-top:20px"><button class="guessbtn" id="doneSettings">Done</button></div></div></div>
+<script>
+const CAR_ROWS = [
+["911 GT3","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",2022],
+["911 Carrera T","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",2023],
+["911 Turbo S","Gasoline","Sports car|Coupe","All-wheel drive","Flat-6","Porsche",2021],
+["911 Carrera (964)","Gasoline","Sports car|Coupe|Cabriolet","Rear-wheel drive|All-wheel drive","Flat-6","Porsche",1989],
+["Cayman GT4","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",2020],
+["718 Boxster","Gasoline","Roadster|Sports car","Rear-wheel drive","Flat-4|Flat-6","Porsche",2017],
+["Taycan Turbo S","Electric","Sedan","All-wheel drive","Electric engine","Porsche",2020],
+["Cayenne Turbo","Gasoline","SUV","All-wheel drive","V8","Porsche",2019],
+["Panamera 4 E-Hybrid","Hybrid|Gasoline","Sedan|GT","All-wheel drive","V6","Porsche",2021],
+["Carrera GT","Gasoline","Supercar|Roadster","Rear-wheel drive","V10","Porsche",2004],
+["918 Spyder","Hybrid|Gasoline","Hypercar|Roadster","All-wheel drive","V8","Porsche",2013],
+["F40","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Ferrari",1987],
+["LaFerrari","Hybrid|Gasoline","Hypercar|Coupe","Rear-wheel drive","V12","Ferrari",2013],
+["296 GTB","Hybrid|Gasoline","Supercar|Coupe","Rear-wheel drive","V6","Ferrari",2022],
+["SF90 Stradale","Hybrid|Gasoline","Supercar|Coupe","All-wheel drive","V8","Ferrari",2020],
+["812 Superfast","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Ferrari",2017],
+["Purosangue","Gasoline","SUV","All-wheel drive","V12","Ferrari",2023],
+["Enzo Ferrari","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Ferrari",2002],
+["Huracán STO","Gasoline","Supercar|Coupe","Rear-wheel drive","V10","Lamborghini",2021],
+["Aventador SVJ","Gasoline","Supercar|Coupe","All-wheel drive","V12","Lamborghini",2018],
+["Revuelto","Hybrid|Gasoline","Supercar|Coupe","All-wheel drive","V12","Lamborghini",2023],
+["Urus Performante","Gasoline","SUV","All-wheel drive","V8","Lamborghini",2022],
+["Miura P400","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Lamborghini",1966],
+["Countach LP5000 QV","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Lamborghini",1985],
+["Chiron Super Sport","Gasoline","Hypercar|Coupe","All-wheel drive","W16","Bugatti",2021],
+["Veyron 16.4","Gasoline","Hypercar|Coupe","All-wheel drive","W16","Bugatti",2005],
+["Divo","Gasoline","Hypercar|Coupe","All-wheel drive","W16","Bugatti",2019],
+["Huayra R","Gasoline","Hypercar|Track car","Rear-wheel drive","V12","Pagani",2021],
+["Zonda F","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Pagani",2005],
+["Utopia","Gasoline","Hypercar|Coupe","Rear-wheel drive","V12","Pagani",2023],
+["Jesko Absolut","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2021],
+["Agera RS","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2015],
+["Regera","Hybrid|Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2016],
+["Gemera","Hybrid|Gasoline","Hypercar|GT","All-wheel drive","V8","Koenigsegg",2024],
+["P1","Hybrid|Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","McLaren",2013],
+["720S","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","McLaren",2017],
+["F1","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","McLaren",1992],
+["Artura","Hybrid|Gasoline","Supercar|Coupe","Rear-wheel drive","V6","McLaren",2022],
+["Speedtail","Hybrid|Gasoline","Hypercar|GT","Rear-wheel drive","V8","McLaren",2019],
+["Valkyrie","Hybrid|Gasoline","Hypercar|Coupe","Rear-wheel drive","V12","Aston Martin",2021],
+["DB5","Gasoline","GT|Coupe","Rear-wheel drive","Straight-6","Aston Martin",1963],
+["Vantage","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Aston Martin",2018],
+["DBX707","Gasoline","SUV","All-wheel drive","V8","Aston Martin",2022],
+["Continental GT","Gasoline","GT|Coupe","All-wheel drive","W12|V8","Bentley",2018],
+["Mulsanne","Gasoline","Sedan","Rear-wheel drive","V8","Bentley",2010],
+["Phantom","Gasoline","Sedan","Rear-wheel drive","V12","Rolls-Royce",2017],
+["Cullinan","Gasoline","SUV","All-wheel drive","V12","Rolls-Royce",2018],
+["Ghost","Gasoline","Sedan","All-wheel drive","V12","Rolls-Royce",2020],
+["M3 Competition","Gasoline","Sedan","Rear-wheel drive|All-wheel drive","Straight-6","BMW",2021],
+["M5 CS","Gasoline","Sedan","All-wheel drive","V8","BMW",2021],
+["i4 M50","Electric","Sedan","All-wheel drive","Electric engine","BMW",2022],
+["M1","Gasoline","Supercar|Coupe","Rear-wheel drive","Straight-6","BMW",1978],
+["M2","Gasoline","Coupe|Sports car","Rear-wheel drive","Straight-6","BMW",2023],
+["AMG One","Hybrid|Gasoline","Hypercar|Coupe","All-wheel drive","V6","Mercedes-Benz",2022],
+["300 SL Gullwing","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","Mercedes-Benz",1954],
+["AMG GT R","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Mercedes-Benz",2017],
+["S-Class","Gasoline|Diesel|Hybrid","Sedan","Rear-wheel drive|All-wheel drive","Straight-6|V8|V12","Mercedes-Benz",2021],
+["EQS 580","Electric","Sedan","All-wheel drive","Electric engine","Mercedes-Benz",2022],
+["R8 V10 Performance","Gasoline","Supercar|Coupe","All-wheel drive|Rear-wheel drive","V10","Audi",2019],
+["RS6 Avant","Gasoline","Station wagon","All-wheel drive","V8","Audi",2020],
+["Quattro","Gasoline","Sports car|Coupe","All-wheel drive","Straight-5","Audi",1980],
+["Golf GTI","Gasoline","Hatchback","Front-wheel drive","Straight-4","Volkswagen",2021],
+["Beetle","Gasoline","Hatchback|Coupe","Rear-wheel drive","Flat-4","Volkswagen",1960],
+["Supra 3.0","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","Toyota",2020],
+["GR Yaris","Gasoline","Hatchback","All-wheel drive","Straight-3","Toyota",2020],
+["Land Cruiser","Gasoline|Diesel","SUV|Off-road vehicle","All-wheel drive","V6|V8","Toyota",2022],
+["LFA","Gasoline","Supercar|Coupe","Rear-wheel drive","V10","Lexus",2010],
+["RX 500h","Hybrid|Gasoline","SUV","All-wheel drive","Straight-4","Lexus",2023],
+["NSX","Hybrid|Gasoline","Supercar|Coupe","All-wheel drive","V6","Honda",2016],
+["Civic Type R","Gasoline","Hatchback","Front-wheel drive","Straight-4","Honda",2023],
+["GT-R","Gasoline","Sports car|Coupe","All-wheel drive","V6","Nissan",2007],
+["Z","Gasoline","Sports car|Coupe","Rear-wheel drive","V6","Nissan",2023],
+["RX-7 FD","Gasoline","Sports car|Coupe","Rear-wheel drive","Rotary","Mazda",1992],
+["MX-5 Miata","Gasoline","Roadster|Sports car","Rear-wheel drive","Straight-4","Mazda",2015],
+["Impreza WRX STI","Gasoline","Sedan|Sports car","All-wheel drive","Flat-4","Subaru",2004],
+["Evo IX","Gasoline","Sedan|Sports car","All-wheel drive","Straight-4","Mitsubishi",2005],
+["Ioniq 5 N","Electric","SUV|Hatchback","All-wheel drive","Electric engine","Hyundai",2023],
+["EV6 GT","Electric","Hatchback","All-wheel drive","Electric engine","Kia",2022],
+["Model S Plaid","Electric","Sedan","All-wheel drive","Electric engine","Tesla",2021],
+["Model 3 Performance","Electric","Sedan","All-wheel drive","Electric engine","Tesla",2024],
+["Cybertruck","Electric","Pickup","All-wheel drive","Electric engine","Tesla",2023],
+["Charger Hellcat","Gasoline","Coupe|Sedan","Rear-wheel drive","V8","Dodge",2015],
+["Viper GTS","Gasoline","Sports car|Coupe","Rear-wheel drive","V10","Dodge",1996],
+["Corvette Z06","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Chevrolet",2023],
+["Camaro ZL1","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Chevrolet",2017],
+["Mustang GT","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Ford",2024],
+["GT","Gasoline","Supercar|Coupe","Rear-wheel drive","V6","Ford",2017],
+["F-150 Raptor","Gasoline","Pickup|Off-road vehicle","All-wheel drive","V6","Ford",2021],
+["911 Dakar","Gasoline","Sports car|Off-road vehicle","All-wheel drive","Flat-6","Porsche",2023],
+["Lotus Elise","Gasoline","Sports car|Roadster","Rear-wheel drive","Straight-4","Lotus",1996],
+["Emira","Gasoline","Sports car|Coupe","Rear-wheel drive","V6|Straight-4","Lotus",2022],
+["Evija","Electric","Hypercar|Coupe","All-wheel drive","Electric engine","Lotus",2020],
+["F-Type R","Gasoline","Sports car|Coupe|Cabriolet","All-wheel drive|Rear-wheel drive","V8","Jaguar",2013],
+["E-Type","Gasoline","Sports car|Coupe|Roadster","Rear-wheel drive","Straight-6|V12","Jaguar",1961],
+["Defender 110","Gasoline|Diesel|Hybrid","SUV|Off-road vehicle","All-wheel drive","Straight-4|Straight-6|V8","Land Rover",2020],
+["XC90 Recharge","Hybrid|Gasoline","SUV","All-wheel drive","Straight-4","Volvo",2022],
+["Polestar 2","Electric","Sedan|Hatchback","Front-wheel drive|All-wheel drive","Electric engine","Polestar",2020],
+["Nevera","Electric","Hypercar|Coupe","All-wheel drive","Electric engine","Rimac",2021],
+["A110","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-4","Alpine",2017],
+["Giulia Quadrifoglio","Gasoline","Sedan","Rear-wheel drive","V6","Alfa Romeo",2016],
+["MC20","Gasoline","Supercar|Coupe","Rear-wheel drive","V6","Maserati",2020],
+["GranTurismo","Gasoline","GT|Coupe","All-wheel drive|Rear-wheel drive","V6|V8","Maserati",2023],
+["Agera","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2011]
+
+,["911 Carrera S (992)","Gasoline","Sports car|Coupe|Cabriolet","Rear-wheel drive","Flat-6","Porsche",2019],
+["911 GT2 RS","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",2018],["911 GT3 RS (992)","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",2022],["718 Spyder RS","Gasoline","Sports car|Roadster","Rear-wheel drive","Flat-6","Porsche",2023],["944 Turbo","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-4","Porsche",1985],["928 GTS","Gasoline","GT|Coupe","Rear-wheel drive","V8","Porsche",1992],["Macan GTS","Gasoline","SUV","All-wheel drive","V6","Porsche",2021],
+["F50","Gasoline","Supercar|Coupe|Roadster","Rear-wheel drive","V12","Ferrari",1995],["458 Speciale","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Ferrari",2013],["488 Pista","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Ferrari",2018],["F8 Tributo","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Ferrari",2019],["Roma","Gasoline","GT|Coupe","Rear-wheel drive","V8","Ferrari",2020],["Portofino M","Gasoline","GT|Cabriolet","Rear-wheel drive","V8","Ferrari",2020],["California T","Gasoline","GT|Cabriolet","Rear-wheel drive","V8","Ferrari",2014],["Daytona SP3","Gasoline","Hypercar|Coupe","Rear-wheel drive","V12","Ferrari",2021],["SF90 XX Stradale","Hybrid|Gasoline","Supercar|Coupe","All-wheel drive","V8","Ferrari",2023],
+["Gallardo Superleggera","Gasoline","Supercar|Coupe","All-wheel drive","V10","Lamborghini",2007],["Murciélago LP 670-4 SV","Gasoline","Supercar|Coupe","All-wheel drive","V12","Lamborghini",2009],["Diablo SV","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Lamborghini",1995],["Sesto Elemento","Gasoline","Supercar|Track car","All-wheel drive","V10","Lamborghini",2010],["Centenario","Gasoline","Hypercar|Coupe","All-wheel drive","V12","Lamborghini",2016],["Sián FKP 37","Hybrid|Gasoline","Hypercar|Coupe","All-wheel drive","V12","Lamborghini",2019],
+["Chiron Pur Sport","Gasoline","Hypercar|Coupe","All-wheel drive","W16","Bugatti",2020],["Bolide","Gasoline","Hypercar|Track car","All-wheel drive","W16","Bugatti",2024],["EB110 Super Sport","Gasoline","Supercar|Coupe","All-wheel drive","V12","Bugatti",1992],["Centodieci","Gasoline","Hypercar|Coupe","All-wheel drive","W16","Bugatti",2019],
+["Huayra BC","Gasoline","Hypercar|Coupe","Rear-wheel drive","V12","Pagani",2016],["Zonda Cinque","Gasoline","Hypercar|Coupe|Roadster","Rear-wheel drive","V12","Pagani",2009],["Zonda R","Gasoline","Hypercar|Track car","Rear-wheel drive","V12","Pagani",2009],["Huayra Roadster","Gasoline","Hypercar|Roadster","Rear-wheel drive","V12","Pagani",2017],
+["CC850","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2022],["CCX","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2006],["One:1","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2014],["CCXR","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2007],
+["Senna","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","McLaren",2018],["600LT","Gasoline","Supercar|Coupe|Roadster","Rear-wheel drive","V8","McLaren",2018],["765LT","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","McLaren",2020],["GT","Gasoline","GT|Coupe","Rear-wheel drive","V8","McLaren",2019],["Elva","Gasoline","Hypercar|Roadster","Rear-wheel drive","V8","McLaren",2020],["GTS","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","McLaren",2024],
+["DBS Superleggera","Gasoline","GT|Coupe","Rear-wheel drive","V12","Aston Martin",2018],["Vanquish","Gasoline","GT|Coupe","Rear-wheel drive","V12","Aston Martin",2001],["DB11","Gasoline","GT|Coupe","Rear-wheel drive","V8|V12","Aston Martin",2016],["One-77","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Aston Martin",2009],["V12 Speedster","Gasoline","Sports car|Roadster","Rear-wheel drive","V12","Aston Martin",2021],
+["M4 CSL","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","BMW",2022],["M8 Competition","Gasoline","GT|Coupe","All-wheel drive|Rear-wheel drive","V8","BMW",2019],["Z8","Gasoline","Sports car|Roadster","Rear-wheel drive","V8","BMW",2000],["i8","Hybrid|Gasoline","Sports car|Coupe|Roadster","All-wheel drive","Straight-3","BMW",2014],["X5 M Competition","Gasoline","SUV","All-wheel drive","V8","BMW",2020],["E30 M3","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-4","BMW",1986],
+["C 63 AMG","Gasoline","Sedan|Coupe","Rear-wheel drive","V8","Mercedes-Benz",2008],["E 63 S AMG","Gasoline","Sedan|Wagon","All-wheel drive","V8","Mercedes-Benz",2017],["SL 63 AMG","Gasoline","Roadster|GT","Rear-wheel drive","V8","Mercedes-Benz",2022],["190E 2.5-16 Evolution II","Gasoline","Sedan","Rear-wheel drive","Straight-4","Mercedes-Benz",1990],["G 63 AMG","Gasoline","SUV|Off-road vehicle","All-wheel drive","V8","Mercedes-Benz",2019],["CLK GTR","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Mercedes-Benz",1997],
+["RS3","Gasoline","Sedan|Hatchback","All-wheel drive","Straight-5","Audi",2022],["RS e-tron GT","Electric","GT|Sedan","All-wheel drive","Electric engine","Audi",2021],["TT RS","Gasoline","Sports car|Coupe|Roadster","All-wheel drive","Straight-5","Audi",2017],["S1 Quattro","Gasoline","Rally car|Coupe","All-wheel drive","Straight-5","Audi",1984],["RS2 Avant","Gasoline","Station wagon","All-wheel drive","Straight-5","Audi",1994],
+["Polo GTI","Gasoline","Hatchback","Front-wheel drive","Straight-4","Volkswagen",2021],["Passat R36","Gasoline","Sedan|Station wagon","All-wheel drive","V6","Volkswagen",2008],["Scirocco R","Gasoline","Coupe|Sports car","Front-wheel drive","Straight-4","Volkswagen",2009],["ID. Buzz","Electric","Van","Rear-wheel drive|All-wheel drive","Electric engine","Volkswagen",2022],["Touareg R","Hybrid|Gasoline","SUV","All-wheel drive","V6","Volkswagen",2020],
+["GR86","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-4","Toyota",2021],["GR Corolla","Gasoline","Hatchback","All-wheel drive","Straight-3","Toyota",2022],["Celica GT-Four","Gasoline","Coupe|Sports car","All-wheel drive","Straight-4","Toyota",1994],["AE86 Sprinter Trueno","Gasoline","Coupe|Hatchback","Rear-wheel drive","Straight-4","Toyota",1983],["MR2 Turbo","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-4","Toyota",1993],["Camry Hybrid","Hybrid|Gasoline","Sedan","Front-wheel drive|All-wheel drive","Straight-4","Toyota",2024],["Prius","Hybrid|Gasoline","Hatchback","Front-wheel drive","Straight-4","Toyota",2004],
+["Integra Type R","Gasoline","Coupe|Hatchback","Front-wheel drive","Straight-4","Acura",1997],["Integra Type S","Gasoline","Hatchback","Front-wheel drive","Straight-4","Acura",2023],["S2000","Gasoline","Roadster|Sports car","Rear-wheel drive","Straight-4","Honda",1999],["Accord Type R","Gasoline","Sedan","Front-wheel drive","Straight-4","Honda",1998],["Prelude","Gasoline","Coupe|Sports car","Front-wheel drive","Straight-4","Honda",1996],
+["Silvia S15","Gasoline","Coupe|Sports car","Rear-wheel drive","Straight-4","Nissan",1999],["Fairlady Z 432","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","Nissan",1969],["Silvia 240SX","Gasoline","Coupe|Sports car","Rear-wheel drive","Straight-4","Nissan",1989],["Pulsar GTI-R","Gasoline","Hatchback|Rally car","All-wheel drive","Straight-4","Nissan",1990],["Stagea 260RS","Gasoline","Station wagon","All-wheel drive","Straight-6","Nissan",1996],
+["Lancer Evolution VI","Gasoline","Sedan|Rally car","All-wheel drive","Straight-4","Mitsubishi",1999],["3000GT VR-4","Gasoline","Sports car|Coupe","All-wheel drive","V6","Mitsubishi",1990],["Pajero Evolution","Gasoline","SUV|Off-road vehicle","All-wheel drive","V6","Mitsubishi",1997],["Eclipse GSX","Gasoline","Coupe|Sports car","All-wheel drive","Straight-4","Mitsubishi",1995],
+["RX-8","Gasoline","Sports car|Coupe","Rear-wheel drive","Rotary","Mazda",2003],["Mazda3 MPS","Gasoline","Hatchback","Front-wheel drive","Straight-4","Mazda",2006],["Cosmo Sport","Gasoline","Sports car|Coupe","Rear-wheel drive","Rotary","Mazda",1967],["787B","Gasoline","Race car","Rear-wheel drive","Rotary","Mazda",1991],
+["Impreza 22B STI","Gasoline","Coupe|Rally car","All-wheel drive","Flat-4","Subaru",1998],["BRZ tS","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-4","Subaru",2023],["Legacy GT Spec B","Gasoline","Sedan|Station wagon","All-wheel drive","Flat-4","Subaru",2006],["Forester XT","Gasoline","SUV","All-wheel drive","Flat-4","Subaru",2004],
+["Lancer Evolution X","Gasoline","Sedan|Rally car","All-wheel drive","Straight-4","Mitsubishi",2007],["Jimny","Gasoline","SUV|Off-road vehicle","Four-wheel drive","Straight-4","Suzuki",2018],["Swift Sport","Gasoline","Hatchback","Front-wheel drive","Straight-4","Suzuki",2017],["Vitara","Gasoline|Hybrid","SUV","Front-wheel drive|All-wheel drive","Straight-4","Suzuki",2015],
+["Model X Plaid","Electric","SUV","All-wheel drive","Electric engine","Tesla",2021],["Roadster (2nd gen)","Electric","Sports car|Roadster","All-wheel drive","Electric engine","Tesla",2020],["Model Y Performance","Electric","SUV","All-wheel drive","Electric engine","Tesla",2022],["Roadster (2008)","Electric","Sports car|Roadster","Rear-wheel drive","Electric engine","Tesla",2008],
+["Hennessey Venom F5","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Hennessey",2021],["Venom GT","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Hennessey",2011],["SSC Tuatara","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","SSC",2020],["Saleen S7","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Saleen",2000],["Vector W8","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Vector",1989],
+["DMC-12","Gasoline","Sports car|Coupe","Rear-wheel drive","V6","DeLorean",1981],["Isetta","Gasoline","Microcar","Rear-wheel drive","Straight-1","BMW",1955],["Ami","Electric","Microcar","Front-wheel drive","Electric engine","Citroën",2020],["Twizy","Electric","Microcar","Rear-wheel drive","Electric engine","Renault",2012],
+["Ranger Raptor","Gasoline|Diesel","Pickup|Off-road vehicle","Four-wheel drive","V6","Ford",2022],["Bronco Raptor","Gasoline","SUV|Off-road vehicle","Four-wheel drive","V6","Ford",2022],["Focus RS","Gasoline","Hatchback","All-wheel drive","Straight-4","Ford",2016],["Escort RS Cosworth","Gasoline","Hatchback|Rally car","All-wheel drive","Straight-4","Ford",1992],["Falcon GT-HO Phase III","Gasoline","Sedan","Rear-wheel drive","Straight-6","Ford",1971],
+["Demon 170","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Dodge",2023],["Challenger SRT Demon","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Dodge",2018],["Ram 1500 TRX","Gasoline","Pickup|Off-road vehicle","Four-wheel drive","V8","RAM",2021],["Grand Cherokee Trackhawk","Gasoline","SUV","All-wheel drive","V8","Jeep",2018],
+["C8 Stingray","Gasoline","Sports car|Coupe|Cabriolet","Rear-wheel drive","V8","Chevrolet",2020],["Camaro IROC-Z","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Chevrolet",1985],["Impala SS","Gasoline","Sedan","Rear-wheel drive","V8","Chevrolet",1994],["El Camino SS","Gasoline","Pickup|Muscle car","Rear-wheel drive","V8","Chevrolet",1970],
+["CT5-V Blackwing","Gasoline","Sedan","Rear-wheel drive","V8","Cadillac",2021],["Escalade V","Gasoline","SUV","All-wheel drive","V8","Cadillac",2022],["ATS-V","Gasoline","Sedan|Coupe","Rear-wheel drive","V6","Cadillac",2016],
+["Kona N","Gasoline","SUV","Front-wheel drive","Straight-4","Hyundai",2021],["Veloster N","Gasoline","Hatchback","Front-wheel drive","Straight-4","Hyundai",2018],["Genesis G70 3.3T","Gasoline","Sedan","Rear-wheel drive|All-wheel drive","V6","Genesis",2017],["Kia Stinger GT","Gasoline","Sedan|GT","Rear-wheel drive|All-wheel drive","V6","Kia",2017],
+["BYD Seal","Electric","Sedan","Rear-wheel drive|All-wheel drive","Electric engine","BYD",2022],["MG4 XPower","Electric","Hatchback","All-wheel drive","Electric engine","MG",2023],["MG Cyberster","Electric","Roadster|Sports car","Rear-wheel drive|All-wheel drive","Electric engine","MG",2024],["XPeng P7","Electric","Sedan","Rear-wheel drive|All-wheel drive","Electric engine","XPeng",2020],["Zeekr 001","Electric","GT|Station wagon","Rear-wheel drive|All-wheel drive","Electric engine","Zeekr",2021],
+["Defender Octa","Gasoline|Hybrid","SUV|Off-road vehicle","All-wheel drive","V8","Land Rover",2024],["Range Rover Sport SV","Gasoline|Hybrid","SUV","All-wheel drive","V8","Land Rover",2023],["Discovery V8","Gasoline","SUV|Off-road vehicle","All-wheel drive","V8","Land Rover",1998],["Range Rover Classic","Gasoline|Diesel","SUV|Off-road vehicle","Four-wheel drive","V8","Land Rover",1970],
+["V60 Polestar Engineered","Hybrid|Gasoline","Station wagon","All-wheel drive","Straight-4","Volvo",2019],["S60 T8 Recharge","Hybrid|Gasoline","Sedan","All-wheel drive","Straight-4","Volvo",2020],["240 Turbo","Gasoline","Sedan|Station wagon","Rear-wheel drive","Straight-4","Volvo",1981],["EX30 Twin Motor","Electric","SUV","All-wheel drive","Electric engine","Volvo",2023],
+["Aventador LP700-4","Gasoline","Supercar|Coupe","All-wheel drive","V12","Lamborghini",2011],["Ferrari 250 GTO","Gasoline","Sports car|Coupe","Rear-wheel drive","V12","Ferrari",1962],["Ferrari Testarossa","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-12","Ferrari",1984],["Porsche 356 Speedster","Gasoline","Sports car|Roadster","Rear-wheel drive","Flat-4","Porsche",1954],["Porsche 959","Gasoline","Supercar|Coupe","All-wheel drive","Flat-6","Porsche",1986],["Toyota 2000GT","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","Toyota",1967],["Honda Beat","Gasoline","Roadster|Microcar","Rear-wheel drive","Straight-3","Honda",1991],["Suzuki Cappuccino","Gasoline","Roadster|Microcar","Rear-wheel drive","Straight-3","Suzuki",1991],
+
+// Additional database expansion: classic, road, electric, specialist and competition cars.
+["911 GT1 Straßenversion","Gasoline","Supercar|Coupe","Rear-wheel drive","Flat-6","Porsche",1997],
+["911 Sport Classic (997)","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",2010],
+["911 R","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",2016],
+["911 Speedster (991)","Gasoline","Sports car|Roadster","Rear-wheel drive","Flat-6","Porsche",2019],
+["718 Cayman GTS 4.0","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",2020],
+["718 Boxster Spyder","Gasoline","Sports car|Roadster","Rear-wheel drive","Flat-6","Porsche",2019],
+["964 Turbo 3.6","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",1993],
+["993 Carrera RS","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",1995],
+["997 GT3 RS 4.0","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-6","Porsche",2011],
+["918 Spyder Weissach Package","Hybrid|Gasoline","Hypercar|Roadster","All-wheel drive","V8","Porsche",2015],
+["Mission X","Electric","Hypercar|Coupe","All-wheel drive","Electric engine","Porsche",2023],
+["356 Carrera","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-4","Porsche",1957],
+["550 Spyder","Gasoline","Sports car|Roadster","Rear-wheel drive","Flat-4","Porsche",1953],
+["904 Carrera GTS","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-4","Porsche",1964],
+["935 Moby Dick","Gasoline","Race car","Rear-wheel drive","Flat-6","Porsche",1978],
+["962 C","Gasoline","Race car","Rear-wheel drive","Flat-6","Porsche",1987],
+["911 GT3 R (992)","Gasoline","Race car","Rear-wheel drive","Flat-6","Porsche",2023],
+["911 RSR (991)","Gasoline","Race car","Rear-wheel drive","Flat-6","Porsche",2017],
+["Cayenne S E-Hybrid","Hybrid|Gasoline","SUV","All-wheel drive","V6","Porsche",2024],
+["Taycan Cross Turismo Turbo","Electric","Wagon","All-wheel drive","Electric engine","Porsche",2021],
+["SF90 Spider","Hybrid|Gasoline","Supercar|Cabriolet","All-wheel drive","V8","Ferrari",2021],
+["F355 Berlinetta","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Ferrari",1994],
+["360 Challenge Stradale","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Ferrari",2003],
+["430 Scuderia","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Ferrari",2007],
+["599 GTO","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Ferrari",2010],
+["599XX Evo","Gasoline","Race car|Track car","Rear-wheel drive","V12","Ferrari",2011],
+["California","Gasoline","GT|Cabriolet","Rear-wheel drive","V8","Ferrari",2008],
+["F12tdf","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Ferrari",2015],
+["GTC4Lusso T","Gasoline","GT|Hatchback","Rear-wheel drive","V8","Ferrari",2016],
+["Monza SP1","Gasoline","Supercar|Roadster","Rear-wheel drive","V12","Ferrari",2018],
+["Monza SP2","Gasoline","Supercar|Roadster","Rear-wheel drive","V12","Ferrari",2018],
+["812 Competizione A","Gasoline","Supercar|Cabriolet","Rear-wheel drive","V12","Ferrari",2021],
+["Pista Spider","Gasoline","Supercar|Cabriolet","Rear-wheel drive","V8","Ferrari",2018],
+["FXX-K Evo","Hybrid|Gasoline","Track car|Hypercar","Rear-wheel drive","V12","Ferrari",2017],
+["250 Testa Rossa","Gasoline","Race car","Rear-wheel drive","V12","Ferrari",1957],
+["Dino 246 GT","Gasoline","Sports car|Coupe","Rear-wheel drive","V6","Ferrari",1969],
+["288 GTO Evoluzione","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Ferrari",1986],
+["SF90 XX Spider","Hybrid|Gasoline","Supercar|Cabriolet","All-wheel drive","V8","Ferrari",2023],
+["F80","Hybrid|Gasoline","Hypercar|Coupe","All-wheel drive","V6","Ferrari",2024],
+["Miura P400 SV","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Lamborghini",1971],
+["Jalpa","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Lamborghini",1982],
+["Espada","Gasoline","GT|Coupe","Front-wheel drive","V12","Lamborghini",1968],
+["Islero","Gasoline","GT|Coupe","Rear-wheel drive","V12","Lamborghini",1968],
+["Jarama","Gasoline","GT|Coupe","Rear-wheel drive","V12","Lamborghini",1970],
+["Diablo GT","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Lamborghini",1999],
+["Reventón","Gasoline","Supercar|Coupe","All-wheel drive","V12","Lamborghini",2008],
+["Veneno Roadster","Gasoline","Hypercar|Roadster","All-wheel drive","V12","Lamborghini",2014],
+["Huracán Performante Spyder","Gasoline","Supercar|Cabriolet","All-wheel drive","V10","Lamborghini",2018],
+["Huracán Tecnica","Gasoline","Supercar|Coupe","Rear-wheel drive","V10","Lamborghini",2022],
+["Huracán Sterrato","Gasoline","Sports car|Off-road vehicle","All-wheel drive","V10","Lamborghini",2023],
+["Essenza SCV12","Gasoline","Track car|Hypercar","Rear-wheel drive","V12","Lamborghini",2020],
+["SC63","Hybrid|Gasoline","Race car","All-wheel drive","V6","Lamborghini",2024],
+["Urraco P250","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Lamborghini",1970],
+["LM002","Gasoline","SUV|Off-road vehicle","Four-wheel drive","V12","Lamborghini",1986],
+["Bugatti Type 35","Gasoline","Race car","Rear-wheel drive","Straight-8","Bugatti",1924],
+["Bugatti Type 57 Atlantic","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-8","Bugatti",1936],
+["EB112","Gasoline","Sedan","All-wheel drive","V12","Bugatti",1993],
+["Veyron Grand Sport Vitesse","Gasoline","Hypercar|Roadster","All-wheel drive","W16","Bugatti",2012],
+["Chiron Super Sport","Gasoline","Hypercar|Coupe","All-wheel drive","W16","Bugatti",2021],
+["Mistral","Gasoline","Hypercar|Roadster","All-wheel drive","W16","Bugatti",2024],
+["Bolide (track-only)","Gasoline","Track car|Hypercar","All-wheel drive","W16","Bugatti",2024],
+["Tourbillon","Hybrid|Gasoline","Hypercar|Coupe","All-wheel drive","V16","Bugatti",2026],
+["Zonda F Clubsport","Gasoline","Hypercar|Coupe","Rear-wheel drive","V12","Pagani",2006],
+["Zonda Tricolore","Gasoline","Hypercar|Coupe","Rear-wheel drive","V12","Pagani",2010],
+["Zonda Revolución","Gasoline","Track car|Hypercar","Rear-wheel drive","V12","Pagani",2013],
+["Huayra BC Roadster","Gasoline","Hypercar|Roadster","Rear-wheel drive","V12","Pagani",2019],
+["Huayra Imola","Gasoline","Hypercar|Coupe","Rear-wheel drive","V12","Pagani",2020],
+["Huayra Codalunga","Gasoline","Hypercar|Coupe","Rear-wheel drive","V12","Pagani",2022],
+["Utopia Roadster","Gasoline","Hypercar|Roadster","Rear-wheel drive","V12","Pagani",2024],
+["Zonda HP Barchetta","Gasoline","Hypercar|Roadster","Rear-wheel drive","V12","Pagani",2018],
+["Jesko Attack","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2021],
+["Agera R","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2011],
+["Agera S","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2013],
+["CC8S","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2002],
+["CCR","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2004],
+["Trevita","Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2009],
+["Gemera TFG","Hybrid|Gasoline","Hypercar|GT","All-wheel drive","Straight-3","Koenigsegg",2024],
+["Regera Ghost Package","Hybrid|Gasoline","Hypercar|Coupe","Rear-wheel drive","V8","Koenigsegg",2018],
+["McLaren MP4-12C","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","McLaren",2011],
+["McLaren 650S","Gasoline","Supercar|Coupe|Cabriolet","Rear-wheel drive","V8","McLaren",2014],
+["675LT Spider","Gasoline","Supercar|Cabriolet","Rear-wheel drive","V8","McLaren",2016],
+["720S","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","McLaren",2017],
+["720S Spider","Gasoline","Supercar|Cabriolet","Rear-wheel drive","V8","McLaren",2018],
+["765LT Spider","Gasoline","Supercar|Cabriolet","Rear-wheel drive","V8","McLaren",2021],
+["Solus GT","Gasoline","Track car|Hypercar","Rear-wheel drive","V10","McLaren",2023],
+["M6GT","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","McLaren",2024],
+["P1 GTR","Hybrid|Gasoline","Track car|Hypercar","Rear-wheel drive","V8","McLaren",2015],
+["F1 GTR Longtail","Gasoline","Race car","Rear-wheel drive","V12","McLaren",1997],
+["Speedtail","Hybrid|Gasoline","Hypercar|GT","Rear-wheel drive","V8","McLaren",2019],
+["Elva M1A","Gasoline","Race car|Roadster","Rear-wheel drive","V8","McLaren",1964],
+["AMG GT R Pro","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Mercedes-Benz",2019],
+["AMG GT 63 S E Performance","Hybrid|Gasoline","GT|Coupe","All-wheel drive","V8","Mercedes-Benz",2022],
+["SLS AMG Black Series","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Mercedes-Benz",2013],
+["SLR McLaren Stirling Moss","Gasoline","Supercar|Roadster","Rear-wheel drive","V8","Mercedes-Benz",2009],
+["190E Evo I","Gasoline","Sedan","Rear-wheel drive","Straight-4","Mercedes-Benz",1989],
+["W 196 R","Gasoline","Race car","Rear-wheel drive","Straight-8","Mercedes-Benz",1955],
+["300 SEL 6.3","Gasoline","Sedan","Rear-wheel drive","V8","Mercedes-Benz",1968],
+["C111-II","Gasoline","Concept car|Sports car","Rear-wheel drive","Rotary","Mercedes-Benz",1970],
+["AMG GT XX","Electric","Concept car|Sedan","All-wheel drive","Electric engine","Mercedes-Benz",2025],
+["BMW M2 CS","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","BMW",2020],
+["BMW M5 Touring","Hybrid|Gasoline","Station wagon","All-wheel drive","V8","BMW",2024],
+["BMW 1M Coupe","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","BMW",2011],
+["BMW 3.0 CSL (E9)","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","BMW",1972],
+["BMW M3 GTR","Gasoline","Race car|Coupe","Rear-wheel drive","V8","BMW",2001],
+["BMW Z4 M Coupe","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","BMW",2006],
+["BMW M760Li","Gasoline","Sedan","Rear-wheel drive|All-wheel drive","V12","BMW",2017],
+["BMW i4 M50","Electric","Sedan","All-wheel drive","Electric engine","BMW",2021],
+["BMW iX M60","Electric","SUV","All-wheel drive","Electric engine","BMW",2022],
+["Audi RS4 Avant B5","Gasoline","Station wagon","All-wheel drive","V6","Audi",1999],
+["Audi RS6 Plus (C5)","Gasoline","Station wagon","All-wheel drive","V8","Audi",2004],
+["Audi R8 GT","Gasoline","Supercar|Coupe","All-wheel drive","V10","Audi",2011],
+["Audi R8 LMS GT3","Gasoline","Race car","Rear-wheel drive","V10","Audi",2015],
+["Audi Sport quattro","Gasoline","Rally car|Coupe","All-wheel drive","Straight-5","Audi",1984],
+["Audi RS Q8 Performance","Gasoline","SUV","All-wheel drive","V8","Audi",2024],
+["Audi S2 Coupe","Gasoline","Sports car|Coupe","All-wheel drive","Straight-5","Audi",1991],
+["Volkswagen Corrado VR6","Gasoline","Coupe|Sports car","Front-wheel drive","V6","Volkswagen",1992],
+["Volkswagen XL1","Hybrid|Diesel","Coupe","Rear-wheel drive","Diesel","Volkswagen",2013],
+["Volkswagen Beetle (Type 1)","Gasoline","Coupe","Rear-wheel drive","Flat-4","Volkswagen",1938],
+["Volkswagen Phaeton W12","Gasoline","Sedan","All-wheel drive","W12","Volkswagen",2002],
+["Toyota GR Supra A80","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","Toyota",1993],
+["Toyota Sports 800","Gasoline","Sports car|Coupe","Rear-wheel drive","Flat-2","Toyota",1965],
+["Toyota TS050 Hybrid","Hybrid|Gasoline","Race car","All-wheel drive","V6","Toyota",2016],
+["Toyota GR010 Hybrid","Hybrid|Gasoline","Race car","All-wheel drive","V6","Toyota",2021],
+["Toyota Century","Gasoline|Hybrid","Sedan","Rear-wheel drive","V8|V12","Toyota",1967],
+["Lexus LFA Nürburgring Package","Gasoline","Supercar|Coupe","Rear-wheel drive","V10","Lexus",2012],
+["Lexus RC F Track Edition","Gasoline","Coupe|Sports car","Rear-wheel drive","V8","Lexus",2019],
+["Honda Civic Mugen RR","Gasoline","Sedan","Front-wheel drive","Straight-4","Honda",2007],
+["Honda CR-X SiR","Gasoline","Hatchback","Front-wheel drive","Straight-4","Honda",1989],
+["Honda Integra DC5 Type R","Gasoline","Coupe|Sports car","Front-wheel drive","Straight-4","Honda",2001],
+["Honda Civic Type R EK9","Gasoline","Hatchback","Front-wheel drive","Straight-4","Honda",1997],
+["Honda NSX-R (NA2)","Gasoline","Supercar|Coupe","Rear-wheel drive","V6","Honda",2002],
+["Nissan R390 GT1","Gasoline","Race car|Supercar","Rear-wheel drive","V8","Nissan",1998],
+["Nissan GT-R50 by Italdesign","Gasoline","Supercar|Coupe","All-wheel drive","V6","Nissan",2020],
+["Nissan Skyline GT-R R32","Gasoline","Coupe|Sports car","All-wheel drive","Straight-6","Nissan",1989],
+["Nissan Skyline GT-R R33","Gasoline","Coupe|Sports car","All-wheel drive","Straight-6","Nissan",1995],
+["Nissan 300ZX Twin Turbo","Gasoline","Sports car|Coupe","Rear-wheel drive","V6","Nissan",1990],
+["Nissan Pulsar GTI-R","Gasoline","Hatchback|Rally car","All-wheel drive","Straight-4","Nissan",1990],
+["Mazda RX-7 FD Spirit R","Gasoline","Sports car|Coupe","Rear-wheel drive","Rotary","Mazda",2002],
+["Mazda MX-5 RF","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-4","Mazda",2017],
+["Mazda Furai","Gasoline","Concept car|Race car","Rear-wheel drive","Rotary","Mazda",2008],
+["Subaru Impreza WRX STI S209","Gasoline","Sedan|Rally car","All-wheel drive","Flat-4","Subaru",2019],
+["Subaru SVX","Gasoline","Coupe|GT","All-wheel drive","Flat-6","Subaru",1991],
+["Subaru Impreza WRC 2001","Gasoline","Rally car","All-wheel drive","Flat-4","Subaru",2001],
+["Mitsubishi Starion","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-4","Mitsubishi",1982],
+["Mitsubishi FTO GPX","Gasoline","Coupe|Sports car","Front-wheel drive","V6","Mitsubishi",1994],
+["Suzuki Swift Sport ZC33S","Gasoline","Hatchback","Front-wheel drive","Straight-4","Suzuki",2017],
+["Suzuki Hayabusa Sport Prototype","Gasoline","Concept car|Sports car","Rear-wheel drive","Straight-4","Suzuki",2002],
+["Ford Sierra RS Cosworth","Gasoline","Sedan|Rally car","Rear-wheel drive","Straight-4","Ford",1986],
+["Ford GT40 Mk I","Gasoline","Race car|Sports car","Rear-wheel drive","V8","Ford",1966],
+["Ford Mustang Boss 302","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Ford",1969],
+["Ford Mustang Mach 1","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Ford",2021],
+["Ford Falcon XR8 Sprint","Gasoline","Sedan","Rear-wheel drive","V8","Ford",2016],
+["Ford Escort RS1600","Gasoline","Rally car|Coupe","Rear-wheel drive","Straight-4","Ford",1970],
+["Ford RS200","Gasoline","Rally car|Sports car","All-wheel drive","Straight-4","Ford",1984],
+["Chevrolet Corvette ZR1 C6","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Chevrolet",2009],
+["Chevrolet Corvette ZR1 C7","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Chevrolet",2019],
+["Chevrolet Corvette Grand Sport C2","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Chevrolet",1963],
+["Chevrolet Camaro Z/28","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Chevrolet",1967],
+["Chevrolet Chevelle SS 454","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Chevrolet",1970],
+["Dodge Charger Daytona 1969","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Dodge",1969],
+["Dodge Challenger SRT Hellcat Redeye","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Dodge",2019],
+["Plymouth Hemi Cuda","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Plymouth",1971],
+["Plymouth Superbird","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Plymouth",1970],
+["Jeep Wrangler Rubicon 392","Gasoline","SUV|Off-road vehicle","Four-wheel drive","V8","Jeep",2021],
+["Jeep Grand Cherokee SRT8","Gasoline","SUV","All-wheel drive","V8","Jeep",2006],
+["Cadillac CTS-V Wagon","Gasoline","Station wagon","Rear-wheel drive","V8","Cadillac",2011],
+["Cadillac Cien","Gasoline","Concept car|Supercar","Rear-wheel drive","V12","Cadillac",2002],
+["GMC Hummer EV","Electric","Pickup|Off-road vehicle","All-wheel drive","Electric engine","GMC",2022],
+["Lucid Air Sapphire","Electric","Sedan","All-wheel drive","Electric engine","Lucid",2023],
+["Rivian R1T Quad-Motor","Electric","Pickup|Off-road vehicle","All-wheel drive","Electric engine","Rivian",2022],
+["Rivian R1S Quad-Motor","Electric","SUV|Off-road vehicle","All-wheel drive","Electric engine","Rivian",2022],
+["Tesla Model 3 Highland Performance","Electric","Sedan","All-wheel drive","Electric engine","Tesla",2024],
+["Tesla Model X Plaid","Electric","SUV","All-wheel drive","Electric engine","Tesla",2021],
+["Hyundai N Vision 74","Hydrogen|Electric","Concept car|Sports car","Rear-wheel drive","Electric engine","Hyundai",2022],
+["Hyundai Veloster N","Gasoline","Hatchback","Front-wheel drive","Straight-4","Hyundai",2019],
+["Kia EV9 GT","Electric","SUV","All-wheel drive","Electric engine","Kia",2025],
+["Genesis X Gran Berlinetta","Hybrid|Gasoline","Concept car|GT","Rear-wheel drive","V6","Genesis",2023],
+["BYD Yangwang U9","Electric","Supercar","All-wheel drive","Electric engine","Yangwang",2024],
+["BYD Yangwang U8","Hybrid|Gasoline","SUV|Off-road vehicle","All-wheel drive","V8","Yangwang",2023],
+["NIO EP9","Electric","Hypercar|Track car","All-wheel drive","Electric engine","NIO",2016],
+["Xiaomi SU7 Ultra","Electric","Sedan","All-wheel drive","Electric engine","Xiaomi",2025],
+["Zeekr 001 FR","Electric","GT|Station wagon","All-wheel drive","Electric engine","Zeekr",2023],
+["MG Metro 6R4","Gasoline","Rally car|Hatchback","All-wheel drive","V6","MG",1985],
+["Renault Clio V6 Phase 2","Gasoline","Hatchback","Rear-wheel drive","V6","Renault",2003],
+["Renault Sport Spider","Gasoline","Sports car|Roadster","Rear-wheel drive","Straight-4","Renault",1996],
+["Peugeot 205 Turbo 16","Gasoline","Rally car|Hatchback","All-wheel drive","Straight-4","Peugeot",1984],
+["Peugeot 9X8","Hybrid|Gasoline","Race car","All-wheel drive","V6","Peugeot",2022],
+["Citroën DS","Gasoline","Sedan","Front-wheel drive","Straight-4|Straight-6","Citroën",1955],
+["Citroën C4 WRC","Gasoline","Rally car|Hatchback","All-wheel drive","Straight-4","Citroën",2007],
+["Alpine A110 S","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-4","Alpine",2019],
+["Alpine A424","Hybrid|Gasoline","Race car","Rear-wheel drive","V6","Alpine",2024],
+["Peugeot 405 T16 Pikes Peak","Gasoline","Race car|Rally car","All-wheel drive","Straight-4","Peugeot",1988],
+["Fiat X1/9","Gasoline","Sports car|Roadster","Rear-wheel drive","Straight-4","Fiat",1972],
+["Fiat Coupe 20V Turbo","Gasoline","Coupe|Sports car","Front-wheel drive","Straight-5","Fiat",1996],
+["Lancia Stratos HF","Gasoline","Rally car|Coupe","Rear-wheel drive","V6","Lancia",1973],
+["Lancia 037 Rally","Gasoline","Rally car|Coupe","Rear-wheel drive","Straight-4","Lancia",1982],
+["Lancia Delta S4","Gasoline","Rally car|Hatchback","All-wheel drive","Straight-4","Lancia",1985],
+["Maserati MC12","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Maserati",2004],
+["Maserati Quattroporte GTS","Gasoline","Sedan","Rear-wheel drive","V8","Maserati",2013],
+["Maserati Bora","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Maserati",1971],
+["Maserati 3200 GT","Gasoline","GT|Coupe","Rear-wheel drive","V8","Maserati",1998],
+["Aston Martin DBR9","Gasoline","Race car","Rear-wheel drive","V12","Aston Martin",2005],
+["Aston Martin V12 Vantage S","Gasoline","Sports car|Coupe","Rear-wheel drive","V12","Aston Martin",2013],
+["Aston Martin DBX707","Gasoline","SUV","All-wheel drive","V8","Aston Martin",2022],
+["Aston Martin DB4 GT Zagato","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","Aston Martin",1960],
+["Bentley Speed 8","Gasoline","Race car","Rear-wheel drive","V8","Bentley",2001],
+["Bentley Brooklands","Gasoline","Coupe|GT","Rear-wheel drive","V8","Bentley",2008],
+["Rolls-Royce Wraith Black Badge","Gasoline","GT|Coupe","Rear-wheel drive","V12","Rolls-Royce",2016],
+["Rolls-Royce Dawn","Gasoline","GT|Cabriolet","Rear-wheel drive","V12","Rolls-Royce",2015],
+["Lotus 2-Eleven","Gasoline","Track car|Roadster","Rear-wheel drive","Straight-4","Lotus",2007],
+["Lotus Exige Cup 430","Gasoline","Sports car|Coupe","Rear-wheel drive","V6","Lotus",2017],
+["Lotus Carlton","Gasoline","Sedan","Rear-wheel drive","Straight-6","Lotus",1990],
+["Caterham Seven 485","Gasoline","Sports car|Roadster","Rear-wheel drive","Straight-4","Caterham",2013],
+["Morgan Plus Six","Gasoline","Sports car|Roadster","Rear-wheel drive","Straight-6","Morgan",2019],
+["Wiesmann GT MF5","Gasoline","GT|Coupe","Rear-wheel drive","V10","Wiesmann",2009],
+["Donkervoort D8 GTO-JD70","Gasoline","Sports car|Roadster","Rear-wheel drive","Straight-5","Donkervoort",2020],
+["Gumpert Apollo","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Gumpert",2005],
+["Apollo Intensa Emozione","Gasoline","Hypercar|Coupe","Rear-wheel drive","V12","Apollo Automobil",2019],
+["Spyker C8 Aileron","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Spyker",2009],
+["Noble M600","Gasoline","Supercar|Coupe","Rear-wheel drive","V8","Noble",2010],
+["TVR Sagaris","Gasoline","Sports car|Coupe","Rear-wheel drive","Straight-6","TVR",2005],
+["TVR Griffith (2017)","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","TVR",2024],
+["Marcos Mantis","Gasoline","Sports car|Coupe","Rear-wheel drive","V8","Marcos",1997],
+["Zenvo Aurora Agil","Hybrid|Gasoline","Hypercar|Coupe","All-wheel drive","V12","Zenvo",2025],
+["Praga Bohema","Gasoline","Track car|Hypercar","Rear-wheel drive","V6","Praga",2024],
+["KTM X-Bow GT-XR","Gasoline","Track car|Sports car","Rear-wheel drive","Straight-5","KTM",2022],
+["BAC Mono R","Gasoline","Track car","Rear-wheel drive","Straight-4","BAC",2020],
+["Gordon Murray T.33","Gasoline","Supercar|Coupe","Rear-wheel drive","V12","Gordon Murray Automotive",2024],
+["Gordon Murray T.50s Niki Lauda","Gasoline","Track car|Hypercar","Rear-wheel drive","V12","Gordon Murray Automotive",2023],
+["Dallara EXP","Gasoline","Track car","Rear-wheel drive","V6","Dallara",2021],
+["Pininfarina Battista","Electric","Hypercar|Coupe","All-wheel drive","Electric engine","Automobili Pininfarina",2022],
+["Aspark Owl","Electric","Hypercar|Coupe","All-wheel drive","Electric engine","Aspark",2020],
+["Drako GTE","Electric","Sedan","All-wheel drive","Electric engine","Drako Motors",2020],
+["Faraday Future FF 91","Electric","SUV","All-wheel drive","Electric engine","Faraday Future",2023],
+["Polestar 1","Hybrid|Gasoline","GT|Coupe","All-wheel drive","Straight-4","Polestar",2019],
+["Polestar 3 Performance","Electric","SUV","All-wheel drive","Electric engine","Polestar",2024],
+["Volvo C30 Polestar","Gasoline","Hatchback","Front-wheel drive","Straight-5","Volvo",2010],
+["Saab 9-3 Viggen","Gasoline","Hatchback|Coupe","Front-wheel drive","Straight-4","Saab",1999],
+["Saab 900 Turbo SPG","Gasoline","Hatchback","Front-wheel drive","Straight-4","Saab",1985],
+["Lexus GS F","Gasoline","Sedan","Rear-wheel drive","V8","Lexus",2015],
+["Lexus IS F","Gasoline","Sedan","Rear-wheel drive","V8","Lexus",2007],
+["Infiniti Q50 Red Sport 400","Gasoline","Sedan","Rear-wheel drive|All-wheel drive","V6","Infiniti",2016],
+["Acura TLX Type S","Gasoline","Sedan","All-wheel drive","V6","Acura",2021],
+["Datsun 510","Gasoline","Sedan","Rear-wheel drive","Straight-4","Datsun",1968],
+["Datsun 240Z Safari Rally","Gasoline","Sports car|Rally car","Rear-wheel drive","Straight-6","Datsun",1971],
+["Isuzu VehiCROSS","Gasoline","SUV|Off-road vehicle","Four-wheel drive","V6","Isuzu",1997],
+["Isuzu 117 Coupe","Gasoline","Coupe|Sports car","Rear-wheel drive","Straight-4","Isuzu",1968],
+["Mitsuoka Orochi","Gasoline","Sports car|Coupe","Rear-wheel drive","V6","Mitsuoka",2006],
+["Mitsuoka Rock Star","Gasoline","Sports car|Cabriolet","Rear-wheel drive","V6","Mitsuoka",2018],
+["Tata Nexon EV","Electric","SUV","Front-wheel drive","Electric engine","Tata",2020],
+["Mahindra Thar","Gasoline|Diesel","SUV|Off-road vehicle","Four-wheel drive","Straight-4","Mahindra",2020],
+["Maruti Suzuki Jimny","Gasoline","SUV|Off-road vehicle","Four-wheel drive","Straight-4","Maruti Suzuki",2018],
+["Force Gurkha","Diesel","SUV|Off-road vehicle","Four-wheel drive","Straight-4","Force Motors",2021],
+["Holden Monaro CV8","Gasoline","Coupe|Muscle car","Rear-wheel drive","V8","Holden",2001],
+["Holden HSV GTSR W1","Gasoline","Sedan","Rear-wheel drive","V8","HSV",2017],
+["Holden Torana A9X","Gasoline","Sedan|Race car","Rear-wheel drive","V8","Holden",1977],
+["FPV Falcon GT F 351","Gasoline","Sedan","Rear-wheel drive","V8","Ford Performance Vehicles",2014],
+["Toyota Land Cruiser 70 Series","Diesel|Gasoline","SUV|Off-road vehicle","Four-wheel drive","V8|Straight-6","Toyota",1984],
+["Nissan Patrol Nismo","Gasoline","SUV|Off-road vehicle","Four-wheel drive","V8","Nissan",2021],
+["Mitsubishi Lancer Evolution VIII MR","Gasoline","Sedan|Rally car","All-wheel drive","Straight-4","Mitsubishi",2004],
+["Subaru Impreza WRX STI Type RA","Gasoline","Sedan|Rally car","All-wheel drive","Flat-4","Subaru",2018],
+["Mazda Familia GT-R","Gasoline","Hatchback|Rally car","All-wheel drive","Straight-4","Mazda",1992],
+["Toyota Celica GT-Four ST205","Gasoline","Coupe|Rally car","All-wheel drive","Straight-4","Toyota",1994],
+["Peugeot 306 Maxi","Gasoline","Rally car|Hatchback","Front-wheel drive","Straight-4","Peugeot",1996],
+["Ford Fiesta ST","Gasoline","Hatchback","Front-wheel drive","Straight-3","Ford",2018],
+["Renault 5 E-Tech","Electric","Hatchback","Front-wheel drive","Electric engine","Renault",2024],
+["Mini John Cooper Works GP","Gasoline","Hatchback","Front-wheel drive","Straight-4","MINI",2020],
+["Mini Cooper S R53","Gasoline","Hatchback","Front-wheel drive","Straight-4","MINI",2002],
+["Mini JCW Countryman","Gasoline","SUV","All-wheel drive","Straight-4","MINI",2024],
+["Skoda Octavia RS","Gasoline","Sedan|Station wagon","Front-wheel drive","Straight-4","Škoda",2021],
+["Skoda Fabia R5","Gasoline","Rally car|Hatchback","All-wheel drive","Straight-4","Škoda",2015],
+["Cupra Formentor VZ5","Gasoline","SUV","All-wheel drive","Straight-5","CUPRA",2021],
+["SEAT Leon Cupra R","Gasoline","Hatchback","Front-wheel drive","Straight-4","SEAT",2017],
+["Dacia Sandero RS","Gasoline","Hatchback","Front-wheel drive","Straight-4","Dacia",2015],
+["Lada Niva","Gasoline","SUV|Off-road vehicle","Four-wheel drive","Straight-4","Lada",1977],
+["Lada VFTS","Gasoline","Rally car|Sedan","Rear-wheel drive","Straight-4","Lada",1982],
+["GAZ Volga M24","Gasoline","Sedan","Rear-wheel drive","Straight-4","GAZ",1968],
+["Moskvitch 412","Gasoline","Sedan","Rear-wheel drive","Straight-4","Moskvitch",1967],
+["Tatra 603","Gasoline","Sedan","Rear-wheel drive","V8","Tatra",1956],
+["Škoda 110 R","Gasoline","Coupe|Sports car","Rear-wheel drive","Straight-4","Škoda",1970],
+["Wartburg 353","Gasoline","Sedan","Front-wheel drive","Straight-3","Wartburg",1966],
+["Trabant 601","Gasoline","Microcar|Sedan","Front-wheel drive","Straight-2","Trabant",1963],
+["Ariel Atom 4","Gasoline","Track car|Sports car","Rear-wheel drive","Straight-4","Ariel",2018],
+["Ariel Nomad","Gasoline","Off-road vehicle|Sports car","Rear-wheel drive","Straight-4","Ariel",2015],
+["Radical SR3 XXR","Gasoline","Track car","Rear-wheel drive","Straight-4","Radical",2022],
+["Radical RXC GT3","Gasoline","Race car|Track car","Rear-wheel drive","V6","Radical",2014],
+["Ligier JS P320","Gasoline","Race car","Rear-wheel drive","V8","Ligier",2020],
+["Oreca 07","Gasoline","Race car","Rear-wheel drive","V8","Oreca",2017],
+["Porsche 919 Hybrid Evo","Hybrid|Gasoline","Race car","All-wheel drive","V4","Porsche",2018],
+["Audi R18 e-tron quattro","Hybrid|Diesel","Race car","All-wheel drive","V6","Audi",2014],
+["Peugeot 908 HDi FAP","Diesel","Race car","Rear-wheel drive","V12","Peugeot",2007],
+["Cadillac V-Series.R","Hybrid|Gasoline","Race car","Rear-wheel drive","V8","Cadillac",2023],
+["Ferrari 499P","Hybrid|Gasoline","Race car","All-wheel drive","V6","Ferrari",2023],
+["BMW M Hybrid V8","Hybrid|Gasoline","Race car","All-wheel drive","V8","BMW",2023],
+["Toyota GR Yaris Rally1","Hybrid|Gasoline","Rally car","All-wheel drive","Straight-3","Toyota",2022],
+["Ford Puma Rally1","Hybrid|Gasoline","Rally car","All-wheel drive","Straight-3","Ford",2022],
+["Hyundai i20 N Rally1","Hybrid|Gasoline","Rally car","All-wheel drive","Straight-4","Hyundai",2022],
+["Audi RS Q e-tron","Hybrid|Diesel","Rally car|Off-road vehicle","All-wheel drive","Diesel","Audi",2022],
+["Porsche 911 GT3 Cup (992)","Gasoline","Race car","Rear-wheel drive","Flat-6","Porsche",2021],
+["Ferrari 296 Challenge","Gasoline","Race car|Track car","Rear-wheel drive","V6","Ferrari",2024],
+["Lamborghini Huracán Super Trofeo EVO2","Gasoline","Race car","Rear-wheel drive","V10","Lamborghini",2022],
+["McLaren Artura GT4","Gasoline","Race car","Rear-wheel drive","V6","McLaren",2023],
+["Mercedes-AMG GT3 Evo","Gasoline","Race car","Rear-wheel drive","V8","Mercedes-Benz",2020],
+["BMW M4 GT4","Gasoline","Race car","Rear-wheel drive","Straight-6","BMW",2023],
+["Nissan Z Nismo","Gasoline","Sports car|Coupe","Rear-wheel drive","V6","Nissan",2024],
+["Toyota GR Supra GT4","Gasoline","Race car","Rear-wheel drive","Straight-6","Toyota",2020],
+["Hyundai Elantra N TCR","Gasoline","Race car|Sedan","Front-wheel drive","Straight-4","Hyundai",2021],
+["Cupra Leon VZ TCR","Gasoline","Race car|Hatchback","Front-wheel drive","Straight-4","CUPRA",2021],
+];
+const CARS=CAR_ROWS.map((r,i)=>({id:i,name:r[0],fuel:r[1].split("|"),type:r[2].split("|"),drive:r[3].split("|"),engine:r[4].split("|"),brand:r[5],year:r[6]}));
+const norm=s=>String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").trim();
+const hash=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0};
+const today=()=>new Date().toISOString().slice(0,10);
+const key="cardleClassicRemakeV2", historyKey="cardleClassicCalendarV1";let prior={};try{prior=JSON.parse(localStorage.getItem(key)||"{}")}catch(e){}
+let history={};try{history=JSON.parse(localStorage.getItem(historyKey)||"{}")}catch(e){}
+let dailyState=prior.date===today()?prior:{date:today(),guesses:[],won:false,played:prior.played||0,wins:prior.wins||0,streak:prior.streak||0,lastWin:prior.lastWin||""};
+const dailyAnswer=CARS[hash("cardle-daily-"+today())%CARS.length];let mode="daily",practiceState=null,practiceAnswer=null,calendarDate=new Date();
+const $=id=>document.getElementById(id);let state=dailyState,answer=dailyAnswer;
+function save(){try{if(mode==="daily"){localStorage.setItem(key,JSON.stringify(dailyState))}else{dailyState.played=dailyState.played||0;localStorage.setItem(key,JSON.stringify(dailyState))}localStorage.setItem(historyKey,JSON.stringify(history))}catch(err){/* Storage can be blocked for local HTML files or private browsing; keep the current game playable in memory. */}}
+function matchSet(guess,answer){const overlap=guess.some(x=>answer.includes(x));const all=guess.length===answer.length&&guess.every(x=>answer.includes(x));return all?"green":overlap?"orange":"red"}
+function tile(text,cls,arrow=""){return `<div class="tile ${cls}${arrow?" year":""}">${escapeHtml(text)}${arrow?`<span class="arrow">${arrow}</span>`:""}</div>`}
+function scoreDaily(){history[dailyState.date]={won:!!dailyState.won,score:dailyState.won?dailyState.guesses.length:null,guesses:dailyState.guesses.length,mode:"daily"}}
+function render(){ $("guessCount").textContent=`${state.guesses.length} guess${state.guesses.length===1?"":"es"}; ${CARS.length} cars`;$("played").textContent=dailyState.played||0;$("wins").textContent=dailyState.wins||0;$("streak").textContent=dailyState.streak||0;
+$("modeTitle").textContent=mode==="daily"?"TODAY’S MYSTERY CAR":"PRACTICE MYSTERY CAR";$("dailyMode").classList.toggle("active",mode==="daily");$("practiceMode").classList.toggle("active",mode==="practice");$("practiceActions").style.display=mode==="practice"&&state.won?"flex":"none";
+const rows=$("rows");rows.innerHTML="";if(!state.guesses.length){rows.innerHTML='<tr><td class="empty" colspan="7">Make a guess to start revealing clues.</td></tr>'}
+state.guesses.slice().reverse().forEach(g=>{const car=CARS.find(c=>c.id===g.id);if(!car)return;const tr=document.createElement("tr");const model=document.createElement("td");model.className="modelcell";model.innerHTML=`${escapeHtml(car.name)}<small>${escapeHtml(car.brand)} · ${car.year}</small>`;tr.appendChild(model);const values=[["fuel",car.fuel],["type",car.type],["drive",car.drive],["engine",car.engine],["brand",[car.brand]]];values.forEach(([field,vals])=>{const td=document.createElement("td");td.innerHTML=tile(vals.join(", "),field==="brand"?(car.brand===answer.brand?"green":"red"):matchSet(vals,answer[field]));tr.appendChild(td)});const yd=document.createElement("td");const yclass=car.year===answer.year?"green":"red";yd.innerHTML=tile(String(car.year),yclass,car.year===answer.year?"":car.year<answer.year?"↑":"↓");tr.appendChild(yd);rows.appendChild(tr)});
+const result=$("result");if(state.won){result.classList.add("show");result.innerHTML=`<strong>🎉 Correct — ${escapeHtml(answer.year)} ${escapeHtml(answer.brand)} ${escapeHtml(answer.name)}!</strong>Solved in ${state.guesses.length} guess${state.guesses.length===1?"":"es"}.${mode==="daily"?" Your daily score has been saved to the calendar.":" Practice round complete — try another car!"}`;$("search").disabled=true;$("guessBtn").disabled=true}else{result.classList.remove("show");$("search").disabled=false;$("guessBtn").disabled=false}}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function showSuggestions(){
+ const input=$("search"),q=norm(input.value),box=$("suggestions");box.innerHTML="";
+ if(!q||state.won){box.classList.remove("show");return}
+ const used=new Set(state.guesses.map(g=>g.id));
+ const list=CARS.filter(c=>!used.has(c.id)&&(norm(c.name).includes(q)||norm(c.brand+" "+c.name).includes(q)||norm(c.name+" "+c.brand).includes(q))).slice(0,12);
+ list.forEach((c,i)=>{const b=document.createElement("button");b.type="button";b.className="suggestion";b.setAttribute("role","option");b.setAttribute("data-car-id",String(c.id));b.setAttribute("aria-selected","false");b.innerHTML=`<span>${escapeHtml(c.name)}</span><small>${escapeHtml(c.brand)} · ${c.year}</small>`;box.appendChild(b)});
+ box.classList.toggle("show",list.length>0);input.setAttribute("aria-expanded",list.length>0?"true":"false");input.setAttribute("aria-autocomplete","list");
+}
+function submit(id){
+ if(state.won)return;
+ let car=typeof id==="number"?CARS.find(c=>c.id===id):null;
+ const q=norm($("search").value);
+ if(!car)car=CARS.find(c=>norm(c.name)===q||norm(c.brand+" "+c.name)===q||norm(c.name+" "+c.brand)===q);
+ // On touch screens, pressing Submit with a partial query uses the first visible match.
+ if(!car&&q){const used=new Set(state.guesses.map(g=>g.id));car=CARS.find(c=>!used.has(c.id)&&(norm(c.name).includes(q)||norm(c.brand+" "+c.name).includes(q)||norm(c.name+" "+c.brand).includes(q)))}
+ if(!car){showSuggestions();$("search").focus();return}
+ if(state.guesses.some(g=>g.id===car.id)){$("search").value="";$("suggestions").classList.remove("show");return}
+ state.guesses.push({id:car.id});
+ if(car.id===answer.id){state.won=true;if(mode==="daily"){dailyState.played=(dailyState.played||0)+1;dailyState.wins=(dailyState.wins||0)+1;const yesterday=new Date(Date.now()-86400000).toISOString().slice(0,10);dailyState.streak=dailyState.lastWin===yesterday?(dailyState.streak||0)+1:1;dailyState.lastWin=today();scoreDaily()}else{const k=today()+"-practice";history[k]=history[k]||{mode:"practice",rounds:0,scores:[]};history[k].rounds++;history[k].scores.push(state.guesses.length)}}
+ save();$("search").value="";$("suggestions").classList.remove("show");$("search").setAttribute("aria-expanded","false");render();
+}
+function startPractice(){mode="practice";let idx=Math.floor(Math.random()*CARS.length);if(CARS.length>1&&CARS[idx].id===dailyAnswer.id)idx=(idx+1)%CARS.length;practiceAnswer=CARS[idx];answer=practiceAnswer;state={guesses:[],won:false};$("search").value="";$("suggestions").classList.remove("show");$("dateLabel").textContent="PRACTICE MODE · RANDOM CAR";render()}
+function startDaily(){mode="daily";state=dailyState;answer=dailyAnswer;$("search").value="";$("suggestions").classList.remove("show");$("dateLabel").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"}).toUpperCase();render()}
+function renderCalendar(){const y=calendarDate.getFullYear(),m=calendarDate.getMonth();$("calendarTitle").textContent=calendarDate.toLocaleDateString(undefined,{month:"long",year:"numeric"});const grid=$("calendarGrid");grid.innerHTML="";["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].forEach(d=>{const el=document.createElement("div");el.className="cal-weekday";el.textContent=d;grid.appendChild(el)});const first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();for(let i=0;i<first;i++){const b=document.createElement("div");b.className="cal-day blank";grid.appendChild(b)}for(let d=1;d<=days;d++){const date=`${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`,rec=history[date],prac=history[date+"-practice"];const el=document.createElement("div");el.className="cal-day"+(date===today()?" today":"")+(rec&&rec.won?" solved":"");const dailyText=rec?(rec.won?`🏆 ${rec.score} guess${rec.score===1?"":"es"}`:"Played"):"—";const practiceText=prac&&prac.scores&&prac.scores.length?`🎮 ${prac.scores.join(", ")}`:"";el.innerHTML=`<span>${d}</span><span class="score">${dailyText}${practiceText?`<br>${practiceText}`:""}</span>`;el.title=[rec?(rec.won?`Daily: solved in ${rec.score} guesses`:`Daily: ${rec.guesses||0} guesses`):"No daily score",prac&&prac.scores&&prac.scores.length?`Practice scores: ${prac.scores.join(", ")} guesses`:"No practice scores"].join(" · ");grid.appendChild(el)}$("calendarPanel").style.display="block"}
+const searchInput=$("search"),suggestionBox=$("suggestions");
+searchInput.addEventListener("input",showSuggestions);
+searchInput.addEventListener("keydown",e=>{const opts=[...suggestionBox.querySelectorAll(".suggestion")];if(e.key==="ArrowDown"&&opts.length){e.preventDefault();opts[0].focus()}else if(e.key==="Escape"){suggestionBox.classList.remove("show");searchInput.setAttribute("aria-expanded","false")}});
+// Use a normal delegated click handler. Preventing pointerdown on iOS Safari can
+// suppress the synthetic click event, making every suggestion appear unresponsive.
+// Keep the input focused while the user taps a suggestion, then submit that car.
+suggestionBox.addEventListener("click",e=>{
+ const b=e.target.closest("[data-car-id]");
+ if(!b)return;
+ const id=Number(b.getAttribute("data-car-id"));
+ const car=CARS.find(c=>c.id===id);
+ if(!car)return;
+ searchInput.value=car.name;
+ suggestionBox.classList.remove("show");
+ searchInput.setAttribute("aria-expanded","false");
+ submit(id);
+});
+suggestionBox.addEventListener("keydown",e=>{if(e.key==="Escape"){e.preventDefault();suggestionBox.classList.remove("show");searchInput.focus()}else if(e.key==="ArrowDown"||e.key==="ArrowUp"){const opts=[...suggestionBox.querySelectorAll(".suggestion")],i=opts.indexOf(document.activeElement),next=e.key==="ArrowDown"?Math.min(opts.length-1,i+1):Math.max(0,i-1);if(opts[next]){e.preventDefault();opts[next].focus()}}});
+$("guessForm").addEventListener("submit",e=>{e.preventDefault();submit()});
+document.addEventListener("click",e=>{if(!e.target.closest(".searchbox")){suggestionBox.classList.remove("show");searchInput.setAttribute("aria-expanded","false")}});
+$("helpBtn").onclick=()=>$("help").classList.add("show");$("closeHelp").onclick=()=>$("help").classList.remove("show");$("gotIt").onclick=()=>$("help").classList.remove("show");$("help").addEventListener("click",e=>{if(e.target===$("help"))$("help").classList.remove("show")});document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeSettings();$("help").classList.remove("show")}});
+function applyTheme(theme){const dark=theme==="dark"||(theme==="system"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.body.classList.toggle("dark",dark);document.documentElement.style.colorScheme=dark?"dark":"light";try{localStorage.setItem("cardleClassicTheme",theme)}catch(e){}["lightTheme","darkTheme","systemTheme"].forEach(id=>{const b=$(id);if(b)b.classList.toggle("active",id===({light:"lightTheme",dark:"darkTheme",system:"systemTheme"}[theme]||"lightTheme"))})}
+let savedTheme="light";try{savedTheme=localStorage.getItem("cardleClassicTheme")||"light"}catch(e){}if(!["light","dark","system"].includes(savedTheme))savedTheme="light";applyTheme(savedTheme);
+function getRecordedScores(){const daily=[],practice=[];Object.entries(history).forEach(([date,rec])=>{if(!rec||typeof rec!=="object")return;if(date.endsWith("-practice")){(Array.isArray(rec.scores)?rec.scores:[]).forEach(n=>{if(Number.isFinite(Number(n))&&Number(n)>0)practice.push(Number(n))})}else if(rec.won&&Number.isFinite(Number(rec.score))&&Number(rec.score)>0)daily.push(Number(rec.score))});if(dailyState.won&&!history[dailyState.date])daily.push(dailyState.guesses.length);const all=[...daily,...practice];return {daily,practice,all}}
+function renderStats(){const scores=getRecordedScores(),all=scores.all;const count=all.length;$("statSolved").textContent=count;$("statDaily").textContent=scores.daily.length;$("statPractice").textContent=scores.practice.length;$("statAverage").textContent=count?(all.reduce((a,b)=>a+b,0)/count).toFixed(1):"—";$("statOneShot").textContent=all.filter(n=>n===1).length;$("statBest").textContent=count?Math.min(...all):"—";$("statCurrentStreak").textContent=dailyState.streak||0;const attemptedDaily=Object.entries(history).filter(([d,r])=>!d.endsWith("-practice")&&r&&typeof r==="object"&&(r.won||Number(r.guesses)>0)).length;const currentAttempt=dailyState.guesses.length>0&&!history[dailyState.date];const attempts=attemptedDaily+(currentAttempt?1:0);$("statRate").textContent=attempts?Math.round((scores.daily.length/attempts)*100)+"%":"—";const chart=$("guessChart");chart.innerHTML="";if(!count){chart.innerHTML='<div class="stats-empty">No completed games recorded yet. Finish a daily puzzle or a practice round and your guess distribution will appear here.</div>'}else{const bins=[1,2,3,4,5,6,7,8,9,10];const vals=bins.map(n=>({label:n===10?"10+ guesses":`${n} ${n===1?"guess":"guesses"}`,value:all.filter(x=>n===10?x>=10:x===n).length}));const max=Math.max(1,...vals.map(v=>v.value));vals.forEach(v=>{const row=document.createElement("div");row.className="chart-row";const label=document.createElement("div");label.className="chart-label";label.textContent=v.label;const track=document.createElement("div");track.className="chart-track";const bar=document.createElement("div");bar.className="chart-bar";bar.style.width=(v.value/max*100)+"%";bar.setAttribute("aria-hidden","true");track.appendChild(bar);const num=document.createElement("div");num.className="chart-count";num.textContent=v.value;row.append(label,track,num);chart.appendChild(row)})}$("statsFootnote").textContent=`Based on ${scores.daily.length} daily win${scores.daily.length===1?"":"s"} and ${scores.practice.length} completed practice round${scores.practice.length===1?"":"s"}. Current unfinished games are not included in the guess distribution. Stats are saved in this browser only.`}
+function openSettings(){$("settings").classList.add("show");renderStats();applyTheme(savedTheme)}function closeSettings(){$("settings").classList.remove("show")}
+$("settingsBtn").onclick=openSettings;$("closeSettings").onclick=closeSettings;$("doneSettings").onclick=closeSettings;$("settings").addEventListener("click",e=>{if(e.target===$("settings"))closeSettings()});$("lightTheme").onclick=()=>{savedTheme="light";applyTheme(savedTheme)};$("darkTheme").onclick=()=>{savedTheme="dark";applyTheme(savedTheme)};$("systemTheme").onclick=()=>{savedTheme="system";applyTheme(savedTheme)};if(window.matchMedia){const media=window.matchMedia("(prefers-color-scheme: dark)");if(media.addEventListener)media.addEventListener("change",()=>{if(savedTheme==="system")applyTheme("system")})}
+$("resetBtn").onclick=()=>{if(confirm("Reset today's guesses? Your overall stats will be kept.")){dailyState={date:today(),guesses:[],won:false,played:dailyState.played||0,wins:dailyState.wins||0,streak:dailyState.streak||0,lastWin:dailyState.lastWin||""};state=dailyState;mode="daily";answer=dailyAnswer;save();render()}};
+$("dailyMode").onclick=startDaily;$("practiceMode").onclick=startPractice;$("nextPractice").onclick=startPractice;$("calendarBtn").onclick=()=>{renderCalendar();$("calendarPanel").scrollIntoView({behavior:"smooth",block:"nearest"})};$("closeCalendar").onclick=()=>$("calendarPanel").style.display="none";$("prevMonth").onclick=()=>{calendarDate=new Date(calendarDate.getFullYear(),calendarDate.getMonth()-1,1);renderCalendar()};$("nextMonth").onclick=()=>{calendarDate=new Date(calendarDate.getFullYear(),calendarDate.getMonth()+1,1);renderCalendar()};
+$("dateLabel").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"}).toUpperCase();render();
+</script>
+</body></html>
